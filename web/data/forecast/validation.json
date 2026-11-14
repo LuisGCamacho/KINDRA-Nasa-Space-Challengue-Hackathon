@@ -1,0 +1,39 @@
+{
+  "sample": true,
+  "step_2012": {
+    "raw_pct": null,
+    "harm_pct": null
+  },
+  "holdout_2022_2025": {
+    "mae_pct": null,
+    "r": null
+  },
+  "yearly": [
+    { "year": 2001, "raw": 420,  "harm": 420 },
+    { "year": 2002, "raw": 510,  "harm": 510 },
+    { "year": 2003, "raw": 480,  "harm": 480 },
+    { "year": 2004, "raw": 530,  "harm": 530 },
+    { "year": 2005, "raw": 470,  "harm": 470 },
+    { "year": 2006, "raw": 560,  "harm": 560 },
+    { "year": 2007, "raw": 610,  "harm": 610 },
+    { "year": 2008, "raw": 590,  "harm": 590 },
+    { "year": 2009, "raw": 450,  "harm": 450 },
+    { "year": 2010, "raw": 520,  "harm": 520 },
+    { "year": 2011, "raw": 430,  "harm": 430 },
+    { "year": 2012, "raw": 2210, "harm": 445 },
+    { "year": 2013, "raw": 2480, "harm": 500 },
+    { "year": 2014, "raw": 2300, "harm": 465 },
+    { "year": 2015, "raw": 2650, "harm": 530 },
+    { "year": 2016, "raw": 2390, "harm": 480 },
+    { "year": 2017, "raw": 2820, "harm": 565 },
+    { "year": 2018, "raw": 2550, "harm": 510 },
+    { "year": 2019, "raw": 2700, "harm": 545 },
+    { "year": 2020, "raw": 3100, "harm": 620 },
+    { "year": 2021, "raw": 2600, "harm": 525 },
+    { "year": 2022, "raw": 2480, "harm": 500 },
+    { "year": 2023, "raw": 2750, "harm": 550 },
+    { "year": 2024, "raw": 2900, "harm": 580 },
+    { "year": 2025, "raw": 2620, "harm": 525 },
+    { "year": 2026, "raw": 2350, "harm": 470 }
+  ]
+}

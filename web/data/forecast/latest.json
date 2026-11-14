@@ -1,0 +1,18 @@
+{
+  "sample": true,
+  "issued": "2026-07-13T06:00:00Z",
+  "zones": [
+    { "zoneId": "ar-lr-chilecito",    "p": 0.82, "expected": [8, 15],  "trend": "sube" },
+    { "zoneId": "ar-er-delta-parana", "p": 0.74, "expected": [12, 22], "trend": "estable" },
+    { "zoneId": "ar-cb-punilla",      "p": 0.51, "expected": [3, 7],   "trend": "sube" },
+    { "zoneId": "ar-lr-famatina",     "p": 0.38, "expected": [1, 4],   "trend": "estable" },
+    { "zoneId": "ar-ct-ibera",        "p": 0.29, "expected": [1, 5],   "trend": "baja" },
+    { "zoneId": "ar-lr-talampaya",    "p": 0.12, "expected": [0, 1],   "trend": "baja" }
+  ],
+  "metrics": {
+    "precision": null,
+    "recall": null,
+    "auc": null,
+    "baseline_auc": null
+  }
+}
