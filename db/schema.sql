@@ -10,7 +10,9 @@ create table zones (
   type text not null,
   parent text,
   country text not null,
-  area_km2 real,
+  center float(10, 6)[] not null default '{}',
+  bbox float(10, 6)[] not null default '{}',
+  area_km2 float(10,6) not null default 0,
   geom geometry(MultiPolygon, 4326) not null
 );
 create index zones_geom_idx on zones using gist (geom);
