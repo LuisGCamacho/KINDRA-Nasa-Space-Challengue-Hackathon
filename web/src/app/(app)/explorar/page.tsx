@@ -1,7 +1,8 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { Download, FileDown } from "lucide-react";
 import { getCalendar, getHotspots, getInspector, getZones, normalizeMes } from "@/lib/data";
-import { DEFAULT_SETTINGS } from "@/lib/types";
+import { DEFAULT_SETTINGS } from "@/lib/view-types";
 import { monthLabel } from "@/lib/format";
 import { btn, PageHeader } from "@/components/ui";
 import { ZonePicker } from "@/components/ZonePicker";
@@ -9,7 +10,21 @@ import { ZoneMap } from "@/components/ZoneMap";
 import { HeatCalendar } from "@/components/HeatCalendar";
 import { Inspector } from "@/components/Inspector";
 
-export default async function Explorar({ searchParams }: { searchParams: Promise<{ zona?: string; mes?: string }> }) {
+type ExplorarParams = Promise<{ zona?: string; mes?: string }>;
+
+/**
+ * Con `cacheComponents`, lo que lee `searchParams` tiene que ir dentro de `<Suspense>`:
+ * el encabezado se sirve al instante y el resto llega cuando están los datos.
+ */
+export default function Explorar({ searchParams }: { searchParams: ExplorarParams }) {
+  return (
+    <Suspense fallback={<PageHeader title="Explorar" />}>
+      <ExplorarContent searchParams={searchParams} />
+    </Suspense>
+  );
+}
+
+async function ExplorarContent({ searchParams }: { searchParams: ExplorarParams }) {
   const sp = await searchParams;
   const settings = DEFAULT_SETTINGS;
   const zones = await getZones();

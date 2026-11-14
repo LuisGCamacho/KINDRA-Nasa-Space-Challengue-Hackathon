@@ -1,6 +1,6 @@
 import { Sidebar } from "@/components/Sidebar";
 import { getAlerts } from "@/lib/data";
-import { DEFAULT_SETTINGS } from "@/lib/types";
+import { DEFAULT_SETTINGS } from "@/lib/view-types";
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
   const alerts = await getAlerts(DEFAULT_SETTINGS);

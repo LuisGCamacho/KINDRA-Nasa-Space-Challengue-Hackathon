@@ -2,12 +2,12 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { CalendarDays, Check, ChevronDown, MapPin } from "lucide-react";
-import type { Zone } from "@/lib/types";
+import type { ZoneView } from "@/lib/view-types";
 import { cx } from "@/lib/cx";
 import { btn, LABEL } from "./ui";
 
 /** Selector de zona + mes elegido. La zona vive en la URL: /explorar?zona=chilecito&mes=2026-07 */
-export function ZonePicker({ zones, zonaId, mes, mesLabel }: { zones: Zone[]; zonaId: string; mes: string; mesLabel: string }) {
+export function ZonePicker({ zones, zonaId, mes, mesLabel }: { zones: ZoneView[]; zonaId: string; mes: string; mesLabel: string }) {
   const [open, setOpen] = useState(false);
   const box = useRef<HTMLDivElement>(null);
   const router = useRouter();

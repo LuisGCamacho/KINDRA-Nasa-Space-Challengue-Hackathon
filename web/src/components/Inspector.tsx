@@ -1,9 +1,9 @@
-import type { InspectorData, Settings } from "@/lib/types";
+import type { InspectorData, Settings } from "@/lib/view-types";
 import { MONTHS_SHORT, monthLabel, monthName, num, pct, ratio } from "@/lib/format";
 import { cx } from "@/lib/cx";
 import { LABEL, LevelBadge } from "./ui";
 
-const VERDICT = { "muy-alto": "más fuego que lo normal", alto: "más fuego que lo normal", normal: "dentro de lo normal", bajo: "menos fuego que lo normal" } as const;
+const VERDICT = { "Muy alto": "más fuego que lo normal", Alto: "más fuego que lo normal", Normal: "dentro de lo normal", Bajo: "menos fuego que lo normal" } as const;
 
 export function Inspector({ d, units }: { d: InspectorData; units: Settings["unidades"] }) {
   const month = Number(d.mes.split("-")[1]) - 1;

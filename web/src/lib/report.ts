@@ -1,4 +1,4 @@
-import type { Settings } from "./types";
+import type { Settings } from "./view-types";
 import { getMonthSummary } from "./data";
 
 /** El CSV que se ve en Reportes y el que baja /api/csv salen de aquí: es el mismo texto. */

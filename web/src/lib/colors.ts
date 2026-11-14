@@ -7,10 +7,10 @@ export function heatClass(v: number, max: number) {
   return r === 0 ? 0 : r < 0.12 ? 1 : r < 0.28 ? 2 : r < 0.5 ? 3 : r < 0.8 ? 4 : 5;
 }
 
-export const LEVEL_LABEL: Record<Level, string> = { "muy-alto": "Muy alto", alto: "Alto", normal: "Normal", bajo: "Bajo" };
+export const LEVEL_LABEL: Record<Level, string> = { "Muy alto": "Muy alto", Alto: "Alto", Normal: "Normal", Bajo: "Bajo" };
 export const LEVEL_STYLE: Record<Level, string> = {
-  "muy-alto": "bg-crit text-white",
-  alto: "bg-fire-soft text-fire-ink",
-  normal: "bg-ok-soft text-ok",
-  bajo: "bg-secondary text-ink-2",
+  "Muy alto": "bg-crit text-white",
+  Alto: "bg-fire-soft text-fire-ink",
+  Normal: "bg-ok-soft text-ok",
+  Bajo: "bg-secondary text-ink-2",
 };

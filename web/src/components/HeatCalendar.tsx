@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Matrix } from "@/lib/types";
+import type { Matrix } from "@/lib/view-types";
 import { HEAT, heatClass } from "@/lib/colors";
 import { MONTHS_SHORT, monthLabel } from "@/lib/format";
 import { cx } from "@/lib/cx";

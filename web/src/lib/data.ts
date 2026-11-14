@@ -1,5 +1,5 @@
-import type { AlertRow, InspectorData, Matrix, Settings, Zone } from "./types";
-import { levelFor } from "./levels";
+import type { AlertRow, InspectorData, Matrix, Settings, ZoneView } from "./view-types";
+import { levelOf } from "./levels";
 
 /*
   CAPA DE DATOS
@@ -30,7 +30,7 @@ const median = (a: number[]) => {
 };
 
 // ---------- zonas (áreas y valores de ejemplo) ----------
-type Seed = Zone & { scale: number; target: number; since: string };
+type Seed = ZoneView & { scale: number; target: number; since: string };
 const SEEDS: Seed[] = [
   { id: "chilecito", name: "Chilecito", province: "La Rioja", kind: "Departamento", areaKm2: 3470, scale: 1, target: 5.45, since: "02 jul 2026" },
   { id: "famatina", name: "Famatina", province: "La Rioja", kind: "Departamento", areaKm2: 4120, scale: 0.7, target: 2.2, since: "06 jul 2026" },
@@ -40,7 +40,7 @@ const SEEDS: Seed[] = [
   { id: "esteros-ibera", name: "Esteros del Iberá", province: "Corrientes", kind: "Humedal", areaKm2: 13000, scale: 1.1, target: 1.9, since: "30 jun 2026" },
   { id: "calamuchita", name: "Calamuchita", province: "Córdoba", kind: "Departamento", areaKm2: 2650, scale: 0.6, target: 1.7, since: "07 jul 2026" },
 ];
-const publicZone = (z: Seed): Zone => ({ id: z.id, name: z.name, province: z.province, kind: z.kind, areaKm2: z.areaKm2 });
+const publicZone = (z: Seed): ZoneView => ({ id: z.id, name: z.name, province: z.province, kind: z.kind, areaKm2: z.areaKm2 });
 const seedOf = (id: string) => SEEDS.find((z) => z.id === id) ?? SEEDS[0];
 
 // ---------- matriz año × mes (el calendario) ----------
@@ -82,7 +82,7 @@ function inspect(z: Seed, mes: string, s: Settings): InspectorData {
     incertidumbrePct: soloModis ? 9 : 4,
     sensor: soloModis ? "MODIS Terra + Aqua" : "VIIRS NOAA-20",
     ratio,
-    level: levelFor(ratio, s),
+    level: levelOf(ratio, s.altoDesde, s.muyAltoDesde),
     yearsCompared: others.length,
     byYear: series,
   };
@@ -99,7 +99,7 @@ export function normalizeMes(mes?: string) {
 }
 
 // ---------- API de datos que usan las pantallas ----------
-export async function getZones(): Promise<Zone[]> {
+export async function getZones(): Promise<ZoneView[]> {
   return SEEDS.map(publicZone);
 }
 
@@ -128,7 +128,7 @@ export async function getHotspots(zonaId: string, mes: string) {
 
 export async function getAlerts(s: Settings): Promise<AlertRow[]> {
   return SEEDS.map((z) => ({ d: inspect(z, LAST_MONTH, s), since: z.since }))
-    .filter(({ d }) => d.level === "alto" || d.level === "muy-alto")
+    .filter(({ d }) => d.level === "Alto" || d.level === "Muy alto")
     .sort((a, b) => b.d.ratio - a.d.ratio)
     .map(({ d, since }) => ({ zone: d.zone, level: d.level, focos: d.focos, ratio: d.ratio, since, sensor: "VIIRS" }));
 }
