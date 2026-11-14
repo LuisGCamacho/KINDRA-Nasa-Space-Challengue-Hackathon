@@ -24,7 +24,7 @@ export function toYearMonth(year: number, month: number): YearMonth {
   return `${year}-${String(month).padStart(2, "0")}`;
 }
 
-/** Suma `n` meses (negativo para restar)`. */
+/** Suma `n` meses (negativo para restar). */
 export function addMonths(ym: YearMonth, n: number): YearMonth {
   const { year, month } = parseYearMonth(ym);
   const index = year * 12 + (month - 1) + n;
