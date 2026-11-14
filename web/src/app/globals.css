@@ -1,26 +1,26 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*sección 13 (colores de la app). */
+@theme {
+  --color-background: #FFFFFF;  --color-foreground: #1B2835;  --color-ink-2: #3C4958;
+  --color-stage: #EFEEEA;       --color-hover: #F4F4F1;       --color-sel: #EBEAE7;
+  --color-border: #E5E4E2;      --color-secondary: #EEEDEA;
+  --color-muted-foreground: #6A6965;  --color-faint: #999895;
+  --color-fire: #D64C29;  --color-fire-soft: #FFE9E3;  --color-fire-ink: #7B2813;
+  --color-crit: #78182B;  --color-ok: #33724C;  --color-ok-soft: #E5F3E9;
+  --radius-sm: 4px;  --radius-md: 6px;  --radius-lg: 8px;
 }
 
+/* Las fuentes vienen de next/font (ver app/layout.tsx). */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+body { font-size: 13px; font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 2px solid var(--color-foreground); outline-offset: 2px; }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Rayado de los años solo MODIS (2001–2011). Se pinta encima del color de la celda. */
+.hatch {
+  background-image: repeating-linear-gradient(45deg, rgb(27 40 53 / .22) 0 1px, transparent 1px 4px);
 }
