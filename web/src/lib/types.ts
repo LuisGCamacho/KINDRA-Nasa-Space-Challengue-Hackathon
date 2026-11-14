@@ -146,3 +146,19 @@ export interface Forecast {
 export interface ApiError {
   error: string;
 }
+
+//--- Validacion 
+/**Una metrica de la validacion de la armonizacion */
+export interface ValidationItem {
+    /**Identificador de la metrica */
+    name: string;
+    /**Valor calculado: null mientras este pendiente */
+    value: number | null;
+    /**Contexto de la metrica: unidad, años comparados, serie usada */
+    detail: Record<string, string | number | null>;
+}
+
+/**Forma de web/data/validation.json */
+export interface Validation {
+    items: ValidationItem[];
+}
