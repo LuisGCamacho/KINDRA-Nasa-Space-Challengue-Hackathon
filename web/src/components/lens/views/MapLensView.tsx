@@ -14,6 +14,9 @@ const BASEMAP = "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.jso
 
 const CELL_LAYER = "celdas";
 
+/** Worker de MapLibre copiado a `public/` en la instalación (`scripts/copy-maplibre-worker.mjs`). */
+const WORKER_URL = "/maplibre/maplibre-gl-worker.mjs";
+
 /** Lente 2D: las celdas con fuego del mes, con la misma rampa de color del calendario. */
 export function MapLensView({ onHover }: { onHover: (info: HoverInfo | null) => void }) {
   const zoneId = useLensStore((state) => state.zoneId);
@@ -41,6 +44,7 @@ export function MapLensView({ onHover }: { onHover: (info: HoverInfo | null) => 
       key={zone.id}
       initialViewState={{ bounds: zone.bbox, fitBoundsOptions: { padding: 40 } }}
       mapStyle={BASEMAP}
+      workerUrl={WORKER_URL}
       interactiveLayerIds={[CELL_LAYER]}
       onMouseMove={handleHover}
       onMouseLeave={() => onHover(null)}
