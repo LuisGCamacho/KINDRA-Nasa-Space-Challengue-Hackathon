@@ -10,6 +10,7 @@ from __future__ import annotations
 import time
 from collections.abc import Sequence
 from datetime import date
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -25,6 +26,7 @@ CACHE = INTERIM / "power"
 
 TIMEOUT_S = 120  # segundos por pedido
 RETRY_BASE_S = 5  # segundos de espera antes del primer reintento; se duplica en cada uno
+PROGRESS_EVERY = 25  # celdas POWER entre cada aviso de avance
 
 
 def snap(lat, lon):
@@ -116,25 +118,55 @@ def daily_cached(lat: float, lon: float, year: int) -> pd.DataFrame:
 
     El año en curso no se guarda en la caché, porque POWER todavía puede agregarle días.
     """
+    return years_cached(lat, lon, [year])
+
+
+def years_cached(lat: float, lon: float, years: Sequence[int]) -> pd.DataFrame:
+    """Devuelve varios años de meteorología de la celda POWER del punto, con un solo pedido.
+
+    Los años que faltan en la caché se piden juntos, del primero al último que falta: así 14 años
+    son 1 pedido en vez de 14. La caché sigue siendo un Parquet por año, y el año en curso no se
+    guarda porque POWER todavía puede agregarle días.
+
+    Args:
+        lat: Latitud en grados.
+        lon: Longitud en grados.
+        years: Años a devolver.
+
+    Returns:
+        Columnas `date`, `ws10m`, `wd10m`, `t2m`, `rh2m`, `plat` y `plon`.
+    """
     plat, plon = snap(lat, lon)
-    path = CACHE / f"{plat}_{plon}_{year}.parquet"
-    if path.exists():
-        return pd.read_parquet(path)
-
     today = pd.Timestamp.now(tz="UTC").date()
-    first_day = date(year, 1, 1)
-    last_day = min(date(year, 12, 31), today)
-    df = daily(plat, plon, first_day.isoformat(), last_day.isoformat())
-    df = df.assign(plat=plat, plon=plon)
+    years = sorted(set(years))
+    tables = {year: pd.read_parquet(cache_path(plat, plon, year))
+              for year in years if cache_path(plat, plon, year).exists()}
 
-    if year < today.year:
-        path.parent.mkdir(parents=True, exist_ok=True)
-        df.to_parquet(path, index=False)
-    return df
+    missing = [year for year in years if year not in tables]
+    if missing:
+        first_day = date(missing[0], 1, 1)
+        last_day = min(date(missing[-1], 12, 31), today)
+        fetched = daily(plat, plon, first_day.isoformat(), last_day.isoformat()).assign(plat=plat, plon=plon)
+        for year, df in fetched.groupby(fetched["date"].dt.year):
+            if year in missing:
+                tables[year] = df.reset_index(drop=True)
+                if year < today.year:
+                    path = cache_path(plat, plon, year)
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    df.to_parquet(path, index=False)
+
+    return pd.concat([tables[year] for year in years if year in tables], ignore_index=True)
+
+
+def cache_path(plat: float, plon: float, year: int) -> Path:
+    """Archivo de caché de un año de una celda POWER."""
+    return CACHE / f"{plat}_{plon}_{year}.parquet"
 
 
 def weather_for_cells(cells: pd.DataFrame, years: Sequence[int]) -> pd.DataFrame:
     """Devuelve la meteorología diaria de cada celda de fuego, por año.
+
+    Hace un pedido por celda POWER (0,5° × 0,625°), no por celda de fuego ni por año.
 
     Args:
         cells: Una fila por celda con columnas `clat` y `clon` (centro de la celda, grados).
@@ -148,8 +180,10 @@ def weather_for_cells(cells: pd.DataFrame, years: Sequence[int]) -> pd.DataFrame
     cells = cells.assign(plat=plat, plon=plon)
 
     points = cells[["plat", "plon"]].drop_duplicates()
-    weather = pd.concat(
-        [daily_cached(p.plat, p.plon, year) for p in points.itertuples() for year in years],
-        ignore_index=True,
-    )
+    tables = []
+    for number, point in enumerate(points.itertuples(), start=1):
+        tables.append(years_cached(point.plat, point.plon, years))
+        if number % PROGRESS_EVERY == 0 or number == len(points):
+            print(f"POWER: {number}/{len(points)} celdas", flush=True)
+    weather = pd.concat(tables, ignore_index=True)
     return cells.merge(weather, on=["plat", "plon"]).drop(columns=["plat", "plon"])
