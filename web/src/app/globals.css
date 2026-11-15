@@ -20,9 +20,16 @@
   --ease-entrance: cubic-bezier(0.2, 0, 0, 1);
 }
 
+/*
+  El color base va solo en `html`, que pinta toda la ventana. Si `body` también tuviera fondo,
+  taparía a `.app-backdrop`: un fondo fijo con z-index negativo queda debajo del de `body`.
+*/
+html {
+  background: var(--color-base);
+}
+
 html,
 body {
-  background: var(--color-base);
   color: var(--color-heading);
   font-size: 13px;
   -webkit-font-smoothing: antialiased;
