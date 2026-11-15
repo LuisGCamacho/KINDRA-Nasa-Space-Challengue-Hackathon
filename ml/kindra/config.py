@@ -8,12 +8,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from dotenv import load_dotenv
-
-ML = Path(__file__).resolve().parents[1]
-# Claves (FIRMS_MAP_KEY, LLM_*) desde ml/.env, que no se sube a Git. Una variable que ya esté
-# definida en la terminal tiene prioridad sobre el archivo.
-load_dotenv(ML / ".env")
+ML = Path(__file__).resolve().parents[1]  # las claves de ml/.env se cargan en kindra/__init__.py
 RAW = ML / "data" / "raw"  # CSV de FIRMS (no se sube a Git)
 NRT_FOLDER = "nrt"  # subcarpeta de RAW con los últimos días de la API NRT (provisionales)
 INTERIM = ML / "data" / "interim"  # Parquet intermedios (no se sube a Git)
