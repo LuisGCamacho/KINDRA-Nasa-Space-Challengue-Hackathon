@@ -52,8 +52,13 @@ describe("zoneAlert", () => {
     expect(zoneAlert(s, "2025-12", { high: 3, veryHigh: 5 })).toBeNull();
   });
 
-  it("por ahora deja afuera los meses sin cociente (mediana 0), aunque sean Muy alto", () => {
+  it("incluye los meses sin cociente (mediana 0) con ratio null y nivel Muy alto", () => {
     const zeros: Series = { zoneId: "z", months: [row("2024-12", 0), row("2025-12", 20)] };
+    expect(zoneAlert(zeros, "2025-12", DEFAULTS)).toMatchObject({ ratio: null, level: "Muy alto" });
+  });
+
+  it("un mes sin cociente pero con menos de 10 celdas-día no es alerta", () => {
+    const zeros: Series = { zoneId: "z", months: [row("2024-12", 0), row("2025-12", 9)] };
     expect(zoneAlert(zeros, "2025-12", DEFAULTS)).toBeNull();
   });
 
@@ -66,6 +71,12 @@ describe("zoneAlerts", () => {
   it("ordena del cociente más alto al más bajo y omite las zonas sin alerta", () => {
     const all = [series("a", { "2025-12": 12 }), series("b", {}), series("c", { "2025-12": 40 })];
     expect(zoneAlerts(all, "2025-12", DEFAULTS).map((alert) => alert.zone)).toEqual(["c", "a"]);
+  });
+
+  it("pone primero las zonas sin cociente", () => {
+    const zeros: Series = { zoneId: "sin-historial", months: [row("2024-12", 0), row("2025-12", 20)] };
+    const all = [series("a", { "2025-12": 12 }), zeros, series("c", { "2025-12": 40 })];
+    expect(zoneAlerts(all, "2025-12", DEFAULTS).map((alert) => alert.zone)).toEqual(["sin-historial", "c", "a"]);
   });
 });
 

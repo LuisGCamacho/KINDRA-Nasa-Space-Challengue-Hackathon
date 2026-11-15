@@ -28,7 +28,8 @@ export function ZoneAlertsTable() {
   const { data: alerts, isPending, error } = useZoneAlerts(month);
 
   const visible = (alerts ?? []).filter((alert) => {
-    const level = levelOf(alert.ratio, high, veryHigh);
+    // Sin cociente (sin fuego en años anteriores) vale el nivel de la API: Muy alto.
+    const level = alert.ratio === null ? alert.level : levelOf(alert.ratio, high, veryHigh);
     const inAlert = level === "Alto" || level === "Muy alto";
     return inAlert && (filter === "todas" || level === filter);
   });

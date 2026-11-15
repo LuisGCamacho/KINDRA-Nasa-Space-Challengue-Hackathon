@@ -26,13 +26,12 @@ function streakStart(series: Series, month: YearMonth, thresholds: Thresholds): 
 /**
  * Fila de alerta de una zona en un mes, o `null` si la zona no está en Alto o Muy alto.
  *
- * Por ahora deja afuera los meses sin cociente (mediana 0 y 10 celdas-día o más): son alertas
- * reales, pero el contrato `Alert` pide `ratio` como número. Pendiente de decidir con el equipo
- * si `Alert.ratio` pasa a `number | null`.
+ * Un mes sin cociente (mediana 0 en años anteriores y 10 celdas-día o más) también es alerta:
+ * va con `ratio: null` y nivel Muy alto. La pantalla escribe "sin fuego en ese mes en años anteriores".
  */
 export function zoneAlert(series: Series, month: YearMonth, thresholds: Thresholds): Alert | null {
   const result = comparePeriod(series, { from: month, to: month }, "harm", thresholds);
-  if (!result.ok || result.stats.ratio === null || !isAlertLevel(result.stats.level)) return null;
+  if (!result.ok || !isAlertLevel(result.stats.level)) return null;
 
   const row = series.months.find((item) => item.t === month);
   return {
@@ -44,10 +43,13 @@ export function zoneAlert(series: Series, month: YearMonth, thresholds: Threshol
   };
 }
 
-/** Alertas de todas las zonas en un mes, del cociente más alto al más bajo. */
+/**
+ * Alertas de todas las zonas en un mes, del cociente más alto al más bajo. Las que no tienen
+ * cociente (`null`, sin fuego en años anteriores) van primero: son las más fuera de lo normal.
+ */
 export function zoneAlerts(allSeries: Series[], month: YearMonth, thresholds: Thresholds): Alert[] {
   return allSeries
     .map((series) => zoneAlert(series, month, thresholds))
     .filter((alert): alert is Alert => alert !== null)
-    .sort((a, b) => b.ratio - a.ratio);
+    .sort((a, b) => (b.ratio ?? Infinity) - (a.ratio ?? Infinity));
 }
