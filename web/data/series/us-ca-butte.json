@@ -3402,12 +3402,12 @@
     },
     {
       "t": "2026-08",
-      "raw": 18,
-      "harm": 4,
+      "raw": 16,
+      "harm": 3,
       "lo": 3,
-      "hi": 4,
+      "hi": 3,
       "modis": 0,
-      "viirs": 7,
+      "viirs": 6,
       "src": "VIIRS_SNPP",
       "partial": true
     },
@@ -3424,12 +3424,12 @@
     },
     {
       "t": "2026-10",
-      "raw": 77,
+      "raw": 76,
       "harm": 12,
       "lo": 11,
       "hi": 13,
       "modis": 2,
-      "viirs": 38,
+      "viirs": 37,
       "src": "VIIRS_SNPP",
       "partial": true
     },

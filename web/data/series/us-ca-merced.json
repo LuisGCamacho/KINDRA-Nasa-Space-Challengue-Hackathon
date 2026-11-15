@@ -3402,12 +3402,12 @@
     },
     {
       "t": "2026-08",
-      "raw": 16,
-      "harm": 4,
+      "raw": 15,
+      "harm": 3,
       "lo": 3,
-      "hi": 4,
+      "hi": 3,
       "modis": 3,
-      "viirs": 7,
+      "viirs": 6,
       "src": "VIIRS_SNPP",
       "partial": true
     },

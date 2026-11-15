@@ -3435,12 +3435,12 @@
     },
     {
       "t": "2026-11",
-      "raw": 5,
+      "raw": 4,
       "harm": 1,
       "lo": 1,
-      "hi": 2,
+      "hi": 1,
       "modis": 0,
-      "viirs": 5,
+      "viirs": 4,
       "src": "VIIRS_NOAA20",
       "partial": true
     }

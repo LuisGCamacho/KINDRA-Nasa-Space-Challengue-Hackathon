@@ -3424,23 +3424,23 @@
     },
     {
       "t": "2026-10",
-      "raw": 76,
+      "raw": 74,
       "harm": 11,
       "lo": 10,
       "hi": 12,
       "modis": 6,
-      "viirs": 35,
+      "viirs": 34,
       "src": "VIIRS_SNPP",
       "partial": true
     },
     {
       "t": "2026-11",
-      "raw": 15,
-      "harm": 4,
+      "raw": 12,
+      "harm": 3,
       "lo": 3,
       "hi": 4,
       "modis": 0,
-      "viirs": 13,
+      "viirs": 11,
       "src": "VIIRS_NOAA20",
       "partial": true
     }

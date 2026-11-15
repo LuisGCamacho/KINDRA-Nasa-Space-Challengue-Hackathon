@@ -3402,28 +3402,17 @@
     },
     {
       "t": "2026-08",
-      "raw": 14,
-      "harm": 4,
-      "lo": 3,
-      "hi": 4,
+      "raw": 0,
+      "harm": 0,
+      "lo": 0,
+      "hi": 0,
       "modis": 0,
-      "viirs": 7,
+      "viirs": 0,
       "src": "VIIRS_SNPP",
-      "partial": true
+      "partial": false
     },
     {
       "t": "2026-09",
-      "raw": 14,
-      "harm": 3,
-      "lo": 3,
-      "hi": 4,
-      "modis": 0,
-      "viirs": 8,
-      "src": "VIIRS_SNPP",
-      "partial": true
-    },
-    {
-      "t": "2026-10",
       "raw": 5,
       "harm": 1,
       "lo": 1,
@@ -3434,13 +3423,24 @@
       "partial": true
     },
     {
-      "t": "2026-11",
-      "raw": 7,
-      "harm": 2,
-      "lo": 2,
-      "hi": 2,
+      "t": "2026-10",
+      "raw": 0,
+      "harm": 0,
+      "lo": 0,
+      "hi": 0,
       "modis": 0,
-      "viirs": 7,
+      "viirs": 0,
+      "src": "VIIRS_SNPP",
+      "partial": false
+    },
+    {
+      "t": "2026-11",
+      "raw": 4,
+      "harm": 1,
+      "lo": 1,
+      "hi": 1,
+      "modis": 0,
+      "viirs": 4,
       "src": "VIIRS_NOAA20",
       "partial": true
     }

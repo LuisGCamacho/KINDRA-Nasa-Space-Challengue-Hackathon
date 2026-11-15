@@ -3402,12 +3402,12 @@
     },
     {
       "t": "2026-08",
-      "raw": 12,
-      "harm": 3,
-      "lo": 2,
-      "hi": 3,
+      "raw": 7,
+      "harm": 2,
+      "lo": 1,
+      "hi": 2,
       "modis": 0,
-      "viirs": 5,
+      "viirs": 3,
       "src": "VIIRS_SNPP",
       "partial": true
     },
@@ -3435,12 +3435,12 @@
     },
     {
       "t": "2026-11",
-      "raw": 2,
-      "harm": 1,
-      "lo": 1,
-      "hi": 1,
+      "raw": 1,
+      "harm": 0,
+      "lo": 0,
+      "hi": 0,
       "modis": 0,
-      "viirs": 2,
+      "viirs": 1,
       "src": "VIIRS_NOAA20",
       "partial": true
     }
