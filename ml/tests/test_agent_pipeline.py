@@ -90,3 +90,13 @@ def test_misma_camara_no_alerta_dos_veces_seguidas(world, monkeypatch):
                         firms_rows(hhmm=1900) if source == "VIIRS_NOAA20_NRT" else firms_rows().iloc[0:0])
     outcomes = pipeline.run_cycle(tools, NOW)
     assert "Ya alertada" in outcomes[0].result and len(world) == 1
+
+
+def test_la_camara_de_demo_no_se_vigila(world, monkeypatch):
+    demo = {"id": "demo-video", "name": "Demo", "provider": "demo", "position": [-67.5, -29.2],
+            "imageUrl": "/demo/incendio-demo.jpg", "refreshSeconds": 0}
+    areas = []
+    monkeypatch.setattr(pipeline.cameras, "load_cameras", lambda: [CAMERA, demo])
+    monkeypatch.setattr(pipeline.firms_nrt, "hotspots", lambda key, source, area: areas.append(area) or firms_rows().iloc[0:0])
+    pipeline.run_cycle(pipeline.Tools(fire=FakeDetector([SMOKE])), NOW)
+    assert all(float(area.split(",")[1]) > 40 for area in areas)  # el recuadro no baja hasta Argentina

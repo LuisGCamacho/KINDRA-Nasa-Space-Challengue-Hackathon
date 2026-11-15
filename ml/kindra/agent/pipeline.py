@@ -35,6 +35,7 @@ from kindra.vision import annotate, anomaly, cameras, detect, materials, track
 CAMERA_RADIUS_KM = firms_nrt.RADIUS_KM  # el mismo radio con que se busca FIRMS alrededor de una detección
 FRAMES_PER_CHECK = 4  # imágenes por cámara: la actual y 3 anteriores, lo mínimo para MIN_PERSISTENT_FRAMES
 COOLDOWN_H = 6  # horas sin volver a alertar por la misma cámara: el mismo incendio no manda un correo por ciclo
+WATCHED_PROVIDERS = frozenset({"caltrans"})  # cámaras reales con imágenes por URL; la de demo es un video local
 SEEN_KEEP_H = 48  # horas que se recuerda un foco ya visto; FIRMS no devuelve focos más viejos (DAYS = 2)
 
 AGENT_STATE = LIVE / "agent"
@@ -73,7 +74,9 @@ def run_cycle(tools: Tools, now: datetime | None = None) -> list[Outcome]:
         firms_nrt.FirmsError: Si FIRMS no responde. Sin satélite no hay de dónde partir.
     """
     now = (now or datetime.now(timezone.utc)).astimezone(timezone.utc)
-    camera_list = cameras.load_cameras()
+    camera_list = [camera for camera in cameras.load_cameras() if camera["provider"] in WATCHED_PROVIDERS]
+    if not camera_list:
+        return []
     seen = forget_old(read_json(SEEN, {}), now)
     fresh = recent_hotspots(camera_list, now)
     new = fresh[~fresh["key"].isin(seen)] if not fresh.empty else fresh

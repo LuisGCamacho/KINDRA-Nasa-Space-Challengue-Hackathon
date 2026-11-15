@@ -52,7 +52,7 @@ def watch(every: int = typer.Option(DEFAULT_EVERY_MIN, help="Minutos entre ciclo
 
 @agent_app.command()
 def demo(video: Path = typer.Argument(..., exists=True, dir_okay=False, help="Video de la demo (.mp4)."),
-         camera_id: str = typer.Option("demo", help="Id de la cámara de la demo en cameras.json.")) -> None:
+         camera_id: str = typer.Option("demo-video", help="Id de la cámara de la demo en cameras.json.")) -> None:
     """Sigue el humo del video a 5 cuadros por segundo -> web/data/live/tracks/{camera_id}.json."""
     from kindra.agent.pipeline import TRACKS
     from kindra.live_paths import write_json
