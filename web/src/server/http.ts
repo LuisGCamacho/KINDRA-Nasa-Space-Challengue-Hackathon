@@ -37,7 +37,9 @@ export const yearMonthSchema = z
 refine(isYearMonth, {error: "El mes debe tener el formato YYYY-MM"});
 
 /** Columna de la serie; si no viene, se usa la armonizada. */
-export const kindSchema = z.enum(["harm", "raw", "modis", "viirs"]).default("harm");
+export const kindSchema = z
+.enum(["harm", "raw", "modis", "viirs"], {error: "kind debe ser harm, raw, modis o viirs"})
+.default("harm");
 
 /** Recuadro `oeste,sur,este,norte` en grados; devuelve `[oeste, sur, este, norte]`, el mismo orden que `Zone.bbox`. */
 export const bboxSchema = z
