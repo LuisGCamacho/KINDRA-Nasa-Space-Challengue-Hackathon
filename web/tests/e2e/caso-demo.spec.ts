@@ -5,7 +5,7 @@ import { expect, test } from "@playwright/test";
   (python -m kindra export): sin datos, el diagnóstico queda en "pendiente".
 */
 
-test("la Lupa abre en Chilecito, julio de 2026, con el diagnóstico", async ({ page }) => {
+test("la Lupa abre en us-ca-los-angeles, julio de 2026, con el diagnóstico", async ({ page }) => {
   await page.goto("/explorar");
   await expect(page.getByRole("combobox", { name: "Zona" })).toHaveValue("ar-lr-chilecito");
   await expect(page.getByText(/lo normal/)).toBeVisible();
