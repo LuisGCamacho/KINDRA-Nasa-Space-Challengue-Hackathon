@@ -14,6 +14,8 @@ Une 25 años de focos de calor de **MODIS** (desde noviembre de 2000) y **VIIRS*
 
 ## Estado actual
 
+> **Actualizado el 14/11/2026 (KINDRA 4).** Ya hay código propio: en `web/src/lib/` (tipos, niveles, períodos, formato), `web/src/server/` (`data.ts`, `http.ts`), componentes y páginas de prueba en `web/src/components/` y `web/src/app/(app)/`, y en `ml/kindra/ml/` (`calibration.py`, `power.py`, con sus pruebas). Hay repositorio Git en esta raíz. El texto de abajo describe el comienzo del proyecto y queda como historia hasta que el equipo apruebe borrarlo.
+
 El proyecto está recién creado: hay estructura de carpetas y dependencias, **todavía no hay código propio**.
 
 - `web/` es un proyecto Next.js generado con `create-next-app`. La página de inicio sigue siendo la de ejemplo.
@@ -26,6 +28,8 @@ El equipo tiene dos documentos de Word fuera del repositorio. Si te los pasan, s
 
 - **Tutorial completo KINDRA 3**: reparto de tareas, árbol de archivos, contratos de datos, código base de cada parte y cronograma.
 - **Manual de interfaz KINDRA (nueva interfaz)**: colores, tipografía, componentes y capturas de cada pantalla.
+- **Tutorial completo KINDRA 4** (14/11/2026): auditoría, cámaras públicas, visión, agente supervisor, correo único de alerta, mapa 3D y la interfaz de vidrio, con el código de cada parte. Reemplaza al Tutorial 3 en lo que se superponen.
+- **Manual de interfaz KINDRA 4**: el Manual anterior completo más el capítulo 15 (interfaz de vidrio, cuatro fases del fuego, cámaras y correo).
 
 Si este archivo y esos documentos no coinciden, pregunta antes de elegir.
 
@@ -40,6 +44,10 @@ Si este archivo y esos documentos no coinciden, pregunta antes de elegir.
 | Datos y ML | Python 3.11: pandas, geopandas, duckdb, lightgbm, typer |
 | Pruebas | vitest, @playwright/test, pytest |
 | Despliegue | Vercel (la app); Python corre en las computadoras del equipo |
+| Mapa 3D (KINDRA 4) | CesiumJS 1.147 + Google Photorealistic 3D Tiles; respaldo MapLibre con terreno |
+| Visión (KINDRA 4) | Ultralytics YOLO11 entrenado con D-Fire (humo y llama), OpenCV, ByteTrack |
+| Agente (KINDRA 4) | Claude Opus 5.5 (`claude-opus-5-5`, SDK `anthropic` 1.x) con salida estructurada y `fallbacks: "default"` |
+| Correo (KINDRA 4) | Resend (HTML + texto, imagen con Content-ID, clave de idempotencia) |
 
 **Next.js 16 tiene cambios grandes.** Antes de escribir código en `web/`, lee [web/AGENTS.md](web/AGENTS.md) y la guía que corresponda en `web/node_modules/next/dist/docs/`.
 
@@ -66,6 +74,23 @@ KINDRA/
     ├── src/components/     layout, controls, map, calendar, inspector, charts, ui
     ├── src/hooks/  src/store/  src/lib/
     └── tests/              vitest y e2e con Playwright
+```
+
+Carpetas nuevas de KINDRA 4 (detalle en el Tutorial 4, sección 4):
+
+```
+ml/kindra/contracts.py live_paths.py geo.py overpass.py
+ml/kindra/vision/     cámaras, detección (D-Fire), anomalías, materiales, marcas, seguimiento
+ml/kindra/agent/      FIRMS NRT, agua, reglas, Claude, informe a la API, falsos positivos
+ml/models/  ml/data/false_positives/            NO se suben a Git
+db/migrations/002_camaras_alertas.sql
+web/data/cameras.json
+web/data/live/  web/public/live/  web/public/cesium/   NO se suben a Git
+web/src/lib/alert-types.ts                      contratos nuevos
+web/src/components/ui|layout|lens|panels|camera|calendar|alerts/
+web/src/server/email/  tokens.ts  alert-responses.ts  live-store.ts
+web/src/app/api/fire-alerts/  cameras/  weather/
+web/src/app/responder/  (app)/camaras/  (app)/calendario/
 ```
 
 ## Equipo y dueños
@@ -108,7 +133,17 @@ Python escribe; la API lee de Postgres y, si la base no responde o falta `DATABA
 
 La app pide **un solo mes**: `/api/stats?zone=&from=YYYY-MM&to=YYYY-MM` con `from = to`.
 
+Contratos nuevos de KINDRA 4, en `web/src/lib/alert-types.ts` y `ml/kindra/contracts.py` (Python escribe en camelCase; posiciones en `[lon, lat]`):
+
+- `web/data/cameras.json`: `[{ id, name, provider, position, imageUrl, videoUrl, refreshSeconds, attribution, termsUrl }]`
+- `Detection`: `{ id, cameraId, capturedAt, frameUrl, annotatedUrl, regions: [{ label, confidence, box: { x, y, w, h }, trackId }], materials, model }`. Recuadros normalizados de 0 a 1.
+- `FireAlert`: `{ id, detectionId, cameraId, createdAt, status, agent: { decision, confidence, reasons }, firms, water, emailedAt }`
+- `AgentReport` (POST del agente a `/api/fire-alerts`): `{ alert, detection, draft: { headline, summary } | null }`
+- `AlertResponse`: `{ alertId, action, tokenId, via, respondedAt }` · `FalsePositiveLog` · `WaterSource`
+
 ## Interfaz
+
+> **KINDRA 4 (pendiente de aprobación del equipo).** La interfaz nueva es la de vidrio oscuro descrita en el capítulo 15 del Manual de interfaz KINDRA 4: sin pantalla de inicio (abre en la Lupa), paneles desplegables, fuente Onest, pestañas en una píldora en lugar de la barra lateral, y cuatro fases del fuego de amarillo a rojo (`Bajo #FFD166`, `Normal #F5A623`, `Alto #EE6A24`, `Muy alto #D7262B`). Cuando el equipo la apruebe, reemplaza los colores, la tipografía y el layout de esta sección. El correo de alerta sigue usando la paleta clara de abajo. El resto de esta sección (textos, “pendiente”, siempre con palabra) sigue vigente.
 
 La referencia visual es el prototipo de Lovable y el Manual de interfaz.
 
@@ -137,7 +172,22 @@ La referencia visual es el prototipo de Lovable y el Manual de interfaz.
 
 ## Fuera de alcance (se quitaron a propósito)
 
+> La vista 3D se pidió explícitamente para KINDRA 4 (lente de terreno con Cesium). El resto de la lista sigue fuera de alcance.
+
 No agregues lo siguiente salvo que te lo pidan explícitamente: vista 3D, línea de tiempo, menú de filtros en el encabezado, selector de rango de períodos, mapa de viento, envío de alertas por LoRaWAN o Telegram, hardware ESP32, dibujo de áreas en el mapa, paleta cividis.
+
+## Cámaras, visión y alertas (KINDRA 4)
+
+Reglas que no se cambian sin acuerdo del equipo:
+
+- **Solo cámaras públicas** que su dueño publica para uso abierto (Caltrans, TfL, Windy, HPWREN) y el video de la demo. Se leen sus condiciones y se muestra su crédito. **Nunca cámaras privadas.**
+- **Sin personas ni patentes.** El detector de fuego solo conoce humo y llama; el de vehículos pide solo las clases auto, colectivo y camión de COCO. Nunca se pide la clase persona.
+- **El LLM propone y las reglas limitan.** Las reglas de `ml/kindra/agent/rules.py` descartan detecciones débiles y no dejan confirmar una anomalía sola sin FIRMS. Si el texto del LLM trae una cifra que no estaba en los datos, se usa la plantilla fija.
+- **Un solo correo por alerta**, enviado por la API (nunca por Python). Va solo a la dirección de `ALERT_EMAIL_TO`, de un integrante que aceptó recibirlo, y nunca está escrita en el código.
+- **Botones con token firmado de un solo uso** (HMAC, 72 horas). El enlace abre `/responder`, que guarda con un POST: abrir el enlace no cambia nada.
+- **Nunca avisar a servicios de emergencia reales.** No hay llamadas de voz ni WhatsApp.
+- **El agente no modifica el modelo.** Los falsos positivos quedan como logs en `ml/data/false_positives/`, y el equipo decide si reentrena.
+- **Datos de NASA:** FIRMS (histórico y NRT) y POWER; EONET y GIBS son opcionales.
 
 ## Comandos
 
@@ -154,6 +204,12 @@ python -m venv .venv && .venv\Scripts\activate
 pip install -e ".[dev]"
 python -m kindra download | build | load | validate | train | export
 pytest -q
+
+# KINDRA 4 (desde ml/)
+python -m kindra.vision.train_dfire ruta/a/D-Fire/data.yaml
+python -m kindra agent demo videos/incendio.mp4   # video → detección → agente → FIRMS → correo
+python -m kindra agent watch                      # revisa las cámaras públicas cada 5 min
+python -m kindra agent learn                      # logs de falsos positivos
 ```
 
 ## Variables de entorno
@@ -162,6 +218,7 @@ Plantilla en `.env.example`; se copia a `ml/.env` y `web/.env.local`, y **nunca 
 
 - `FIRMS_MAP_KEY`: API de NASA FIRMS (ml).
 - `DATABASE_URL`: cadena de conexión de Supabase (ml y web). Si falta, la app usa los JSON.
+- KINDRA 4: `NEXT_PUBLIC_GOOGLE_MAPS_KEY` (web, 3D), `ANTHROPIC_API_KEY` (ml), `AGENT_SECRET` y `APP_URL` (ml y web), `RESEND_API_KEY`, `ALERT_EMAIL_FROM`, `ALERT_EMAIL_TO`, `ALERT_TOKEN_SECRET` y `MET_USER_AGENT` (web).
 
 ## Skills
 
