@@ -7,6 +7,8 @@ name = "kindra"
 version = "0.5.0"
 description = "Serie armonizada de focos de calor MODIS + VIIRS, próximas 24 h y agente de cámaras"
 requires-python = ">=3.11"
+# Base: pipeline de armonización, validación, modelo de 24 h, contratos y carga a Postgres.
+# Es lo único que instala la CI, así `pytest` corre sin bajar PyTorch.
 dependencies = [
   "pandas>=2.2",
   "numpy>=2.0",
@@ -22,16 +24,21 @@ dependencies = [
   "psycopg[binary]>=3.2",
   "geoalchemy2>=0.15",
   "python-dotenv>=1.0",
-  # KINDRA 4: cámaras, visión y agente
-  "pydantic>=2.8",
-  "opencv-python>=4.10",
-  "ultralytics>=8.3",
-  "huggingface-hub>=0.24",  # baja los pesos de Pyronear y de rabahdev
-  "anthropic>=1.0",
+  "pydantic>=2.8",  # contracts.py
 ]
 
 [project.optional-dependencies]
+# Cámaras y detección: Pyronear (humo) y YOLOv8n D-Fire de rabahdev (llama). Trae PyTorch.
+vision = [
+  "opencv-python>=4.10",
+  "ultralytics>=8.3",
+  "huggingface-hub>=0.24",  # baja los pesos de los dos modelos
+]
+# Agente supervisor: Gemini Flash (u Ollama de respaldo) por la API compatible con OpenAI.
+agent = ["openai>=1.40"]
 dev = ["pytest>=8", "jupyter>=1.0", "matplotlib>=3.9"]
+# Todo junto, para la computadora de la demo: pip install -e ".[all]"
+all = ["kindra[vision,agent,dev]"]
 
 [tool.setuptools.packages.find]
 include = ["kindra*"]
