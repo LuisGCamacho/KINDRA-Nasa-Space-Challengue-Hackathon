@@ -1,0 +1,12 @@
+{
+  "items": [
+    { "name": "salto_2012_crudo", "value": null,
+      "detail": { "unidad": "%", "antes": "2009–2011", "despues": "2012–2014", "serie": "raw" } },
+    { "name": "salto_2012_armonizado", "value": null,
+      "detail": { "unidad": "%", "antes": "2009–2011", "despues": "2012–2014", "serie": "harm" } },
+    { "name": "holdout_mae_pct", "value": null,
+      "detail": { "unidad": "%", "calibracion": "2012–2021", "prueba": "2022–2025" } },
+    { "name": "holdout_r", "value": null,
+      "detail": { "calibracion": "2012–2021", "prueba": "2022–2025" } }
+  ]
+}

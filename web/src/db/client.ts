@@ -1,8 +1,10 @@
 import "server-only";
 import postgres from "postgres";
-import { drizzle } from "drizzle-orm/postgres-js";
 
-export const sqlClient = process.env.DATABASE_URL
-  ? postgres(process.env.DATABASE_URL, { prepare: false, max: 5 })
+/**
+ * Conexión a Postgres de Supabase, o `null` si falta `DATABASE_URL`.
+ * `prepare: false` porque el pooler de Supabase (modo transacción) no admite sentencias preparadas.
+ */
+export const sql = process.env.DATABASE_URL
+  ? postgres(process.env.DATABASE_URL, { prepare: false, max: 5, idle_timeout: 20 })
   : null;
-export const db = sqlClient ? drizzle(sqlClient) : null;

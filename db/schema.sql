@@ -1,10 +1,7 @@
 create extension if not exists postgis;
 create extension if not exists pg_trgm;
 
-create table if not exists custom_zones, validation, forecasts, factors,
-                     cells_monthly, monthly_series, zones cascade;
-
-create table zones (
+create table if not exists zones (
   id text primary key,
   name text not null,
   type text not null,
@@ -15,10 +12,10 @@ create table zones (
   area_km2 double precision not null,
   geom geometry(MultiPolygon, 4326) not null
 );
-create index zones_geom_idx on zones using gist (geom);
-create index zones_name_idx on zones using gin (name gin_trgm_ops);
+create index if not exists zones_geom_idx on zones using gist (geom);
+create index if not exists zones_name_idx on zones using gin (name gin_trgm_ops);
 
-create table monthly_series (
+create table if not exists  monthly_series (
   zone_id text references zones(id) on delete cascade,
   month date not null,
   raw int, harm real, lo real, hi real,
@@ -27,7 +24,7 @@ create table monthly_series (
   primary key (zone_id, month)
 );
 
-create table cells_monthly (
+create table if not exists  cells_monthly (
   scope text not null,
   month date not null,
   lat real not null,
@@ -37,28 +34,28 @@ create table cells_monthly (
   geom geometry(Point, 4326)
     generated always as (st_setsrid(st_makepoint(lon, lat), 4326)) stored
 );
-create index cells_month_idx on cells_monthly (scope, month);
-create index cells_geom_idx on cells_monthly using gist (geom);
+create index if not exists cells_month_idx on cells_monthly (scope, month);
+create index if not exists cells_geom_idx on cells_monthly using gist (geom);
 
-create table factors (
+create table if not exists  factors (
   region text, month int, k real, k_low real, k_high real, n_years int,
   primary key (region, month)
 );
 
-create table forecasts (
+create table if not exists  forecasts (
   zone_id text references zones(id),
   issued date,
   payload jsonb,
   primary key (zone_id, issued)
 );
 
-create table validation (
+create table if not exists  validation (
   name text primary key,
   value real,
   detail jsonb
 );
 
-create table custom_zones (
+create table if not exists  custom_zones (
   id text primary key,
   name text,
   geom geometry(Polygon, 4326),

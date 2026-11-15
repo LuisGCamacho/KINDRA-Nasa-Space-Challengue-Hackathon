@@ -1,4 +1,4 @@
-import { sqlClient as sql } from "./client";
+import { sql } from "./client";
 
 export const searchZones = (q: string) =>
   sql
