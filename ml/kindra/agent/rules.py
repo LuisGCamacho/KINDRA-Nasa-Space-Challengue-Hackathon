@@ -59,8 +59,8 @@ def is_large_fire(evidence: Evidence) -> bool:
 
 
 def top_confidence(detection: Detection) -> float:
-    """Confianza más alta entre las regiones de la detección."""
-    return max(region.confidence for region in detection.regions)
+    """Confianza más alta entre las regiones de la detección; 0 si no hay (alertas de noche)."""
+    return max((region.confidence for region in detection.regions), default=0.0)
 
 
 def only_anomalies(detection: Detection) -> bool:
