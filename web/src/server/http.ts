@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { isYearMonth, monthSpan } from "@/lib/period";
 import type { ApiError } from "@/lib/types";
+import type { CompareFailure } from "./stats";
 
 /** Máximo de meses que acepta un período. */
 export const MAX_PERIOD_MONTHS = 12;
@@ -16,6 +17,13 @@ export const badRequest = (message = "Parámetros inválidos") => errorResponse(
 
 /** 404: la zona, el mes o el archivo pedido no existe. */
 export const notFound = (message = "No encontrado") => errorResponse(404, message);
+
+/** Respuesta para cada motivo por el que `comparePeriod` no pudo comparar (la usan stats y el boletín). */
+export function compareFailureResponse(reason: CompareFailure, zone: string): Response {
+    if (reason === "sin_periodo") return notFound(`La serie de ${zone} no llega a ese período`);
+    if (reason === "sin_dato") return notFound(`La serie de ${zone} no tiene dato de esa columna en ese período`);
+    return errorResponse(422, `No hay años anteriores de ${zone} para comparar`);
+}
 
 /** 500: error inesperado. Registra el detalle en el servidor y responde un mensaje genérico. */
 export function serverError(error:unknown): Response {
