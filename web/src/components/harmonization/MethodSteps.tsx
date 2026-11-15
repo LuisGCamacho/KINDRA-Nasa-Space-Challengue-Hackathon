@@ -1,7 +1,7 @@
 const STEPS = [
   {
     title: "Celdas-día",
-    text: "Una celda de la grilla con fuego en un día cuenta una vez, caigan uno o veinte píxeles. Grilla de 0,1° en Argentina y 0,5° en el resto del mundo.",
+    text: "Una celda de la grilla con fuego en un día cuenta una vez, caigan uno o veinte píxeles. Grilla de 0,1° en California y 0,5° en el resto del mundo.",
   },
   {
     title: "Un satélite de la tarde por fecha",

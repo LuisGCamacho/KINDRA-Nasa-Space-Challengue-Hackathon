@@ -897,11 +897,11 @@
   },
   {
     "id": "demo-video",
-    "name": "Cámara de demo · Chilecito",
+    "name": "Cámara de demo · Shasta",
     "provider": "demo",
     "position": [
-      -67.4975,
-      -29.1619
+      -122.3917,
+      40.5865
     ],
     "imageUrl": "/demo/incendio-demo.jpg",
     "videoUrl": "/demo/incendio-demo.mp4",

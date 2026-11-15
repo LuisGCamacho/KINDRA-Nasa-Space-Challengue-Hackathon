@@ -32,10 +32,10 @@ interface LensState extends LensTarget {
 
 const MAX_HISTORY = 20;
 
-/** Caso de demostración: Chilecito, julio de 2026. */
+/** Caso de demostración (AGENTS.md): condado de Los Ángeles, enero de 2025. */
 const INITIAL_TARGET: LensTarget = {
-  zoneId: "ar-lr-chilecito",
-  month: "2026-07",
+  zoneId: "us-ca-los-angeles",
+  month: "2025-01",
   series: "harm",
   mode: "mapa",
 };
