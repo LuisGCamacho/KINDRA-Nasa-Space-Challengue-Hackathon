@@ -2,6 +2,7 @@ import "server-only"
 import {readFile} from "node:fs/promises"
 import path from "node:path"
 import type { CellsMonth, Forecast, Series, Validation, YearMonth, Zone } from "@/lib/types"
+import type { Camera } from "@/lib/alert-types"
 
 /**Carpeta de los json de respaldo que exporta python */
 const DATA_DIR = path.join(process.cwd(), "data");
@@ -64,6 +65,17 @@ export function getCells(scope:CellScope, month: YearMonth): Promise<CellsMonth 
 /**Ultimo pronostico de las proximas 24h */
 export function getForecast(): Promise<Forecast | null> {
     return readJson<Forecast>("forecast/latest.json");
+}
+
+/** Cámaras públicas que eligió el equipo, con su crédito y condiciones de uso; lista vacía si no hay `cameras.json`. */
+export async function getCameras(): Promise<Camera[]> {
+    return (await readJson<Camera[]>("cameras.json")) ?? [];
+}
+
+/** Una cámara por id, o `null` si no está en la lista. */
+export async function getCamera(cameraId: string): Promise<Camera | null> {
+    const cameras = await getCameras();
+    return cameras.find((camera) => camera.id === cameraId) ?? null;
 }
 
 /**Resultados de la validacion de la armonizacion  */
