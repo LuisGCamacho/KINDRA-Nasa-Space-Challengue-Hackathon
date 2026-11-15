@@ -1,19 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Onest } from "next/font/google";
+import { GeistMono } from "geist/font/mono";
+import { Providers } from "./providers";
 import "./globals.css";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
-const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
+const onest = Onest({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-onest" });
 
 export const metadata: Metadata = {
-  title: "KINDRA",
-  description: "Calendario armonizado de focos de calor · MODIS + VIIRS",
+  title: "KINDRA · Monitor de focos de calor",
+  description: "¿El fuego de este mes en esta zona es normal? MODIS + VIIRS armonizados y cámaras públicas.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${geist.variable} ${geistMono.variable}`}>
-      <body className="font-sans text-foreground antialiased">{children}</body>
+    <html lang="es" className={`${onest.variable} ${GeistMono.variable}`}>
+      <body className="min-h-dvh font-sans">
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

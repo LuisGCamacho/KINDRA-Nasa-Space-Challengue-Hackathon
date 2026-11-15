@@ -1,13 +1,6 @@
-import { Page, PageHeader } from "@/components/ui";
+import { SettingsScreen } from "@/components/settings/SettingsScreen";
 
-/** Marcador: la pantalla todavía no tiene diseño. */
-export default function PendingPage() {
-  return (
-    <>
-      <PageHeader title="Ajustes" />
-      <Page>
-        <p className="text-muted-foreground">Pendiente.</p>
-      </Page>
-    </>
-  );
+/** Ajustes: serie y umbrales de nivel. */
+export default function AjustesPage() {
+  return <SettingsScreen />;
 }

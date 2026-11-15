@@ -43,3 +43,6 @@ next-env.d.ts
 # Datos vivos de la demo (alertas, detecciones y cuadros): los escriben la API y Python, no se suben
 /data/live/
 /public/live/
+
+# archivos estáticos de CesiumJS (los copia scripts/copy-cesium.mjs)
+/public/cesium/

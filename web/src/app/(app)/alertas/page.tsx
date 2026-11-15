@@ -1,13 +1,19 @@
-import { Page, PageHeader } from "@/components/ui";
+import { FireAlertsTable } from "@/components/alerts/FireAlertsTable";
+import { ZoneAlertsTable } from "@/components/alerts/ZoneAlertsTable";
+import { ScreenHeader } from "@/components/ui/ScreenHeader";
 
-/** Marcador: la pantalla todavía no tiene diseño. */
-export default function PendingPage() {
+/** Alertas: las de cámara (agente y personas) y las zonas por encima de lo normal. */
+export default function AlertasPage() {
   return (
-    <>
-      <PageHeader title="Alertas" />
-      <Page>
-        <p className="text-muted-foreground">Pendiente.</p>
-      </Page>
-    </>
+    <section className="mx-auto flex max-w-5xl flex-col gap-8 py-6">
+      <div>
+        <ScreenHeader
+          title="Alertas"
+          lead="Cada fila es una detección que revisó el agente. Solo las confirmadas mandan correo."
+        />
+        <FireAlertsTable />
+      </div>
+      <ZoneAlertsTable />
+    </section>
   );
 }

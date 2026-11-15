@@ -4,10 +4,17 @@ import { getSeries, getZone } from "@/server/data";
 import { comparePeriod } from "@/server/stats";
 import { buildBulletin } from "@/server/bulletin";
 
-const querySchema = periodSchema.and(z.object({ zone: zoneIdSchema, kind: kindSchema }));
+/** `month=YYYY-MM` es un atajo de `from = to = month`: la app pide un solo mes. */
+const querySchema = z.preprocess(
+  (params) => {
+    const { month, ...rest } = params as Record<string, string>;
+    return month && !rest.from && !rest.to ? { ...rest, from: month, to: month } : rest;
+  },
+  periodSchema.and(z.object({ zone: zoneIdSchema, kind: kindSchema })),
+);
 
 /**
- * GET /api/reports/bulletin?zone=&from=YYYY-MM&to=YYYY-MM&kind= → boletín en texto del período
+ * GET /api/reports/bulletin?zone=&month=YYYY-MM (o `from=&to=`)&kind= → boletín en texto del período
  * (`Bulletin`), con las mismas cifras que `/api/stats` y el reconocimiento de NASA FIRMS.
  */
 export async function GET(request: Request) {
