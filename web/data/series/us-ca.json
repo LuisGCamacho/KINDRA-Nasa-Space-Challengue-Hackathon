@@ -3322,6 +3322,127 @@
       "viirs": 406,
       "src": "VIIRS_SNPP",
       "partial": false
+    },
+    {
+      "t": "2026-01",
+      "raw": 939,
+      "harm": 118,
+      "lo": 94,
+      "hi": 157,
+      "modis": 69,
+      "viirs": 398,
+      "src": "VIIRS_SNPP",
+      "partial": false
+    },
+    {
+      "t": "2026-02",
+      "raw": 981,
+      "harm": 111,
+      "lo": 101,
+      "hi": 118,
+      "modis": 83,
+      "viirs": 407,
+      "src": "VIIRS_SNPP",
+      "partial": false
+    },
+    {
+      "t": "2026-03",
+      "raw": 1618,
+      "harm": 145,
+      "lo": 133,
+      "hi": 158,
+      "modis": 107,
+      "viirs": 629,
+      "src": "VIIRS_SNPP",
+      "partial": false
+    },
+    {
+      "t": "2026-04",
+      "raw": 972,
+      "harm": 75,
+      "lo": 68,
+      "hi": 81,
+      "modis": 59,
+      "viirs": 379,
+      "src": "VIIRS_SNPP",
+      "partial": false
+    },
+    {
+      "t": "2026-05",
+      "raw": 946,
+      "harm": 71,
+      "lo": 62,
+      "hi": 81,
+      "modis": 65,
+      "viirs": 400,
+      "src": "VIIRS_SNPP",
+      "partial": false
+    },
+    {
+      "t": "2026-06",
+      "raw": 798,
+      "harm": 70,
+      "lo": 61,
+      "hi": 78,
+      "modis": 63,
+      "viirs": 303,
+      "src": "VIIRS_SNPP",
+      "partial": false
+    },
+    {
+      "t": "2026-07",
+      "raw": 764,
+      "harm": 115,
+      "lo": 96,
+      "hi": 133,
+      "modis": 75,
+      "viirs": 303,
+      "src": "VIIRS_SNPP",
+      "partial": false
+    },
+    {
+      "t": "2026-08",
+      "raw": 1636,
+      "harm": 353,
+      "lo": 311,
+      "hi": 388,
+      "modis": 84,
+      "viirs": 698,
+      "src": "VIIRS_SNPP",
+      "partial": true
+    },
+    {
+      "t": "2026-09",
+      "raw": 1887,
+      "harm": 357,
+      "lo": 274,
+      "hi": 408,
+      "modis": 77,
+      "viirs": 828,
+      "src": "VIIRS_SNPP",
+      "partial": true
+    },
+    {
+      "t": "2026-10",
+      "raw": 2138,
+      "harm": 306,
+      "lo": 281,
+      "hi": 326,
+      "modis": 109,
+      "viirs": 945,
+      "src": "VIIRS_SNPP",
+      "partial": true
+    },
+    {
+      "t": "2026-11",
+      "raw": 869,
+      "harm": 213,
+      "lo": 185,
+      "hi": 246,
+      "modis": 76,
+      "viirs": 711,
+      "src": "VIIRS_NOAA20",
+      "partial": true
     }
   ]
 }

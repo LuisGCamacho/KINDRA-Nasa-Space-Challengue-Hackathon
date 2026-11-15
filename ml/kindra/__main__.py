@@ -27,16 +27,19 @@ METRICS = MODELS / "forecast_metrics.json"
 
 
 @app.command()
-def download(last_year: int = 2025, recent_days: int = 10) -> None:
-    """CSV anuales de FIRMS recortados a California y los últimos días desde la API NRT."""
+def download(last_year: int = 2025) -> None:
+    """CSV anuales de FIRMS recortados a California y el año en curso por la API de área (SP + NRT)."""
     from kindra.pipeline import download_firms
 
     for failure in download_firms.yearly(last_year):
         typer.echo(f"No se pudo bajar: {failure}. Bajarlo a mano desde FIRMS Archive Download.")
     try:
-        download_firms.recent(recent_days)
+        failures = download_firms.current_year()
     except RuntimeError as error:  # sin FIRMS_MAP_KEY: el archivo histórico sirve igual
-        typer.echo(f"Se saltan los días recientes: {error}")
+        typer.echo(f"Se salta el año en curso: {error}")
+        return
+    for failure in failures:
+        typer.echo(f"No se pudo bajar: {failure}. Volver a correr download: retoma donde quedó.")
 
 
 @app.command()

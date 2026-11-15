@@ -3322,6 +3322,127 @@
       "viirs": 5,
       "src": "VIIRS_SNPP",
       "partial": false
+    },
+    {
+      "t": "2026-01",
+      "raw": 9,
+      "harm": 1,
+      "lo": 1,
+      "hi": 1,
+      "modis": 1,
+      "viirs": 3,
+      "src": "VIIRS_SNPP",
+      "partial": false
+    },
+    {
+      "t": "2026-02",
+      "raw": 25,
+      "harm": 4,
+      "lo": 3,
+      "hi": 4,
+      "modis": 2,
+      "viirs": 14,
+      "src": "VIIRS_SNPP",
+      "partial": false
+    },
+    {
+      "t": "2026-03",
+      "raw": 58,
+      "harm": 4,
+      "lo": 4,
+      "hi": 5,
+      "modis": 4,
+      "viirs": 19,
+      "src": "VIIRS_SNPP",
+      "partial": false
+    },
+    {
+      "t": "2026-04",
+      "raw": 55,
+      "harm": 5,
+      "lo": 4,
+      "hi": 5,
+      "modis": 8,
+      "viirs": 23,
+      "src": "VIIRS_SNPP",
+      "partial": false
+    },
+    {
+      "t": "2026-05",
+      "raw": 52,
+      "harm": 4,
+      "lo": 4,
+      "hi": 5,
+      "modis": 1,
+      "viirs": 23,
+      "src": "VIIRS_SNPP",
+      "partial": false
+    },
+    {
+      "t": "2026-06",
+      "raw": 44,
+      "harm": 4,
+      "lo": 3,
+      "hi": 4,
+      "modis": 1,
+      "viirs": 16,
+      "src": "VIIRS_SNPP",
+      "partial": false
+    },
+    {
+      "t": "2026-07",
+      "raw": 22,
+      "harm": 5,
+      "lo": 4,
+      "hi": 5,
+      "modis": 1,
+      "viirs": 12,
+      "src": "VIIRS_SNPP",
+      "partial": false
+    },
+    {
+      "t": "2026-08",
+      "raw": 24,
+      "harm": 6,
+      "lo": 5,
+      "hi": 6,
+      "modis": 1,
+      "viirs": 11,
+      "src": "VIIRS_SNPP",
+      "partial": true
+    },
+    {
+      "t": "2026-09",
+      "raw": 30,
+      "harm": 6,
+      "lo": 5,
+      "hi": 7,
+      "modis": 1,
+      "viirs": 14,
+      "src": "VIIRS_SNPP",
+      "partial": true
+    },
+    {
+      "t": "2026-10",
+      "raw": 76,
+      "harm": 11,
+      "lo": 10,
+      "hi": 12,
+      "modis": 6,
+      "viirs": 35,
+      "src": "VIIRS_SNPP",
+      "partial": true
+    },
+    {
+      "t": "2026-11",
+      "raw": 15,
+      "harm": 4,
+      "lo": 3,
+      "hi": 4,
+      "modis": 0,
+      "viirs": 13,
+      "src": "VIIRS_NOAA20",
+      "partial": true
     }
   ]
 }
