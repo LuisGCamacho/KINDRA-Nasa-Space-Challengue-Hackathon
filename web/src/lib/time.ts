@@ -15,13 +15,3 @@ const TIME_FORMAT = new Intl.DateTimeFormat("es-AR", {
 export function formatLocalTime(iso: string): string {
   return TIME_FORMAT.format(new Date(iso));
 }
-
-export function formatMonthYear(mes?: string): string {
-  if (!mes) return "Mes actual";
-  // Ejemplo de formateo para perfiles temporales del hackathon
-  return mes;
-}
-
-export function getCurrentIsoDate(): string {
-  return new Date().toISOString().split("T")[0];
-}
