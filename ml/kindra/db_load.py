@@ -1,4 +1,4 @@
-python -m kindra load
+"""Carga los Parquet de data/interim/ y los JSON de pronóstico y validación en PostgreSQL (python -m kindra load)."""
 
 from __future__ import annotations
 
@@ -31,6 +31,11 @@ def first_of_month(months: pd.Series) -> pd.Series:
     return pd.to_datetime(months + "-01").dt.date
 
 
+def _as_float_list(val) -> list[float]:
+    """Convierte arreglos de NumPy/PyArrow a lista nativa de Python para `double precision[]`."""
+    return [float(x) for x in val]
+
+
 def load_all() -> None:
     db = engine()
     with db.begin() as connection:
@@ -39,6 +44,19 @@ def load_all() -> None:
     zones = gpd.read_parquet(INTERIM / "zones.parquet")
     zones = zones.assign(geometry=zones.geometry.map(as_multipolygon))
     zones["area_km2"] = zones.to_crs("EPSG:6933").area / 1e6
+
+    # Asegura listas nativas de Python para center y bbox (o las calcula si faltan)
+    if "center" in zones.columns:
+        zones["center"] = zones["center"].map(_as_float_list)
+    else:
+        centroids = zones.geometry.centroid
+        zones["center"] = [[float(p.x), float(p.y)] for p in centroids]
+
+    if "bbox" in zones.columns:
+        zones["bbox"] = zones["bbox"].map(_as_float_list)
+    else:
+        zones["bbox"] = [[float(x) for x in b] for b in zones.geometry.bounds.to_numpy()]
+
     zones.rename_geometry("geom").to_postgis("zones", db, if_exists="append", index=False)
 
     series = pd.read_parquet(INTERIM / "monthly_series.parquet")
@@ -58,9 +76,25 @@ def _load_json_tables(db) -> None:
     forecast = json.loads((WEB_DATA / "forecast" / "latest.json").read_text(encoding="utf-8"))
     validation = json.loads((WEB_DATA / "validation.json").read_text(encoding="utf-8"))
     with db.begin() as connection:
-        connection.execute(text("insert into forecasts (issued, payload) values (:issued, cast(:payload as jsonb))"),
-                           {"issued": forecast["issued"], "payload": json.dumps(forecast)})
+        for z in forecast["zones"]:
+            connection.execute(
+                text(
+                    """
+                    insert into forecasts (zone_id, issued, p, expected_low, expected_high, trend)
+                    values (:zone_id, :issued, :p, :expected_low, :expected_high, :trend)
+                    """
+                ),
+                {
+                    "zone_id": z["zoneId"],
+                    "issued": forecast["issued"],
+                    "p": z["p"],
+                    "expected_low": z["expected"][0],
+                    "expected_high": z["expected"][1],
+                    "trend": z["trend"],
+                },
+            )
         for item in validation["items"]:
             connection.execute(
                 text("insert into validation (name, value, detail) values (:name, :value, cast(:detail as jsonb))"),
-                {"name": item["name"], "value": item["value"], "detail": json.dumps(item["detail"])})
+                {"name": item["name"], "value": item["value"], "detail": json.dumps(item["detail"])},
+            )

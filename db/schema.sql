@@ -37,15 +37,25 @@ create table if not exists  cells_monthly (
 create index if not exists cells_month_idx on cells_monthly (scope, month);
 create index if not exists cells_geom_idx on cells_monthly using gist (geom);
 
-create table if not exists  factors (
-  region text, month int, k real, k_low real, k_high real, n_years int,
-  primary key (region, month)
+
+create table factors (
+  region text not null,
+  sat text not null,
+  month int not null check (month between 1 and 12),
+  k double precision not null,
+  k_low double precision not null,
+  k_high double precision not null,
+  n_years int not null,
+  primary key (region, sat, month)
 );
 
-create table if not exists  forecasts (
-  zone_id text references zones(id),
-  issued date,
-  payload jsonb,
+create table forecasts (
+  zone_id text not null references zones(id) on delete cascade,
+  issued timestamptz not null,
+  p double precision not null,
+  expected_low double precision not null,
+  expected_high double precision not null,
+  trend text not null,
   primary key (zone_id, issued)
 );
 
