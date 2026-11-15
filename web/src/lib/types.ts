@@ -163,6 +163,7 @@ export interface Validation {
     items: ValidationItem[];
 }
 
+<<<<<<< HEAD
 // ─── Factores de la armonización (propuesta, pendiente de aprobación) ───
 
 /** Factor VIIRS → MODIS de una región, un satélite y un mes. Lo calcula `python -m kindra build`. */
@@ -187,3 +188,21 @@ export interface HarmonizationFactors {
   calibration: string;
   factors: HarmonizationFactor[];
 }
+=======
+/** Factor de armonización VIIRS -> MODIS por región, satélite y mes. */
+export interface HarmonizationFactor {
+  region: string;
+  sat: string;
+  month: number;
+  k: number;
+  kLow: number;
+  kHigh: number;
+  nYears: number;
+}
+
+/** Factores de armonización VIIRS -> MODIS. */
+export interface HarmonizationFactors {
+  calibration: string;
+  factors: HarmonizationFactor[];
+}
+>>>>>>> 96124198c9e905b2df3c2b74459e8d3d99460b67
