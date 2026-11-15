@@ -57,7 +57,8 @@ def load_firms(raw: Path, first_day: str, last_day: str) -> pd.DataFrame:
 
     Returns:
         Una fila por foco con `lat`, `lon`, `day`, `utc_hhmm`, `satellite`, `instrument`,
-        `confidence`, `daynight` y `type` (`None` si el archivo no trae esa columna).
+        `confidence`, `daynight`, `type` (`None` si el archivo no trae esa columna), `frp`
+        (potencia radiativa del fuego, MW) y `file` (ruta del CSV de origen).
 
     Raises:
         FileNotFoundError: Si `raw` no tiene ningún CSV.
@@ -65,7 +66,8 @@ def load_firms(raw: Path, first_day: str, last_day: str) -> pd.DataFrame:
     if not any(raw.rglob("*.csv")):
         raise FileNotFoundError(f"No hay CSV de FIRMS en {raw}")
 
-    source = f"read_csv('{(raw / '**' / '*.csv').as_posix()}', union_by_name = true, all_varchar = true)"
+    source = (f"read_csv('{(raw / '**' / '*.csv').as_posix()}', union_by_name = true,"
+              " all_varchar = true, filename = true)")
     columns = set(duckdb.sql(f"describe select * from {source}").df()["column_name"])
     # Los CSV de la API NRT no traen `type`; en ese caso no se puede filtrar por tipo.
     type_column = "type" if "type" in columns else "null"
@@ -79,7 +81,9 @@ def load_firms(raw: Path, first_day: str, last_day: str) -> pd.DataFrame:
                upper(trim(instrument))   as instrument,
                lower(trim(confidence))   as confidence,
                upper(trim(daynight))     as daynight,
-               {type_column}             as type
+               {type_column}             as type,
+               try_cast(frp as double)   as frp,
+               filename                  as file
         from {source}
         where cast(acq_date as date) between '{first_day}' and '{last_day}'
     """).df()
@@ -109,21 +113,36 @@ def clean_fires(fires: pd.DataFrame, modis_min_confidence: int,
         Columnas `lat`, `lon`, `day`, `sat` (`Aqua`, `Terra`, `SNPP`, `NOAA20`…), `daynight`
         y `solar_hour` (horas, 0–24).
     """
+    west, south, east, north = bbox
+    inside = fires["lon"].between(west, east) & fires["lat"].between(south, north)
+
+    clean = fires.loc[counts_for_method(fires, modis_min_confidence) & inside].copy()
+    clean["sat"] = clean["satellite"].map(SATELLITES)
+    clean["solar_hour"] = solar_hour(clean["utc_hhmm"], clean["lon"])
+    clean = clean.dropna(subset=["sat"])
+    return clean[["lat", "lon", "day", "sat", "daynight", "solar_hour"]].reset_index(drop=True)
+
+
+def counts_for_method(fires: pd.DataFrame, modis_min_confidence: int) -> pd.Series:
+    """Indica qué focos cuentan para el método: vegetación y confianza suficiente.
+
+    Es la única definición de esas reglas; la usan esta calibración y `pipeline/clean.py`.
+
+    Args:
+        fires: Salida de `load_firms`.
+        modis_min_confidence: Confianza mínima de MODIS (0–100).
+
+    Returns:
+        `True` en los focos que se quedan.
+    """
     is_modis = fires["instrument"].str.startswith("MODIS", na=False)
     modis_ok = pd.to_numeric(fires["confidence"], errors="coerce") >= modis_min_confidence
     # VIIRS escribe la confianza como "n"/"h"/"l" o "nominal"/"high"/"low" según el archivo.
     viirs_ok = fires["confidence"].str[0].isin(VIIRS_OK_CONFIDENCE)
     confident = (is_modis & modis_ok) | (~is_modis & viirs_ok)
-
+    # `type = 0` es "fuego de vegetación presunto"; los CSV NRT no traen la columna.
     vegetation = fires["type"].isna() | (fires["type"].astype(str) == "0")
-    west, south, east, north = bbox
-    inside = fires["lon"].between(west, east) & fires["lat"].between(south, north)
-
-    clean = fires.loc[confident & vegetation & inside].copy()
-    clean["sat"] = clean["satellite"].map(SATELLITES)
-    clean["solar_hour"] = solar_hour(clean["utc_hhmm"], clean["lon"])
-    clean = clean.dropna(subset=["sat"])
-    return clean[["lat", "lon", "day", "sat", "daynight", "solar_hour"]].reset_index(drop=True)
+    return confident & vegetation
 
 
 def solar_hour(utc_hhmm: pd.Series, lon: pd.Series) -> pd.Series:
