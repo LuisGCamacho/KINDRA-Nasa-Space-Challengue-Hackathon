@@ -162,3 +162,20 @@ export interface ValidationItem {
 export interface Validation {
     items: ValidationItem[];
 }
+
+/** Factor de armonización VIIRS -> MODIS por región, satélite y mes. */
+export interface HarmonizationFactor {
+  region: string;
+  sat: string;
+  month: number;
+  k: number;
+  kLow: number;
+  kHigh: number;
+  nYears: number;
+}
+
+/** Factores de armonización VIIRS -> MODIS. */
+export interface HarmonizationFactors {
+  calibration: string;
+  factors: HarmonizationFactor[];
+}
