@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from math import asin, cos, radians, sin, sqrt
+from datetime import datetime, timezone
+from math import asin, cos, degrees, radians, sin, sqrt
 
 EARTH_RADIUS_M = 6_371_000  # radio medio de la Tierra, en metros
 KM_PER_DEGREE_LAT = 111.32  # km por grado de latitud (casi constante en todo el planeta)
@@ -25,3 +26,23 @@ def bbox_around(position: tuple[float, float], radius_km: float) -> tuple[float,
     dlat = radius_km / KM_PER_DEGREE_LAT
     dlon = radius_km / (KM_PER_DEGREE_LAT * max(cos(radians(lat)), 0.01))
     return lon - dlon, lat - dlat, lon + dlon, lat + dlat
+
+
+def sun_elevation_deg(position: tuple[float, float], when: datetime) -> float:
+    """Altura del sol sobre el horizonte, en grados (negativa de noche). Error de ~1°, alcanza.
+
+    Fórmula aproximada de la NOAA: declinación del sol según el día del año y ángulo horario según
+    la hora solar del lugar. Sin la ecuación del tiempo (±16 min), que aquí no cambia nada.
+
+    Args:
+        position: `(lon, lat)` en grados.
+        when: Momento con zona horaria; sin zona se toma como UTC.
+    """
+    lon, lat = position
+    when = when.replace(tzinfo=timezone.utc) if when.tzinfo is None else when.astimezone(timezone.utc)
+    day_angle = 2 * 3.141592653589793 * (when.timetuple().tm_yday - 1) / 365
+    declination = 0.006918 - 0.399912 * cos(day_angle) + 0.070257 * sin(day_angle)         - 0.006758 * cos(2 * day_angle) + 0.000907 * sin(2 * day_angle)  # radianes
+    solar_hours = when.hour + when.minute / 60 + lon / 15  # 15° de longitud = 1 hora
+    hour_angle = radians(15 * (solar_hours - 12))
+    lat_r = radians(lat)
+    return degrees(asin(sin(lat_r) * sin(declination) + cos(lat_r) * cos(declination) * cos(hour_angle)))
