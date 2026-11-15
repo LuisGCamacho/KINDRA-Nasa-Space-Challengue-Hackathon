@@ -16,7 +16,7 @@ export type ZoneType = "pais" | "provincia" | "departamento" | "area_protegida" 
 
 /** Zona consultable. Fuente: `web/data/zones.json` o la tabla `zones`. */
 export interface Zone {
-  /** Identificador estable, en minúsculas con guiones, por ejemplo `"ar-lr-chilecito"`. */
+  /** Identificador estable, en minúsculas con guiones, por ejemplo `"us-ca-shasta"`. */
   id: string;
   name: string;
   type: ZoneType;
@@ -92,9 +92,9 @@ export interface Stats {
  */
 export type CellTuple = [lat: number, lon: number, cellDays: number, frpMax: number];
 
-/** Respuesta de `/api/cells` y forma de `web/data/cells/{ar|world}/{YYYY-MM}.json`. */
+/** Respuesta de `/api/cells` y forma de `web/data/cells/{ca|world}/{YYYY-MM}.json`. */
 export interface CellsMonth {
-  /** Tamaño de la celda en grados: 0,1 en Argentina y 0,5 en el resto del mundo. */
+  /** Tamaño de la celda en grados: 0,1 en California y 0,5 en el resto del mundo. */
   res: number;
   cells: CellTuple[];
 }

@@ -24,32 +24,32 @@ NO_FIRMS = FirmsMatch(found=False)
 FIRMS_NEAR = FirmsMatch(found=True, nearest_km=2.1, hours_ago=3, source="VIIRS_NOAA20_NRT")
 
 
-def test_weak_detection_is_discarded_without_llm():
+def test_deteccion_debil_se_descarta_sin_llm():
     evidence = rules.Evidence(make_detection(("humo", 0.2, 0.1)), NO_FIRMS, persistent_frames=None)
     assert rules.decide_without_llm(evidence) == "descartar"
 
 
-def test_short_track_is_discarded():
+def test_humo_que_dura_pocos_cuadros_se_descarta():
     evidence = rules.Evidence(make_detection(("humo", 0.9, 0.1)), NO_FIRMS, persistent_frames=2)
     assert rules.decide_without_llm(evidence) == "descartar"
 
 
-def test_strong_detection_goes_to_llm():
+def test_deteccion_fuerte_va_al_llm():
     evidence = rules.Evidence(make_detection(("llama", 0.9, 0.1)), NO_FIRMS, persistent_frames=10)
     assert rules.decide_without_llm(evidence) is None
 
 
-def test_anomaly_alone_cannot_be_confirmed_without_firms():
+def test_anomalia_sola_no_se_confirma_sin_firms():
     evidence = rules.Evidence(make_detection(("anomalia", 0.6, 0.1)), NO_FIRMS, persistent_frames=None)
     assert rules.limit_decision("confirmar", evidence) == "revisar"
 
 
-def test_anomaly_with_firms_can_be_confirmed():
+def test_anomalia_con_firms_se_puede_confirmar():
     evidence = rules.Evidence(make_detection(("anomalia", 0.6, 0.1)), FIRMS_NEAR, persistent_frames=None)
     assert rules.limit_decision("confirmar", evidence) == "confirmar"
 
 
-def test_large_fire_by_area_or_firms():
+def test_incendio_grande_por_area_o_por_firms():
     big = rules.Evidence(make_detection(("humo", 0.9, 0.3)), NO_FIRMS, persistent_frames=None)
     small = rules.Evidence(make_detection(("humo", 0.9, 0.1)), NO_FIRMS, persistent_frames=None)
     assert rules.is_large_fire(big)
@@ -57,11 +57,12 @@ def test_large_fire_by_area_or_firms():
     assert rules.is_large_fire(rules.Evidence(small.detection, FIRMS_NEAR, None))
 
 
-def test_invented_numbers_are_caught():
+def test_cifras_inventadas_se_detectan():
     facts = '{"detecciones": ["humo 87 %"], "firms": {"nearestKm": 2.1}}'
     assert invented_numbers("Humo al 87 % y foco a 2,1 km", facts) == set()
     assert invented_numbers("Humo a 300 metros del pueblo", facts) == {"300"}
 
 
-def test_distance_one_degree_of_latitude():
-    assert round(distance_m((-67.5, -29.0), (-67.5, -30.0)) / 1000) == 111
+def test_un_grado_de_latitud_son_111_km():
+    # Dos puntos en el meridiano de Redding (Shasta), separados por un grado de latitud.
+    assert round(distance_m((-122.39, 40.0), (-122.39, 41.0)) / 1000) == 111

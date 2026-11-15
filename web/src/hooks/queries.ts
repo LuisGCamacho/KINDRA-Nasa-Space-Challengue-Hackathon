@@ -43,8 +43,8 @@ export function useSeries(zoneId: string) {
 
 export function useCells(month: YearMonth) {
   return useQuery({
-    queryKey: ["cells", "ar", month],
-    queryFn: () => getJson<CellsMonth>(withQuery("/api/cells", { scope: "ar", month })),
+    queryKey: ["cells", "ca", month],
+    queryFn: () => getJson<CellsMonth>(withQuery("/api/cells", { scope: "ca", month })),
   });
 }
 
