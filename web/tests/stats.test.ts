@@ -67,10 +67,28 @@ describe("comparePeriod", () => {
   });
 
   it("con mediana 0 no divide: Muy alto si hubo fuego y Normal si no", () => {
-    const withFire = comparePeriod(julySeries({ 2024: 0, 2025: 0, 2026: 4 }), july2026);
+    const withFire = comparePeriod(julySeries({ 2024: 0, 2025: 0, 2026: 12 }), july2026);
     const withoutFire = comparePeriod(julySeries({ 2024: 0, 2025: 0, 2026: 0 }), july2026);
     expect(withFire.ok && withFire.stats).toMatchObject({ ratio: null, level: "Muy alto" });
     expect(withoutFire.ok && withoutFire.stats).toMatchObject({ ratio: null, level: "Normal" });
+  });
+
+  it("con menos de 10 celdas-día no sube de Normal, aunque el cociente sea alto", () => {
+    // Trinity, diciembre de 2025: 3 celdas-día contra una mediana de 1.
+    const fewCells = comparePeriod(julySeries({ 2024: 1, 2025: 1, 2026: 3 }), july2026);
+    const fewCellsNoHistory = comparePeriod(julySeries({ 2024: 0, 2025: 0, 2026: 4 }), july2026);
+    expect(fewCells.ok && fewCells.stats).toMatchObject({ ratio: 3, level: "Normal" });
+    expect(fewCellsNoHistory.ok && fewCellsNoHistory.stats).toMatchObject({ ratio: null, level: "Normal" });
+  });
+
+  it("desde 10 celdas-día el nivel sale del cociente", () => {
+    const result = comparePeriod(julySeries({ 2024: 2, 2025: 2, 2026: 10 }), july2026);
+    expect(result.ok && result.stats).toMatchObject({ ratio: 5, level: "Muy alto" });
+  });
+
+  it("con pocas celdas-día puede ser Bajo: la regla solo frena las alarmas", () => {
+    const result = comparePeriod(julySeries({ 2024: 50, 2025: 50, 2026: 3 }), july2026);
+    expect(result.ok && result.stats.level).toBe("Bajo");
   });
 
   it("avisa si la serie no llega al mes pedido", () => {
