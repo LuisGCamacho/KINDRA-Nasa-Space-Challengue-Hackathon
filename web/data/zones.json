@@ -1,0 +1,1064 @@
+[
+  {
+    "id": "us-ca",
+    "name": "California",
+    "type": "provincia",
+    "parent": null,
+    "country": "Estados Unidos",
+    "center": [
+      -119.9915,
+      37.2724
+    ],
+    "bbox": [
+      -124.4096,
+      32.5344,
+      -114.1312,
+      42.0095
+    ],
+    "areaKm2": 409806
+  },
+  {
+    "id": "us-ca-los-angeles",
+    "name": "Los Angeles",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -118.1421,
+      34.2763
+    ],
+    "bbox": [
+      -118.9445,
+      32.8015,
+      -117.6464,
+      34.8233
+    ],
+    "areaKm2": 10602
+  },
+  {
+    "id": "us-ca-santa-cruz",
+    "name": "Santa Cruz",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -122.0316,
+      37.0684
+    ],
+    "bbox": [
+      -122.3177,
+      36.8507,
+      -121.5811,
+      37.2861
+    ],
+    "areaKm2": 1156
+  },
+  {
+    "id": "us-ca-sonoma",
+    "name": "Sonoma",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -122.8564,
+      38.4811
+    ],
+    "bbox": [
+      -123.5335,
+      38.1113,
+      -122.3496,
+      38.8529
+    ],
+    "areaKm2": 4115
+  },
+  {
+    "id": "us-ca-contra-costa",
+    "name": "Contra Costa",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -121.9482,
+      37.9093
+    ],
+    "bbox": [
+      -122.4301,
+      37.7185,
+      -121.5343,
+      38.0999
+    ],
+    "areaKm2": 1969
+  },
+  {
+    "id": "us-ca-alpine",
+    "name": "Alpine",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -119.8449,
+      38.6308
+    ],
+    "bbox": [
+      -120.0726,
+      38.3269,
+      -119.5425,
+      38.9333
+    ],
+    "areaKm2": 1924
+  },
+  {
+    "id": "us-ca-nevada",
+    "name": "Nevada",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -121.0088,
+      39.2674
+    ],
+    "bbox": [
+      -121.2795,
+      39.0052,
+      -120.0039,
+      39.5267
+    ],
+    "areaKm2": 2523
+  },
+  {
+    "id": "us-ca-butte",
+    "name": "Butte",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -121.5791,
+      39.7241
+    ],
+    "bbox": [
+      -122.0694,
+      39.2956,
+      -121.0767,
+      40.1519
+    ],
+    "areaKm2": 4343
+  },
+  {
+    "id": "us-ca-shasta",
+    "name": "Shasta",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -122.0176,
+      40.7325
+    ],
+    "bbox": [
+      -123.0688,
+      40.2854,
+      -121.32,
+      41.1849
+    ],
+    "areaKm2": 9964
+  },
+  {
+    "id": "us-ca-merced",
+    "name": "Merced",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -120.6091,
+      37.1856
+    ],
+    "bbox": [
+      -121.2485,
+      36.7404,
+      -120.052,
+      37.6334
+    ],
+    "areaKm2": 5124
+  },
+  {
+    "id": "us-ca-calaveras",
+    "name": "Calaveras",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -120.6593,
+      38.1707
+    ],
+    "bbox": [
+      -120.9955,
+      37.8319,
+      -120.0199,
+      38.5099
+    ],
+    "areaKm2": 2685
+  },
+  {
+    "id": "us-ca-lake",
+    "name": "Lake",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -122.7933,
+      39.1257
+    ],
+    "bbox": [
+      -123.0942,
+      38.6708,
+      -122.3402,
+      39.5814
+    ],
+    "areaKm2": 3440
+  },
+  {
+    "id": "us-ca-yuba",
+    "name": "Yuba",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -121.4379,
+      39.279
+    ],
+    "bbox": [
+      -121.6363,
+      38.9184,
+      -121.0095,
+      39.6395
+    ],
+    "areaKm2": 1668
+  },
+  {
+    "id": "us-ca-san-diego",
+    "name": "San Diego",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -116.6938,
+      33.0208
+    ],
+    "bbox": [
+      -117.596,
+      32.5344,
+      -116.0811,
+      33.505
+    ],
+    "areaKm2": 11027
+  },
+  {
+    "id": "us-ca-riverside",
+    "name": "Riverside",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -116.0204,
+      33.7543
+    ],
+    "bbox": [
+      -117.6763,
+      33.4259,
+      -114.435,
+      34.0797
+    ],
+    "areaKm2": 18920
+  },
+  {
+    "id": "us-ca-marin",
+    "name": "Marin",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -122.7353,
+      38.0641
+    ],
+    "bbox": [
+      -123.0241,
+      37.8177,
+      -122.4186,
+      38.3207
+    ],
+    "areaKm2": 1406
+  },
+  {
+    "id": "us-ca-san-mateo",
+    "name": "San Mateo",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -122.3109,
+      37.4086
+    ],
+    "bbox": [
+      -122.5208,
+      37.1073,
+      -122.1152,
+      37.7083
+    ],
+    "areaKm2": 1186
+  },
+  {
+    "id": "us-ca-el-dorado",
+    "name": "El Dorado",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -120.5242,
+      38.7874
+    ],
+    "bbox": [
+      -121.1416,
+      38.5023,
+      -119.8778,
+      39.0675
+    ],
+    "areaKm2": 4627
+  },
+  {
+    "id": "us-ca-tulare",
+    "name": "Tulare",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -118.8239,
+      36.2623
+    ],
+    "bbox": [
+      -119.5732,
+      35.7889,
+      -117.9808,
+      36.7448
+    ],
+    "areaKm2": 12537
+  },
+  {
+    "id": "us-ca-sacramento",
+    "name": "Sacramento",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -121.2749,
+      38.3705
+    ],
+    "bbox": [
+      -121.8625,
+      38.0184,
+      -121.0271,
+      38.7364
+    ],
+    "areaKm2": 2575
+  },
+  {
+    "id": "us-ca-san-benito",
+    "name": "San Benito",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -121.0299,
+      36.5933
+    ],
+    "bbox": [
+      -121.644,
+      36.1968,
+      -120.5966,
+      36.9888
+    ],
+    "areaKm2": 3602
+  },
+  {
+    "id": "us-ca-amador",
+    "name": "Amador",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -120.7332,
+      38.4637
+    ],
+    "bbox": [
+      -121.0275,
+      38.218,
+      -120.0724,
+      38.709
+    ],
+    "areaKm2": 1570
+  },
+  {
+    "id": "us-ca-sutter",
+    "name": "Sutter",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -121.7106,
+      39.0162
+    ],
+    "bbox": [
+      -121.9483,
+      38.7346,
+      -121.4144,
+      39.3057
+    ],
+    "areaKm2": 1577
+  },
+  {
+    "id": "us-ca-yolo",
+    "name": "Yolo",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -121.8543,
+      38.6195
+    ],
+    "bbox": [
+      -122.422,
+      38.3131,
+      -121.501,
+      38.9259
+    ],
+    "areaKm2": 2645
+  },
+  {
+    "id": "us-ca-colusa",
+    "name": "Colusa",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -122.2068,
+      39.1686
+    ],
+    "bbox": [
+      -122.7851,
+      38.9243,
+      -121.7954,
+      39.4145
+    ],
+    "areaKm2": 2994
+  },
+  {
+    "id": "us-ca-plumas",
+    "name": "Plumas",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -120.8054,
+      40.0231
+    ],
+    "bbox": [
+      -121.4979,
+      39.5973,
+      -120.0993,
+      40.4497
+    ],
+    "areaKm2": 6767
+  },
+  {
+    "id": "us-ca-stanislaus",
+    "name": "Stanislaus",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -120.9788,
+      37.5579
+    ],
+    "bbox": [
+      -121.4868,
+      37.1348,
+      -120.3876,
+      38.0774
+    ],
+    "areaKm2": 3924
+  },
+  {
+    "id": "us-ca-trinity",
+    "name": "Trinity",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -123.1432,
+      40.6721
+    ],
+    "bbox": [
+      -123.6239,
+      39.977,
+      -122.446,
+      41.368
+    ],
+    "areaKm2": 8310
+  },
+  {
+    "id": "us-ca-san-bernardino",
+    "name": "San Bernardino",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -116.113,
+      34.8415
+    ],
+    "bbox": [
+      -117.8025,
+      33.871,
+      -114.1312,
+      35.8096
+    ],
+    "areaKm2": 52069
+  },
+  {
+    "id": "us-ca-alameda",
+    "name": "Alameda",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -121.8647,
+      37.68
+    ],
+    "bbox": [
+      -122.3423,
+      37.4542,
+      -121.4692,
+      37.9058
+    ],
+    "areaKm2": 1943
+  },
+  {
+    "id": "us-ca-mono",
+    "name": "Mono",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -119.0267,
+      38.0869
+    ],
+    "bbox": [
+      -119.6514,
+      37.4628,
+      -117.8327,
+      38.7132
+    ],
+    "areaKm2": 8108
+  },
+  {
+    "id": "us-ca-monterey",
+    "name": "Monterey",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -121.4859,
+      36.3492
+    ],
+    "bbox": [
+      -121.9766,
+      35.7893,
+      -120.214,
+      36.9197
+    ],
+    "areaKm2": 8576
+  },
+  {
+    "id": "us-ca-inyo",
+    "name": "Inyo",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -117.5122,
+      36.626
+    ],
+    "bbox": [
+      -118.79,
+      35.7867,
+      -115.648,
+      37.4649
+    ],
+    "areaKm2": 26488
+  },
+  {
+    "id": "us-ca-santa-clara",
+    "name": "Santa Clara",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -121.7214,
+      37.1881
+    ],
+    "bbox": [
+      -122.2025,
+      36.893,
+      -121.2082,
+      37.4846
+    ],
+    "areaKm2": 3368
+  },
+  {
+    "id": "us-ca-humboldt",
+    "name": "Humboldt",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -123.8972,
+      40.732
+    ],
+    "bbox": [
+      -124.4096,
+      40.0013,
+      -123.406,
+      41.4658
+    ],
+    "areaKm2": 9351
+  },
+  {
+    "id": "us-ca-sierra",
+    "name": "Sierra",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -120.5093,
+      39.5989
+    ],
+    "bbox": [
+      -121.0582,
+      39.3916,
+      -120.0013,
+      39.7768
+    ],
+    "areaKm2": 2492
+  },
+  {
+    "id": "us-ca-madera",
+    "name": "Madera",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -119.6357,
+      37.2717
+    ],
+    "bbox": [
+      -120.5455,
+      36.763,
+      -119.0224,
+      37.778
+    ],
+    "areaKm2": 5574
+  },
+  {
+    "id": "us-ca-san-joaquin",
+    "name": "San Joaquin",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -121.249,
+      37.8907
+    ],
+    "bbox": [
+      -121.5847,
+      37.4818,
+      -120.9206,
+      38.3002
+    ],
+    "areaKm2": 3693
+  },
+  {
+    "id": "us-ca-fresno",
+    "name": "Fresno",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -119.6365,
+      36.7461
+    ],
+    "bbox": [
+      -120.9187,
+      35.9069,
+      -118.3606,
+      37.5857
+    ],
+    "areaKm2": 15570
+  },
+  {
+    "id": "us-ca-ventura",
+    "name": "Ventura",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -119.1201,
+      34.6203
+    ],
+    "bbox": [
+      -119.5788,
+      33.2147,
+      -118.6325,
+      34.9012
+    ],
+    "areaKm2": 4805
+  },
+  {
+    "id": "us-ca-siskiyou",
+    "name": "Siskiyou",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -122.5434,
+      41.4943
+    ],
+    "bbox": [
+      -123.7191,
+      40.9923,
+      -121.4465,
+      42.0095
+    ],
+    "areaKm2": 16440
+  },
+  {
+    "id": "us-ca-mendocino",
+    "name": "Mendocino",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -123.439,
+      39.3852
+    ],
+    "bbox": [
+      -124.0233,
+      38.7586,
+      -122.8214,
+      40.0019
+    ],
+    "areaKm2": 9102
+  },
+  {
+    "id": "us-ca-glenn",
+    "name": "Glenn",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -122.4409,
+      39.5932
+    ],
+    "bbox": [
+      -122.9384,
+      39.383,
+      -121.8565,
+      39.8001
+    ],
+    "areaKm2": 3436
+  },
+  {
+    "id": "us-ca-del-norte",
+    "name": "Del Norte",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -123.9058,
+      41.6906
+    ],
+    "bbox": [
+      -124.256,
+      41.3808,
+      -123.5179,
+      42.0008
+    ],
+    "areaKm2": 2630
+  },
+  {
+    "id": "us-ca-imperial",
+    "name": "Imperial",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -115.3542,
+      33.0258
+    ],
+    "bbox": [
+      -116.1062,
+      32.6186,
+      -114.4629,
+      33.4337
+    ],
+    "areaKm2": 11607
+  },
+  {
+    "id": "us-ca-placer",
+    "name": "Placer",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -120.7432,
+      39.0141
+    ],
+    "bbox": [
+      -121.4844,
+      38.7114,
+      -120.0025,
+      39.3165
+    ],
+    "areaKm2": 3890
+  },
+  {
+    "id": "us-ca-mariposa",
+    "name": "Mariposa",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -119.9574,
+      37.5408
+    ],
+    "bbox": [
+      -120.3953,
+      37.1831,
+      -119.3073,
+      37.9041
+    ],
+    "areaKm2": 3791
+  },
+  {
+    "id": "us-ca-napa",
+    "name": "Napa",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -122.326,
+      38.5089
+    ],
+    "bbox": [
+      -122.6466,
+      38.155,
+      -122.0614,
+      38.864
+    ],
+    "areaKm2": 2052
+  },
+  {
+    "id": "us-ca-santa-barbara",
+    "name": "Santa Barbara",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -120.036,
+      34.7457
+    ],
+    "bbox": [
+      -120.6723,
+      33.4657,
+      -119.0274,
+      35.1147
+    ],
+    "areaKm2": 7124
+  },
+  {
+    "id": "us-ca-tuolumne",
+    "name": "Tuolumne",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -119.8836,
+      38.0309
+    ],
+    "bbox": [
+      -120.6532,
+      37.6337,
+      -119.1962,
+      38.4335
+    ],
+    "areaKm2": 5893
+  },
+  {
+    "id": "us-ca-orange",
+    "name": "Orange",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -117.722,
+      33.6682
+    ],
+    "bbox": [
+      -118.1154,
+      33.3878,
+      -117.4133,
+      33.9476
+    ],
+    "areaKm2": 2068
+  },
+  {
+    "id": "us-ca-san-luis-obispo",
+    "name": "San Luis Obispo",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -120.3367,
+      35.3363
+    ],
+    "bbox": [
+      -121.3464,
+      34.8975,
+      -119.4725,
+      35.7952
+    ],
+    "areaKm2": 8604
+  },
+  {
+    "id": "us-ca-solano",
+    "name": "Solano",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -121.9017,
+      38.2855
+    ],
+    "bbox": [
+      -122.4068,
+      38.0319,
+      -121.5933,
+      38.5388
+    ],
+    "areaKm2": 2305
+  },
+  {
+    "id": "us-ca-modoc",
+    "name": "Modoc",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -120.7239,
+      41.5241
+    ],
+    "bbox": [
+      -121.4572,
+      41.1835,
+      -119.9983,
+      41.9975
+    ],
+    "areaKm2": 10889
+  },
+  {
+    "id": "us-ca-kern",
+    "name": "Kern",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -118.7206,
+      35.3073
+    ],
+    "bbox": [
+      -120.1944,
+      34.7886,
+      -117.6165,
+      35.7984
+    ],
+    "areaKm2": 21147
+  },
+  {
+    "id": "us-ca-kings",
+    "name": "Kings",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -119.7582,
+      36.1597
+    ],
+    "bbox": [
+      -120.3151,
+      35.7893,
+      -119.4746,
+      36.4889
+    ],
+    "areaKm2": 3601
+  },
+  {
+    "id": "us-ca-tehama",
+    "name": "Tehama",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -122.2125,
+      40.126
+    ],
+    "bbox": [
+      -123.066,
+      39.7975,
+      -121.3423,
+      40.4531
+    ],
+    "areaKm2": 7673
+  },
+  {
+    "id": "us-ca-lassen",
+    "name": "Lassen",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -120.5288,
+      40.446
+    ],
+    "bbox": [
+      -121.3323,
+      39.7077,
+      -119.9959,
+      41.184
+    ],
+    "areaKm2": 12226
+  },
+  {
+    "id": "us-ca-san-francisco",
+    "name": "San Francisco",
+    "type": "departamento",
+    "parent": "us-ca",
+    "country": "Estados Unidos",
+    "center": [
+      -122.4465,
+      37.7581
+    ],
+    "bbox": [
+      -123.0139,
+      37.6927,
+      -122.328,
+      37.8631
+    ],
+    "areaKm2": 122
+  }
+]

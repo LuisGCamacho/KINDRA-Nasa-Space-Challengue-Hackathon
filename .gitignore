@@ -1,0 +1,42 @@
+# Datos descargados (NASA FIRMS, NASA POWER): pesan mucho y cada uno los baja aparte.
+/ml/data/raw/*
+/ml/data/interim/*
+!/ml/data/*/.gitkeep
+
+# Modelos y datos de la demo que se generan en cada computadora (KINDRA 4 y 5).
+/ml/models/
+/ml/data/false_positives/
+/web/data/live/
+/web/public/live/
+/web/public/cesium/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Variables de entorno: tienen la MAP_KEY de FIRMS y la conexión a la base.
+.env
+.env.*
+!.env.example
+
+# Configuración personal de Claude Code
+.claude/settings.local.json
+
+# Salida de herramientas que empaquetan el repositorio para un LLM.
+repomix-output.xml
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos de trabajo que la app copió al mover la sesión; no son parte del proyecto.
+/app/
+/kindra.html
+/docs/*
+!/docs/capturas/
