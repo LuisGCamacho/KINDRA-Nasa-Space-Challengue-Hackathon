@@ -18,7 +18,7 @@ export function HarmonizationScreen() {
   const { data: factors, error: factorsError } = useFactors();
 
   const totals = series ? yearlyTotals(series.months) : [];
-  const argentina = factors?.factors.filter((f) => f.region === "ar" && f.sat === "SNPP") ?? [];
+  const california = factors?.factors.filter((f) => f.region === "ca" && f.sat === "SNPP") ?? [];
 
   return (
     <section className="mx-auto flex max-w-5xl flex-col gap-4 py-6">
@@ -37,10 +37,10 @@ export function HarmonizationScreen() {
 
       <div>
         <h2 className="mb-2 text-[10.5px] font-medium uppercase tracking-[0.08em] text-muted">
-          Factor VIIRS → MODIS · Argentina · calibrado en {factors?.calibration ?? "2012–2021"}
+          Factor VIIRS → MODIS · California · calibrado en {factors?.calibration ?? "2012–2021"}
         </h2>
-        {argentina.length > 0 ? (
-          <FactorsTable factors={argentina} />
+        {california.length > 0 ? (
+          <FactorsTable factors={california} />
         ) : (
           <StatusText>Factores pendientes{factorsError ? `: ${factorsError.message}` : "."}</StatusText>
         )}
