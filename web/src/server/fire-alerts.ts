@@ -4,8 +4,11 @@ import { readLive, updateLive } from "./live-store";
 
 const FILE = "fire-alerts.json";
 
-/** Estados que todavía piden atención de una persona. */
-const ACTIVE: FireAlertStatus[] = ["enviada"];
+/**
+ * Estados que todavía piden atención de una persona:
+ * `pendiente` (el agente pidió revisar) y `enviada` (salió el correo y nadie respondió).
+ */
+const NEEDS_ATTENTION: FireAlertStatus[] = ["pendiente", "enviada"];
 
 /** Todas las alertas, de la más nueva a la más vieja. */
 export async function listFireAlerts(): Promise<FireAlert[]> {
@@ -21,15 +24,20 @@ export async function getFireAlert(alertId: string): Promise<FireAlert | null> {
 /** Número del encabezado junto a "Alertas". */
 export async function countActiveAlerts(): Promise<number> {
   const alerts = await readLive<FireAlert[]>(FILE, []);
-  return alerts.filter((alert) => ACTIVE.includes(alert.status)).length;
+  return alerts.filter((alert) => NEEDS_ATTENTION.includes(alert.status)).length;
 }
 
-/** Guarda una alerta nueva o reemplaza la que tiene el mismo id. */
-export function saveFireAlert(alert: FireAlert): Promise<FireAlert> {
-  return updateLive<FireAlert[], FireAlert>(FILE, [], (alerts) => ({
-    next: [...alerts.filter((item) => item.id !== alert.id), alert],
-    result: alert,
-  }));
+/**
+ * Guarda una alerta nueva del agente. Si ya existe una con el mismo id (el agente reintentó),
+ * devuelve la guardada sin tocarla: así un reintento no borra la respuesta de una persona
+ * ni vuelve a poner `emailedAt` en `null`.
+ */
+export function saveNewFireAlert(alert: FireAlert): Promise<{ alert: FireAlert; created: boolean }> {
+  return updateLive<FireAlert[], { alert: FireAlert; created: boolean }>(FILE, [], (alerts) => {
+    const existing = alerts.find((item) => item.id === alert.id);
+    if (existing) return { next: alerts, result: { alert: existing, created: false } };
+    return { next: [...alerts, alert], result: { alert, created: true } };
+  });
 }
 
 /** Cambia una alerta con `change`. Devuelve la alerta nueva o `null` si no existe. */
