@@ -104,7 +104,7 @@ export interface CellsMonth {
 /** Fila de `/api/alerts`: una zona en 1,5× o más de su mediana. */
 export interface Alert {
   zone: string;
-  ratio: number;
+  ratio: number | null;
   level: Level;
   /** Primer mes de la racha de meses seguidos en alerta. */
   since: YearMonth;
