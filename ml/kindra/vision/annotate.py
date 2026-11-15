@@ -3,7 +3,7 @@
 La imagen marcada es la que muestra la app y la que va en el correo de alerta.
 
 **Solo se marcan cámaras que lo permiten.** Caltrans es de dominio público y el video de la demo
-es nuestro. ALERTCalifornia (CC BY-NC-ND 4.0) prohíbe obras derivadas: se muestra tal cual, sin
+es de HPWREN, CC BY-NC 4.0, que permite adaptarlo sin fines comerciales y con su crédito. ALERTCalifornia (CC BY-NC-ND 4.0) prohíbe obras derivadas: se muestra tal cual, sin
 recuadros, y por eso `annotate_camera` se niega a marcar cualquier proveedor que no esté en
 `MARKABLE_PROVIDERS`.
 
