@@ -1,12 +1,12 @@
 import { GlassPanel } from "@/components/ui/GlassPanel";
 
-/** Lente 3D: de dónde sale la imagen y cuánto cuesta abrirla. */
+/** Lente 3D: de dónde salen el relieve y la imagen. Todo es abierto y sin clave. */
 export function TerrainOptionsPanel() {
   return (
-    <GlassPanel id="terreno" title="Terreno 3D" meta="Google 3D Tiles">
+    <GlassPanel id="terreno" title="Terreno 3D" meta="MapLibre">
       <p className="text-[12.5px] leading-relaxed text-muted">
-        Relieve y edificios fotorrealistas de Google, dibujados con CesiumJS. Cada vez que se abre esta lente se usa una
-        sesión de la cuota gratuita (1.000 por mes). Los créditos de Google se muestran abajo de la lente.
+        Relieve de Terrain Tiles (AWS Open Data) con la imagen satelital Sentinel-2 sin nubes de EOX, sin clave ni costo.
+        Encima, las celdas con fuego del mes elegido, con los colores del calendario.
       </p>
     </GlassPanel>
   );
