@@ -10,7 +10,9 @@ Une 25 años de focos de calor de **MODIS** (desde noviembre de 2000) y **VIIRS*
 
 - **Región (KINDRA 5): California, Estados Unidos.** Reemplaza a Argentina. FIRMS publica los archivos anuales por país: se baja el de Estados Unidos y se recorta al recuadro de California (`REGION_BBOX` en `ml/kindra/config.py`).
 - Usuario principal: analista de emergencias o de manejo del fuego.
-- Caso de demostración: **condado de Shasta (`us-ca-shasta`)**, junto con Trinity y Siskiyou. Se eligió porque reúne muchas celdas-día de incendio forestal cerca de cámaras públicas de Caltrans (Distrito 2). El mes y la cifra del diagnóstico quedan **pendientes** hasta correr el pipeline.
+- Caso de demostración:
+  - **Diagnóstico: condado de Los Ángeles (`us-ca-los-angeles`), enero de 2025**, el enero con más fuego en 25 años (15 celdas-día armonizadas contra una mediana de 1,5 en 2001–2024, o sea 10× · Muy alto; verificado con los datos finales del 15/11/2026, intervalo 12 a 20).
+  - **Cámaras: Caltrans Distrito 2** (Shasta, Trinity y Siskiyou).
 - Hasta KINDRA 4 el caso era Chilecito, La Rioja (Argentina): queda reemplazado.
 - Idioma de la interfaz, los textos y los commits: **español** (formato argentino: `1.234 focos`, `5,5×`).
 
@@ -62,7 +64,7 @@ Si este archivo y esos documentos no coinciden, pregunta antes de elegir.
 KINDRA/
 ├── .github/workflows/      CI: lint, pruebas, build y pytest
 ├── db/                     esquema SQL (schema.sql) y migraciones
-├── docs/                   textos del pitch, caso Shasta, declaración de IA, capturas
+├── docs/                   textos del pitch, caso Los Ángeles, declaración de IA, capturas
 ├── ml/                     Python
 │   ├── kindra/pipeline/    descarga FIRMS → limpieza → celdas-día → referencia → factor → zonas → series → export
 │   ├── kindra/ml/          validación de la armonización y modelo de próximas 24 h
@@ -127,6 +129,8 @@ Trabaja dentro de las carpetas de la tarea que te pidieron. Si necesitas cambiar
    | Bajo | < 0,67× |
 
    Los umbrales “Alto” y “Muy alto” se pueden cambiar en Ajustes; el límite inferior de Normal es siempre `1 / umbral alto`.
+
+   Con menos de 10 celdas-día en el período, el nivel no pasa de Normal aunque el cociente sea alto (`MIN_CELL_DAYS_FOR_HIGH` en `web/src/lib/levels.ts`; Python aplica la misma regla).
 
 ## Contratos de datos
 
