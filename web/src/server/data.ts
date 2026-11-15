@@ -6,8 +6,8 @@ import type { CellsMonth, Forecast, Series, Validation, YearMonth, Zone } from "
 /**Carpeta de los json de respaldo que exporta python */
 const DATA_DIR = path.join(process.cwd(), "data");
 
-/**Alcance de las celdas: Argentina en 0,1 o el resto del mundo en 0,5 */
-export type CellScope = "ar" | "world";
+/** Alcance de las celdas: California (`ca`) en 0,1° o el resto del mundo en 0,5°, igual que `SCOPES` en `ml/kindra/config.py`. */
+export type CellScope = "ca" | "world";
 
 /**Lecturas ya hechas guardadas como promises */
 const cache = new Map<string, Promise<unknown>>();
