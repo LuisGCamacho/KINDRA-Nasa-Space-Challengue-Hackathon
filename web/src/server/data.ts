@@ -1,7 +1,7 @@
 import "server-only"
 import {readFile} from "node:fs/promises"
 import path from "node:path"
-import type { CellsMonth, Forecast, Series, Validation, YearMonth, Zone } from "@/lib/types"
+import type { CellsMonth, Forecast, HarmonizationFactors, Series, Validation, YearMonth, Zone } from "@/lib/types"
 import type { Camera } from "@/lib/alert-types"
 
 /**Carpeta de los json de respaldo que exporta python */
@@ -76,6 +76,18 @@ export async function getCameras(): Promise<Camera[]> {
 export async function getCamera(cameraId: string): Promise<Camera | null> {
     const cameras = await getCameras();
     return cameras.find((camera) => camera.id === cameraId) ?? null;
+}
+
+/** Factores de armonización VIIRS → MODIS por región, satélite y mes, o `null` si Python no los exportó. */
+export function getFactors(): Promise<HarmonizationFactors | null> {
+    return readJson<HarmonizationFactors>("factors.json");
+}
+
+/** Series de todas las zonas de `zones.json` que tengan archivo de serie. */
+export async function getAllSeries(): Promise<Series[]> {
+    const zones = await getZones();
+    const series = await Promise.all(zones.map((zone) => getSeries(zone.id)));
+    return series.filter((item): item is Series => item !== null);
 }
 
 /**Resultados de la validacion de la armonizacion  */

@@ -1,6 +1,6 @@
-import { DEFAULT_HIGH, DEFAULT_VERY_HIGH, MIN_CELL_DAYS_FOR_HIGH, levelOf } from "@/lib/levels";
+import { DEFAULT_HIGH, DEFAULT_VERY_HIGH, levelForPeriod } from "@/lib/levels";
 import { addMonths, monthSpan, parseYearMonth } from "@/lib/period";
-import type { Level, MonthRow, Series, SeriesKind, Stats, YearMonth } from "@/lib/types";
+import type { MonthRow, Series, SeriesKind, Stats, YearMonth } from "@/lib/types";
 
 /** Período a comparar, de `from` a `to` inclusive. Se valida antes con `periodSchema`. */
 export interface Period {
@@ -55,7 +55,7 @@ export function comparePeriod(
       mean: meanOf(values),
       ratio,
       percentile: (values.filter((value) => value < current).length / values.length) * 100,
-      level: levelFor(current, ratio, thresholds),
+      level: levelForPeriod(current, ratio, thresholds.high, thresholds.veryHigh),
       history,
     },
   };
@@ -104,17 +104,6 @@ function previousYears(rows: Map<YearMonth, MonthRow>, period: Period, kind: Ser
   return history.reverse();
 }
 
-/**
- * Nivel del período. Sin mediana para dividir (mediana 0), el cociente es infinito si hubo fuego.
- * Con menos de `MIN_CELL_DAYS_FOR_HIGH` celdas-día el nivel no pasa de Normal: es muy poco
- * fuego para dar una alarma, aunque el cociente sea alto.
- */
-function levelFor(current: number, ratio: number | null, { high, veryHigh }: Thresholds): Level {
-  if (ratio === null && current === 0) return "Normal";
-  const level = levelOf(ratio ?? Infinity, high, veryHigh);
-  const isHigh = level === "Alto" || level === "Muy alto";
-  return isHigh && current < MIN_CELL_DAYS_FOR_HIGH ? "Normal" : level;
-}
 
 function medianOf(values: number[]): number {
   const sorted = values.toSorted((a, b) => a - b);
