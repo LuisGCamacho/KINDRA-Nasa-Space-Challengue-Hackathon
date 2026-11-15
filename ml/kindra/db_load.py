@@ -1,7 +1,4 @@
-"""`python -m kindra load`: copia los Parquet de `ml/data/interim/` a Postgres + PostGIS.
-
-Cada corrida vacía las tablas y las vuelve a llenar, así la base queda igual a los JSON.
-"""
+python -m kindra load
 
 from __future__ import annotations
 
