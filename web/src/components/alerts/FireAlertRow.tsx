@@ -3,6 +3,7 @@ import { formatConfidence } from "@/lib/detection-text";
 import { formatLocalTime } from "@/lib/time";
 import { num } from "@/lib/format";
 import { AlertStatusBadge } from "./AlertStatusBadge";
+import { CameraLink } from "./CameraLink";
 import { RespondButtons } from "./RespondButtons";
 
 const DECISION_TEXT: Record<FireAlert["agent"]["decision"], string> = {
@@ -21,7 +22,9 @@ export function FireAlertRow({ alert }: { alert: FireAlert }) {
   return (
     <tr className="border-b border-line-soft last:border-b-0">
       <td className="py-3 pr-4 tabular-nums">{formatLocalTime(alert.createdAt)}</td>
-      <td className="py-3 pr-4">{alert.cameraId}</td>
+      <td className="py-3 pr-4">
+        <CameraLink cameraId={alert.cameraId} />
+      </td>
       <td className="py-3 pr-4 tabular-nums">
         {DECISION_TEXT[alert.agent.decision]} · {formatConfidence(alert.agent.confidence)}
       </td>
