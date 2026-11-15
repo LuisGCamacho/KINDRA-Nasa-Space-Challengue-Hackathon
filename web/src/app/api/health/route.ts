@@ -1,7 +1,8 @@
-import { NextResponse } from "next/server";
+import { connection, NextResponse } from "next/server";
 import { sqlClient } from "@/db/client";
 
 export async function GET() {
+  await connection();
   if (!sqlClient) return NextResponse.json({ db: "off", fallback: "json" });
   try {
     const t = Date.now();

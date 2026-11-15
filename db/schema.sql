@@ -1,7 +1,7 @@
 create extension if not exists postgis;
 create extension if not exists pg_trgm;
 
-drop table if exists custom_zones, validation, forecasts, factors,
+create table if not exists custom_zones, validation, forecasts, factors,
                      cells_monthly, monthly_series, zones cascade;
 
 create table zones (
@@ -10,9 +10,9 @@ create table zones (
   type text not null,
   parent text,
   country text not null,
-  center float(10, 6)[] not null default '{}',
-  bbox float(10, 6)[] not null default '{}',
-  area_km2 float(10,6) not null default 0,
+  center double precision[] not null,
+  bbox   double precision[] not null,
+  area_km2 double precision not null,
   geom geometry(MultiPolygon, 4326) not null
 );
 create index zones_geom_idx on zones using gist (geom);
