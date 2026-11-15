@@ -897,17 +897,17 @@
   },
   {
     "id": "demo-video",
-    "name": "Cámara de demo · Shasta",
+    "name": "Green Peak · Topanga (HPWREN, demo 7/1/2025)",
     "provider": "demo",
     "position": [
-      -122.3917,
-      40.5865
+      -118.54878,
+      34.08642
     ],
     "imageUrl": "/demo/incendio-demo.jpg",
     "videoUrl": "/demo/incendio-demo.mp4",
     "refreshSeconds": 0,
-    "attribution": "Video de prueba del equipo KINDRA (no es una cámara real)",
-    "termsUrl": "/ajustes"
+    "attribution": "Data courtesy of HPWREN, University of California San Diego (https://www.hpwren.ucsd.edu/). Incendio Palisades, 7/1/2025, FIgLib (Dewangan et al. 2022), CC BY-NC 4.0. HPWREN data are not intended to be used as a decision-making tool, or as a replacement for such tools.",
+    "termsUrl": "https://www.hpwren.ucsd.edu/cc.html"
   },
   {
     "id": "caltrans-d7-i10101mcclurewest",

@@ -49,3 +49,6 @@ next-env.d.ts
 
 # worker de MapLibre (lo copia scripts/copy-maplibre-worker.mjs)
 /public/maplibre/
+
+# Video de la demo (HPWREN FIgLib, CC BY-NC 4.0: no se redistribuye en el repo; se baja con el ensayo)
+/public/demo/
