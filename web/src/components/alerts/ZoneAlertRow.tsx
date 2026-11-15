@@ -9,7 +9,8 @@ import { LevelBadge } from "@/components/ui/LevelBadge";
 /** Una zona en alerta: cuánto más que lo normal, desde cuándo y con qué satélite. */
 export function ZoneAlertRow({ alert }: { alert: Alert }) {
   const zone = useZone(alert.zone);
-  const level = useLevel(alert.ratio);
+  // Sin cociente (sin fuego en años anteriores) vale el nivel de la API: Muy alto.
+  const level = useLevel(alert.ratio) ?? alert.level;
 
   return (
     <tr>
@@ -17,7 +18,9 @@ export function ZoneAlertRow({ alert }: { alert: Alert }) {
         <span className="block">{zone?.name ?? alert.zone}</span>
         {zone?.parent && <span className="text-[12px] text-muted">{zone.parent}</span>}
       </td>
-      <td className="py-3 pr-4 tabular-nums">{ratio(alert.ratio)} lo normal</td>
+      <td className="py-3 pr-4 tabular-nums">
+        {alert.ratio === null ? "Sin fuego en ese mes en años anteriores" : `${ratio(alert.ratio)} lo normal`}
+      </td>
       <td className="py-3 pr-4">{level && <LevelBadge level={level} compact />}</td>
       <td className="py-3 pr-4 text-muted">{monthLabel(alert.since)}</td>
       <td className="py-3 pr-4 font-mono text-[12px] text-muted">{alert.sensor}</td>
