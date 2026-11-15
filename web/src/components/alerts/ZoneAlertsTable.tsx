@@ -2,10 +2,8 @@
 
 import { useState } from "react";
 import { useZoneAlerts } from "@/hooks/queries";
-import { levelOf } from "@/lib/levels";
 import { monthLabel } from "@/lib/format";
 import { useLensStore } from "@/store/useLensStore";
-import { useSettingsStore } from "@/store/useSettingsStore";
 import { GlassTable } from "@/components/ui/GlassTable";
 import { StatusText } from "@/components/ui/ScreenHeader";
 import { Segmented, type SegmentOption } from "@/components/ui/Segmented";
@@ -23,16 +21,11 @@ const COLUMNS = ["Zona", "Cociente", "Nivel", "Desde", "Sensor"];
 /** Zonas en Alto o Muy alto en el mes de la lupa (la tabla de KINDRA 3). */
 export function ZoneAlertsTable() {
   const month = useLensStore((state) => state.month);
-  const { high, veryHigh } = useSettingsStore();
   const [filter, setFilter] = useState<Filter>("todas");
+  // La API ya devuelve solo zonas en Alto o Muy alto, calculadas con los umbrales de Ajustes.
   const { data: alerts, isPending, error } = useZoneAlerts(month);
 
-  const visible = (alerts ?? []).filter((alert) => {
-    // Sin cociente (sin fuego en años anteriores) vale el nivel de la API: Muy alto.
-    const level = alert.ratio === null ? alert.level : levelOf(alert.ratio, high, veryHigh);
-    const inAlert = level === "Alto" || level === "Muy alto";
-    return inAlert && (filter === "todas" || level === filter);
-  });
+  const visible = (alerts ?? []).filter((alert) => filter === "todas" || alert.level === filter);
 
   return (
     <div className="flex flex-col gap-3">
