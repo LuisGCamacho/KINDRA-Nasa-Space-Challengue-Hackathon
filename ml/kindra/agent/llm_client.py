@@ -4,7 +4,7 @@ Se configura con tres variables de `ml/.env` (AGENTS.md):
 
 - `LLM_BASE_URL`: `https://generativelanguage.googleapis.com/v1beta/openai/` para Gemini, o
   `http://localhost:11434/v1` para el respaldo sin conexión (Ollama con Qwen2.5-VL).
-- `LLM_MODEL`: por ejemplo `gemini-2.5-flash`.
+- `LLM_MODEL`: por ejemplo `gemini-3.5-flash`.
 - `LLM_API_KEY`: clave de Google AI Studio (vacía para Ollama).
 
 La respuesta se pide en JSON con el esquema de un modelo de Pydantic y se valida aquí: llega con
