@@ -13,6 +13,14 @@ import { Segmented, type SegmentOption } from "@/components/ui/Segmented";
 
 type View = "captura" | "vivo";
 
+/**
+ * El video de la demo (HPWREN) va a 4 imágenes por segundo y cada imagen es un minuto real: a
+ * velocidad normal dura 20 s y el humo apenas se ve. Arranca en el minuto +15 de la ignición, cuando
+ * la columna ya cubre ~9 % de la imagen, y va a 1 imagen por segundo.
+ */
+const DEMO_START_S = 13.75; // imagen 55 = ignición (40) + 15 min
+const DEMO_PLAYBACK_RATE = 0.25;
+
 const VIEWS: SegmentOption<View>[] = [
   { value: "captura", label: "Captura del agente" },
   { value: "vivo", label: "En vivo" },
@@ -85,7 +93,9 @@ function DemoVideo({ camera }: { camera: Camera }) {
 
   return (
     <figure className="relative size-full">
-      <video ref={videoRef} src={camera.videoUrl ?? undefined} poster={camera.imageUrl} autoPlay muted loop playsInline
+      <video ref={videoRef} src={camera.videoUrl ?? undefined} poster={camera.imageUrl} autoPlay muted playsInline
+        onLoadedMetadata={(event) => startDemo(event.currentTarget)}
+        onEnded={(event) => startDemo(event.currentTarget)}
         className="size-full object-cover" />
       <DetectionOverlay regions={regions} materials={[]} />
       <figcaption className="absolute inset-x-0 bottom-[9%] text-center text-[11px] text-muted">
@@ -93,4 +103,11 @@ function DemoVideo({ camera }: { camera: Camera }) {
       </figcaption>
     </figure>
   );
+}
+
+/** Lleva el video al minuto +15 a 1 imagen por segundo; al terminar vuelve ahí y no al minuto -40. */
+function startDemo(video: HTMLVideoElement) {
+  video.playbackRate = DEMO_PLAYBACK_RATE;
+  video.currentTime = DEMO_START_S;
+  void video.play().catch(() => undefined); // el navegador puede bloquear la reproducción automática
 }

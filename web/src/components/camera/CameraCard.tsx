@@ -1,10 +1,9 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import type { Camera, Detection } from "@/lib/alert-types";
 import { useLatestDetection } from "@/hooks/queries";
 import { useFreshImageUrl } from "@/hooks/useFreshImageUrl";
-import { useLensStore } from "@/store/useLensStore";
+import { useOpenCamera } from "@/hooks/useOpenCamera";
 import { FIRE_LABEL_NAME, formatConfidence } from "@/lib/detection-text";
 import { formatLocalTime } from "@/lib/time";
 
@@ -16,20 +15,12 @@ import { formatLocalTime } from "@/lib/time";
  * coincidirían. La captura con sus recuadros está en la lupa.
  */
 export function CameraCard({ camera }: { camera: Camera }) {
-  const router = useRouter();
-  const setCamera = useLensStore((state) => state.setCamera);
-  const setMode = useLensStore((state) => state.setMode);
+  const openCamera = useOpenCamera();
   const { data: detection } = useLatestDetection(camera.id);
   const imageUrl = useFreshImageUrl(camera.imageUrl, camera.refreshSeconds);
 
-  const open = () => {
-    setCamera(camera.id);
-    setMode("camara");
-    router.push("/explorar");
-  };
-
   return (
-    <button type="button" onClick={open} className="glass block w-full overflow-hidden rounded-[22px] text-left">
+    <button type="button" onClick={() => openCamera(camera.id)} className="glass block w-full overflow-hidden rounded-[22px] text-left">
       <div className="relative aspect-video bg-base">
         {/* eslint-disable-next-line @next/next/no-img-element -- la URL cambia en cada renovación */}
         <img src={imageUrl} alt="" loading="lazy" className="size-full object-cover" />
