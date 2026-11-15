@@ -3,9 +3,17 @@
 /ml/data/interim/*
 !/ml/data/*/.gitkeep
 
+# Modelos y datos de la demo que se generan en cada computadora (KINDRA 4 y 5).
+/ml/models/
+/ml/data/false_positives/
+/web/data/live/
+/web/public/live/
+/web/public/cesium/
+
 # Python
 __pycache__/
 *.py[cod]
+*.egg-info/
 .venv/
 venv/
 .ipynb_checkpoints/
@@ -18,6 +26,9 @@ venv/
 
 # Configuración personal de Claude Code
 .claude/settings.local.json
+
+# Salida de herramientas que empaquetan el repositorio para un LLM.
+repomix-output.xml
 
 # Sistema operativo
 .DS_Store
