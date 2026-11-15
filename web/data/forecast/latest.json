@@ -1,9 +1,54 @@
 {
-  "issued": "2026-11-15T06:18:16Z",
+  "issued": "2026-11-15T10:24:53Z",
   "zones": [
     {
       "zoneId": "us-ca",
-      "p": 0.833,
+      "p": 1.0,
+      "expected": [
+        18,
+        32
+      ],
+      "trend": "baja"
+    },
+    {
+      "zoneId": "us-ca-fresno",
+      "p": 0.993,
+      "expected": [
+        1,
+        6
+      ],
+      "trend": "estable"
+    },
+    {
+      "zoneId": "us-ca-madera",
+      "p": 0.993,
+      "expected": [
+        1,
+        6
+      ],
+      "trend": "estable"
+    },
+    {
+      "zoneId": "us-ca-san-joaquin",
+      "p": 0.984,
+      "expected": [
+        0,
+        6
+      ],
+      "trend": "estable"
+    },
+    {
+      "zoneId": "us-ca-kern",
+      "p": 0.917,
+      "expected": [
+        0,
+        4
+      ],
+      "trend": "sube"
+    },
+    {
+      "zoneId": "us-ca-colusa",
+      "p": 0.812,
       "expected": [
         0,
         4
@@ -11,8 +56,44 @@
       "trend": "baja"
     },
     {
-      "zoneId": "us-ca-butte",
-      "p": 0.259,
+      "zoneId": "us-ca-merced",
+      "p": 0.752,
+      "expected": [
+        0,
+        3
+      ],
+      "trend": "estable"
+    },
+    {
+      "zoneId": "us-ca-siskiyou",
+      "p": 0.741,
+      "expected": [
+        0,
+        3
+      ],
+      "trend": "estable"
+    },
+    {
+      "zoneId": "us-ca-kings",
+      "p": 0.714,
+      "expected": [
+        0,
+        3
+      ],
+      "trend": "estable"
+    },
+    {
+      "zoneId": "us-ca-tuolumne",
+      "p": 0.508,
+      "expected": [
+        0,
+        2
+      ],
+      "trend": "estable"
+    },
+    {
+      "zoneId": "us-ca-stanislaus",
+      "p": 0.479,
       "expected": [
         0,
         2
@@ -20,44 +101,116 @@
       "trend": "baja"
     },
     {
-      "zoneId": "us-ca-san-benito",
-      "p": 0.233,
+      "zoneId": "us-ca-shasta",
+      "p": 0.465,
       "expected": [
         0,
-        1
+        2
       ],
       "trend": "baja"
     },
     {
-      "zoneId": "us-ca-fresno",
-      "p": 0.208,
+      "zoneId": "us-ca-lake",
+      "p": 0.406,
       "expected": [
         0,
-        1
+        2
       ],
       "trend": "baja"
     },
     {
-      "zoneId": "us-ca-humboldt",
-      "p": 0.152,
+      "zoneId": "us-ca-monterey",
+      "p": 0.382,
       "expected": [
         0,
-        1
+        2
       ],
       "trend": "baja"
     },
     {
-      "zoneId": "us-ca-trinity",
-      "p": 0.138,
+      "zoneId": "us-ca-butte",
+      "p": 0.347,
       "expected": [
         0,
-        1
+        2
+      ],
+      "trend": "baja"
+    },
+    {
+      "zoneId": "us-ca-el-dorado",
+      "p": 0.337,
+      "expected": [
+        0,
+        2
+      ],
+      "trend": "baja"
+    },
+    {
+      "zoneId": "us-ca-glenn",
+      "p": 0.335,
+      "expected": [
+        0,
+        2
       ],
       "trend": "baja"
     },
     {
       "zoneId": "us-ca-plumas",
-      "p": 0.116,
+      "p": 0.331,
+      "expected": [
+        0,
+        2
+      ],
+      "trend": "baja"
+    },
+    {
+      "zoneId": "us-ca-humboldt",
+      "p": 0.309,
+      "expected": [
+        0,
+        2
+      ],
+      "trend": "baja"
+    },
+    {
+      "zoneId": "us-ca-mono",
+      "p": 0.288,
+      "expected": [
+        0,
+        2
+      ],
+      "trend": "estable"
+    },
+    {
+      "zoneId": "us-ca-sierra",
+      "p": 0.269,
+      "expected": [
+        0,
+        1
+      ],
+      "trend": "estable"
+    },
+    {
+      "zoneId": "us-ca-tulare",
+      "p": 0.269,
+      "expected": [
+        0,
+        1
+      ],
+      "trend": "estable"
+    },
+    {
+      "zoneId": "us-ca-sonoma",
+      "p": 0.235,
+      "expected": [
+        0,
+        2
+      ],
+      "trend": "sube"
+    },
+    {
+      "zoneId": "us-ca-lassen",
+      "p": 0.226,
       "expected": [
         0,
         1
@@ -65,8 +218,8 @@
       "trend": "baja"
     },
     {
-      "zoneId": "us-ca-madera",
-      "p": 0.089,
+      "zoneId": "us-ca-mariposa",
+      "p": 0.181,
       "expected": [
         0,
         1
@@ -75,25 +228,7 @@
     },
     {
       "zoneId": "us-ca-sutter",
-      "p": 0.084,
-      "expected": [
-        0,
-        1
-      ],
-      "trend": "baja"
-    },
-    {
-      "zoneId": "us-ca-stanislaus",
-      "p": 0.08,
-      "expected": [
-        0,
-        1
-      ],
-      "trend": "baja"
-    },
-    {
-      "zoneId": "us-ca-merced",
-      "p": 0.042,
+      "p": 0.159,
       "expected": [
         0,
         1
@@ -101,8 +236,17 @@
       "trend": "sube"
     },
     {
+      "zoneId": "us-ca-nevada",
+      "p": 0.15,
+      "expected": [
+        0,
+        1
+      ],
+      "trend": "baja"
+    },
+    {
       "zoneId": "us-ca-yolo",
-      "p": 0.031,
+      "p": 0.149,
       "expected": [
         0,
         1
@@ -110,8 +254,8 @@
       "trend": "baja"
     },
     {
-      "zoneId": "us-ca-shasta",
-      "p": 0.03,
+      "zoneId": "us-ca-trinity",
+      "p": 0.141,
       "expected": [
         0,
         1
@@ -119,8 +263,80 @@
       "trend": "baja"
     },
     {
-      "zoneId": "us-ca-imperial",
-      "p": 0.029,
+      "zoneId": "us-ca-mendocino",
+      "p": 0.127,
+      "expected": [
+        0,
+        1
+      ],
+      "trend": "sube"
+    },
+    {
+      "zoneId": "us-ca-santa-cruz",
+      "p": 0.127,
+      "expected": [
+        0,
+        1
+      ],
+      "trend": "baja"
+    },
+    {
+      "zoneId": "us-ca-sacramento",
+      "p": 0.124,
+      "expected": [
+        0,
+        1
+      ],
+      "trend": "baja"
+    },
+    {
+      "zoneId": "us-ca-placer",
+      "p": 0.119,
+      "expected": [
+        0,
+        1
+      ],
+      "trend": "baja"
+    },
+    {
+      "zoneId": "us-ca-napa",
+      "p": 0.107,
+      "expected": [
+        0,
+        1
+      ],
+      "trend": "sube"
+    },
+    {
+      "zoneId": "us-ca-tehama",
+      "p": 0.1,
+      "expected": [
+        0,
+        1
+      ],
+      "trend": "baja"
+    },
+    {
+      "zoneId": "us-ca-san-luis-obispo",
+      "p": 0.077,
+      "expected": [
+        0,
+        1
+      ],
+      "trend": "sube"
+    },
+    {
+      "zoneId": "us-ca-yuba",
+      "p": 0.068,
+      "expected": [
+        0,
+        1
+      ],
+      "trend": "baja"
+    },
+    {
+      "zoneId": "us-ca-riverside",
+      "p": 0.061,
       "expected": [
         0,
         1
@@ -129,7 +345,7 @@
     },
     {
       "zoneId": "us-ca-los-angeles",
-      "p": 0.027,
+      "p": 0.057,
       "expected": [
         0,
         1
@@ -137,35 +353,8 @@
       "trend": "baja"
     },
     {
-      "zoneId": "us-ca-glenn",
-      "p": 0.025,
-      "expected": [
-        0,
-        1
-      ],
-      "trend": "baja"
-    },
-    {
-      "zoneId": "us-ca-inyo",
-      "p": 0.025,
-      "expected": [
-        0,
-        1
-      ],
-      "trend": "baja"
-    },
-    {
-      "zoneId": "us-ca-el-dorado",
-      "p": 0.022,
-      "expected": [
-        0,
-        1
-      ],
-      "trend": "baja"
-    },
-    {
-      "zoneId": "us-ca-kern",
-      "p": 0.022,
+      "zoneId": "us-ca-santa-barbara",
+      "p": 0.048,
       "expected": [
         0,
         1
@@ -174,7 +363,7 @@
     },
     {
       "zoneId": "us-ca-san-bernardino",
-      "p": 0.022,
+      "p": 0.042,
       "expected": [
         0,
         1
@@ -182,8 +371,44 @@
       "trend": "baja"
     },
     {
-      "zoneId": "us-ca-san-joaquin",
-      "p": 0.013,
+      "zoneId": "us-ca-san-diego",
+      "p": 0.042,
+      "expected": [
+        0,
+        1
+      ],
+      "trend": "baja"
+    },
+    {
+      "zoneId": "us-ca-alameda",
+      "p": 0.031,
+      "expected": [
+        0,
+        1
+      ],
+      "trend": "sube"
+    },
+    {
+      "zoneId": "us-ca-calaveras",
+      "p": 0.016,
+      "expected": [
+        0,
+        1
+      ],
+      "trend": "sube"
+    },
+    {
+      "zoneId": "us-ca-modoc",
+      "p": 0.016,
+      "expected": [
+        0,
+        1
+      ],
+      "trend": "sube"
+    },
+    {
+      "zoneId": "us-ca-san-benito",
+      "p": 0.016,
       "expected": [
         0,
         1

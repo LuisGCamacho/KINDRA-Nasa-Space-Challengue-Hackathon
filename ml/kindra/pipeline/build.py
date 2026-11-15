@@ -20,18 +20,21 @@ def build(last_day: str | None = None) -> None:
     """Corre el pipeline completo y guarda las tablas en Parquet.
 
     Escribe `cell_days_{alcance}`, `cell_zones_{alcance}`, `zones`, `monthly_series`,
-    `cells_monthly` y `factors` en `ml/data/interim/`, más `zones.json` para la exportación.
+    `cells_monthly`, `factors` y `static_sources` en `ml/data/interim/`, más `zones.json` para la
+    exportación.
 
     Args:
         last_day: Último día a usar, `YYYY-MM-DD`. Si falta, el último día que tienen los CSV:
             así la serie no se alarga con meses en cero que en realidad no se descargaron.
     """
-    fires = clean.clean(clean.load_fires(RAW, FIRST_DAY, last_day or "2100-01-01"))
+    raw_fires = clean.load_fires(RAW, FIRST_DAY, last_day or "2100-01-01")
+    fires = clean.clean(raw_fires)
     last_day = last_day or fires["day"].max().strftime("%Y-%m-%d")
     all_zones = zones.load_zones(BOUNDARIES)
     first, last = FIRST_DAY[:7], last_day[:7]
 
     INTERIM.mkdir(parents=True, exist_ok=True)
+    clean.static_points(raw_fires).to_parquet(INTERIM / clean.STATIC_SOURCES_FILE, index=False)
     series, cells, factors = [], [], []
     for scope in SCOPES:
         days = scope_cell_days(fires, scope)

@@ -66,6 +66,7 @@ MaterialLabel = Literal["vegetacion", "auto", "edificio", "tanque_combustible"]
 WaterKind = Literal["hidrante", "rio", "lago", "represa"]
 AgentDecision = Literal["confirmar", "descartar", "revisar"]
 LonLat = tuple[float, float]
+HotspotSensor = Literal["VIIRS", "MODIS"]
 
 
 class Contract(BaseModel):
@@ -130,6 +131,22 @@ class FirmsMatch(Contract):
     nearest_km: float | None = None
     hours_ago: float | None = None
     source: str | None = None
+
+
+class FirmsHotspot(Contract):
+    """Un foco de FIRMS cerca de la cámara de una alerta, para dibujarlo en el mapa.
+
+    Se guarda aparte de la alerta (`web/data/live/hotspots/{alertId}.json`) y no dentro de ella:
+    así el POST del agente y su esquema no cambian.
+    """
+
+    position: LonLat
+    sensor: HotspotSensor
+    source: str  # fuente de FIRMS, por ejemplo "VIIRS_NOAA20_NRT" o "MODIS"
+    acquired_at: IsoUtcZ
+    frp: float | None  # MW; puede faltar en algún CSV
+    confidence: str  # VIIRS usa letras (l, n, h) y MODIS un número de 0 a 100
+    distance_km: float  # a la cámara
 
 
 class WaterSource(Contract):

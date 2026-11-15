@@ -27,7 +27,8 @@ function streakStart(series: Series, month: YearMonth, thresholds: Thresholds): 
  * Fila de alerta de una zona en un mes, o `null` si la zona no está en Alto o Muy alto.
  *
  * Un mes sin cociente (mediana 0 en años anteriores y 10 celdas-día o más) también es alerta:
- * va con `ratio: null` y nivel Muy alto. La pantalla escribe "sin fuego en ese mes en años anteriores".
+ * va con `ratio: null` y nivel Muy alto. La pantalla escribe "Sin fuego la mayoría de los años": mediana 0
+ * quiere decir que la mayoría de los años no tuvo fuego ese mes, no que nunca lo tuvo.
  */
 export function zoneAlert(series: Series, month: YearMonth, thresholds: Thresholds): Alert | null {
   const result = comparePeriod(series, { from: month, to: month }, "harm", thresholds);
@@ -45,7 +46,7 @@ export function zoneAlert(series: Series, month: YearMonth, thresholds: Threshol
 
 /**
  * Alertas de todas las zonas en un mes, del cociente más alto al más bajo. Las que no tienen
- * cociente (`null`, sin fuego en años anteriores) van primero: son las más fuera de lo normal.
+ * cociente (`null`, mediana 0) van primero: son las más fuera de lo normal.
  */
 export function zoneAlerts(allSeries: Series[], month: YearMonth, thresholds: Thresholds): Alert[] {
   return allSeries

@@ -47,16 +47,3 @@ export function formatDistance(meters: number): string {
 export function googleMapsUrl([lon, lat]: [number, number]): string {
   return `https://www.google.com/maps/search/?api=1&query=${lat.toFixed(5)},${lon.toFixed(5)}`;
 }
-
-export interface ZoneCoord {
-  id: string;
-  name: string;
-  lat: number;
-  lng: number;
-}
-
-export function formatCoordinates(lat: number, lng: number): string {
-  const latDir = lat >= 0 ? "N" : "S";
-  const lngDir = lng >= 0 ? "E" : "W";
-  return `${Math.abs(lat).toFixed(4)}° ${latDir}, ${Math.abs(lng).toFixed(4)}° ${lngDir}`;
-}

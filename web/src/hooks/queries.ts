@@ -5,8 +5,9 @@ import { getJson, withQuery } from "@/lib/api";
 import type {
   Alert, Bulletin, CellsMonth, Forecast, HarmonizationFactors, Series, Stats, Validation, YearMonth, Zone,
 } from "@/lib/types";
-import type { Camera, Detection, FireAlert, TrackFrame, WaterSource } from "@/lib/alert-types";
+import type { Camera, Detection, FireAlert, FireAlertStatus, FirmsHotspot, TrackFrame, WaterSource } from "@/lib/alert-types";
 import type { SeriesMode } from "@/store/useLensStore";
+import { useSettingsStore } from "@/store/useSettingsStore";
 import type { WeatherNow } from "@/lib/weather";
 
 /*
@@ -52,11 +53,16 @@ export function useCameras() {
   return useQuery({ queryKey: ["cameras"], queryFn: () => getJson<Camera[]>("/api/cameras") });
 }
 
-/** Última detección de la cámara; se refresca sola cada 30 s. */
+/**
+ * Última detección de la cámara (`null` si no vio humo ni llama); se refresca sola cada 30 s.
+ * Todas las cámaras comparten un solo pedido a `/api/detections`: React Query lo hace una vez
+ * aunque la cuadrícula tenga cientos de tarjetas, y `select` saca la de cada una.
+ */
 export function useLatestDetection(cameraId: string | null) {
   return useQuery({
-    queryKey: ["detection", cameraId],
-    queryFn: () => getJson<Detection | null>(`/api/cameras/${cameraId}/detection`),
+    queryKey: ["detections"],
+    queryFn: () => getJson<Detection[]>("/api/detections"),
+    select: (detections) => detections.find((detection) => detection.cameraId === cameraId) ?? null,
     enabled: cameraId !== null,
     refetchInterval: 30_000,
   });
@@ -95,6 +101,46 @@ export function useCameraAlert(cameraId: string | null): FireAlert | undefined {
   return alerts?.find((alert) => alert.cameraId === cameraId && alert.status !== "descartada");
 }
 
+/** Estados de un incendio confirmado: por el agente (salió el correo) o por una persona. */
+const CONFIRMED_STATUS: FireAlertStatus[] = ["enviada", "incendio_confirmado"];
+
+/** Horas que se sigue avisando de un incendio confirmado en la pantalla principal. */
+const CONFIRMED_NOTICE_HOURS = 24;
+
+/**
+ * El incendio confirmado más reciente de las últimas 24 h: la visión vio humo o llama y el agente
+ * lo confirmó. Sale de la lista ya cargada, que se refresca cada 15 s.
+ */
+export function useConfirmedFireAlert(): FireAlert | undefined {
+  const { data } = useQuery({
+    queryKey: ["fire-alerts"],
+    queryFn: () => getJson<FireAlert[]>("/api/fire-alerts"),
+    refetchInterval: 15_000,
+    select: latestConfirmed,
+  });
+  return data;
+}
+
+/** La primera alerta confirmada y reciente; la lista ya viene de la más nueva a la más vieja. */
+function latestConfirmed(alerts: FireAlert[]): FireAlert | undefined {
+  const since = Date.now() - CONFIRMED_NOTICE_HOURS * 3_600_000;
+  return alerts.find(
+    (alert) =>
+      alert.agent.decision === "confirmar" &&
+      CONFIRMED_STATUS.includes(alert.status) &&
+      Date.parse(alert.createdAt) >= since,
+  );
+}
+
+/** Focos VIIRS y MODIS de una alerta, para dibujarlos en el mapa. */
+export function useAlertHotspots(alertId: string | null) {
+  return useQuery({
+    queryKey: ["hotspots", alertId],
+    queryFn: () => getJson<FirmsHotspot[]>(`/api/fire-alerts/${alertId}/hotspots`),
+    enabled: alertId !== null,
+  });
+}
+
 /** Tiempo actual en un punto `[lon, lat]`; MET Norway actualiza cada hora. */
 export function useWeather(position: [number, number] | null) {
   return useQuery({
@@ -126,11 +172,17 @@ export function useFactors() {
   return useQuery({ queryKey: ["factors"], queryFn: () => getJson<HarmonizationFactors>("/api/factors") });
 }
 
-/** Zonas en 1,5× o más de su mediana en el mes elegido. */
+/**
+ * Zonas en Alto o Muy alto en el mes elegido, con los umbrales de Ajustes. La API filtra y pone
+ * el nivel con las dos reglas (cociente y mínimo de 10 celdas-día): la pantalla no lo recalcula.
+ */
 export function useZoneAlerts(month: YearMonth) {
+  const high = useSettingsStore((state) => state.high);
+  const veryHigh = useSettingsStore((state) => state.veryHigh);
   return useQuery({
-    queryKey: ["zone-alerts", month],
-    queryFn: () => getJson<Alert[]>(withQuery("/api/alerts", { month })),
+    queryKey: ["zone-alerts", month, high, veryHigh],
+    queryFn: () =>
+      getJson<Alert[]>(withQuery("/api/alerts", { month, high: String(high), veryHigh: String(veryHigh) })),
   });
 }
 

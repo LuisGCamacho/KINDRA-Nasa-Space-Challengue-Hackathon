@@ -1,16 +1,17 @@
 "use client";
 
 import { useZone } from "@/hooks/queries";
-import { useLevel } from "@/hooks/useLevel";
 import { monthLabel, ratio } from "@/lib/format";
 import type { Alert } from "@/lib/types";
 import { LevelBadge } from "@/components/ui/LevelBadge";
+import { NO_FIRE_MOST_YEARS } from "@/components/panels/DiagnosisPanel";
 
-/** Una zona en alerta: cuánto más que lo normal, desde cuándo y con qué satélite. */
+/**
+ * Una zona en alerta: cuánto más que lo normal, desde cuándo y con qué satélite. El nivel es el
+ * de la API, que ya usa los umbrales de Ajustes y la regla de 10 celdas-día (`useZoneAlerts`).
+ */
 export function ZoneAlertRow({ alert }: { alert: Alert }) {
   const zone = useZone(alert.zone);
-  // Sin cociente (sin fuego en años anteriores) vale el nivel de la API: Muy alto.
-  const level = useLevel(alert.ratio) ?? alert.level;
 
   return (
     <tr>
@@ -19,9 +20,11 @@ export function ZoneAlertRow({ alert }: { alert: Alert }) {
         {zone?.parent && <span className="text-[12px] text-muted">{zone.parent}</span>}
       </td>
       <td className="py-3 pr-4 tabular-nums">
-        {alert.ratio === null ? "Sin fuego en ese mes en años anteriores" : `${ratio(alert.ratio)} lo normal`}
+        {alert.ratio === null ? `${NO_FIRE_MOST_YEARS} (mediana 0)` : `${ratio(alert.ratio)} lo normal`}
       </td>
-      <td className="py-3 pr-4">{level && <LevelBadge level={level} compact />}</td>
+      <td className="py-3 pr-4">
+        <LevelBadge level={alert.level} compact />
+      </td>
       <td className="py-3 pr-4 text-muted">{monthLabel(alert.since)}</td>
       <td className="py-3 pr-4 font-mono text-[12px] text-muted">{alert.sensor}</td>
     </tr>

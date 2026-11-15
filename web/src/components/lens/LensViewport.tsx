@@ -10,7 +10,7 @@ export interface HoverInfo {
   detail: string;
 }
 
-/** CesiumJS necesita el navegador (WebGL y `window`): se carga solo en el cliente y solo si se usa. */
+/** El 3D (MapLibre con relieve) necesita el navegador: se carga solo en el cliente y solo si se usa. */
 const TerrainLensView = dynamic(() => import("./views/TerrainLensView"), {
   ssr: false,
   loading: () => <p className="grid size-full place-items-center text-muted">Cargando terreno 3D…</p>,

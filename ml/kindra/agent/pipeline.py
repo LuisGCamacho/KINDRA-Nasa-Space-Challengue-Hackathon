@@ -27,9 +27,12 @@ import requests
 
 from kindra.agent import firms_nrt, report, supervisor, water
 from kindra.agent.rules import MIN_PERSISTENT_FRAMES, Evidence, is_large_fire
-from kindra.contracts import AgentReview, AlertEmailDraft, Detection, FireRegion, FirmsMatch, NearbyMaterial, WaterSource
+from kindra.contracts import (AgentReview, AlertEmailDraft, Detection, FireRegion, FirmsHotspot, FirmsMatch,
+                              NearbyMaterial, WaterSource)
 from kindra.geo import bbox_around, distance_m
+from kindra.config import INTERIM
 from kindra.live_paths import FRAMES, FRAMES_URL, LIVE, read_json, write_json
+from kindra.pipeline import clean
 from kindra.vision import annotate, anomaly, cameras, detect, materials, track
 
 CAMERA_RADIUS_KM = firms_nrt.RADIUS_KM  # el mismo radio con que se busca FIRMS alrededor de una detección
@@ -43,6 +46,7 @@ SEEN = AGENT_STATE / "focos-vistos.json"  # {clave del foco: hora en que se vio}
 LAST_ALERT = AGENT_STATE / "ultima-alerta.json"  # {id de cámara: hora de la última alerta}
 DETECTIONS = LIVE / "detections"  # {cameraId}.json (la última) y por-id/{id}.json (las lee `learn.py`)
 TRACKS = LIVE / "tracks"  # {cameraId}.json: recuadros por imagen para que la app siga el humo
+HOTSPOTS = LIVE / "hotspots"  # {alertId}.json: los focos FIRMS de la alerta, para el mapa de la app
 
 
 @dataclass(frozen=True)
@@ -120,7 +124,21 @@ def recent_hotspots(camera_list: list[dict], now: datetime) -> pd.DataFrame:
             errors.append(f"{source}: {error}")
     if not tables:
         raise firms_nrt.FirmsError("Ninguna fuente de FIRMS respondió: " + "; ".join(errors))
-    return with_keys(pd.concat(tables, ignore_index=True), now)
+    return without_static_sources(with_keys(pd.concat(tables, ignore_index=True), now))
+
+
+def without_static_sources(hotspots_df: pd.DataFrame) -> pd.DataFrame:
+    """Saca los focos sobre fuentes fijas conocidas (refinerías, plantas), que el NRT no marca.
+
+    En Los Ángeles casi todo foco NRT es una refinería o el puerto: sin esto, el agente miraba
+    las cámaras de Torrance y Wilmington por calor industrial. Si `build` todavía no guardó las
+    fuentes fijas, no se filtra.
+    """
+    path = INTERIM / clean.STATIC_SOURCES_FILE
+    if hotspots_df.empty or not path.exists():
+        return hotspots_df
+    static = clean.on_static_source(hotspots_df["latitude"], hotspots_df["longitude"], pd.read_parquet(path))
+    return hotspots_df.loc[~static]
 
 
 def with_keys(df: pd.DataFrame, now: datetime) -> pd.DataFrame:
@@ -167,7 +185,7 @@ def check_camera(camera: dict, rows: pd.DataFrame, tools: Tools, now: datetime) 
         detection = save_detection(camera, detection_id, now, frames[-1], frames[-1], [], [], tools)
         review = AgentReview(decision="revisar", confidence=0, reasons=[
             "De noche el modelo de visión no ve el humo; solo hay el foco satelital", night_reason(firms)])
-        return send(detection, review, firms, [], None, len(rows), "De noche: queda para revisar")
+        return send(detection, review, firms, [], None, rows, position, "De noche: queda para revisar")
 
     tracks = track.track_images(frames, tools.fire, night=False, seconds_between=camera["refreshSeconds"])
     regions = tracks[-1].regions
@@ -187,16 +205,23 @@ def check_camera(camera: dict, rows: pd.DataFrame, tools: Tools, now: datetime) 
     if not can_mark:
         review = review.model_copy(update={"reasons": [*review.reasons, "Imagen sin marcas: la licencia no lo permite"]})
     fire_water = nearby_water(rows, position) if review.decision == "confirmar" and is_large_fire(evidence) else []
-    return send(detection, review, firms, fire_water, verdict.draft, len(rows), f"Gemini: {review.decision}")
+    return send(detection, review, firms, fire_water, verdict.draft, rows, position, f"Gemini: {review.decision}")
 
 
 def send(detection: Detection, review: AgentReview, firms: FirmsMatch, fire_water: list[WaterSource],
-         draft: AlertEmailDraft | None, hotspot_count: int, result: str) -> Outcome:
-    """Arma el informe, lo manda a la app (o lo deja en `outbox/`) y devuelve el resultado."""
+         draft: AlertEmailDraft | None, rows: pd.DataFrame, camera_position: tuple[float, float],
+         result: str) -> Outcome:
+    """Guarda los focos para el mapa, arma el informe, lo manda a la app (o lo deja en `outbox/`)."""
     built = report.build_report(detection, review, firms, fire_water, draft)
+    save_hotspots(built.alert.id, firms_nrt.hotspot_points(rows, camera_position))
     delivered = report.deliver(built)
     note = "" if delivered is not None else " (la app no respondió: quedó en outbox)"
-    return Outcome(detection.camera_id, hotspot_count, result + note, built.alert.id)
+    return Outcome(detection.camera_id, len(rows), result + note, built.alert.id)
+
+
+def save_hotspots(alert_id: str, points: list[FirmsHotspot]) -> None:
+    """Escribe los focos de la alerta antes de mandarla: cuando la app la muestra, el mapa ya los tiene."""
+    write_json(HOTSPOTS / f"{alert_id}.json", [point.to_json() for point in points])
 
 
 def night_reason(firms: FirmsMatch) -> str:

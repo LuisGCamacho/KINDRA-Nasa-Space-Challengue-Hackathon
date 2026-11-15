@@ -1,6 +1,7 @@
 """Importa cámaras públicas a `web/data/cameras.json`, con la forma del contrato `Camera`.
 
-Cámaras de la demo: **Caltrans CCTV, Distrito 2** (condados de Shasta, Trinity y Siskiyou).
+Cámaras de la demo: **Caltrans CCTV, Distrito 2** (condados de Shasta, Trinity y Siskiyou), que
+solo publican fotos, y las del **Distrito 7** (condado de Los Ángeles) que tienen video en vivo.
 Caltrans publica la lista de cada distrito en un JSON abierto, y sus condiciones de uso dicen que
 lo publicado en su sitio es de dominio público salvo que se indique otra cosa: se pueden analizar
 y marcar.
@@ -10,6 +11,8 @@ contrato `CameraProvider` todavía no tiene un valor para ese proveedor (se acue
 """
 
 from __future__ import annotations
+
+from concurrent.futures import ThreadPoolExecutor
 
 import requests
 
@@ -21,16 +24,25 @@ CALTRANS_ATTRIBUTION = "Imagen: Caltrans (California Department of Transportatio
 DEMO_DISTRICT = 2
 DEMO_COUNTIES = ("Shasta", "Trinity", "Siskiyou")
 DEFAULT_REFRESH_MIN = 5  # minutos; la frecuencia más común de Caltrans, si una cámara no la trae
+LIVE_DISTRICT = 7
+LIVE_COUNTIES = ("Los Angeles",)
+# Lo que Caltrans escribe en `streamingVideoURL` cuando la cámara no tiene video: no es una URL.
+NO_VIDEO = {"", "Not Reported"}
 TIMEOUT_S = 60
+STREAM_TIMEOUT_S = 15
+STREAM_CHECKS_AT_ONCE = 16  # pedidos simultáneos a Caltrans al revisar los videos
 USER_AGENT = "KINDRA (NASA Space Apps 2026)"
 
 
-def caltrans_cameras(district: int = DEMO_DISTRICT, counties: tuple[str, ...] = DEMO_COUNTIES) -> list[dict]:
+def caltrans_cameras(district: int = DEMO_DISTRICT, counties: tuple[str, ...] = DEMO_COUNTIES,
+                     only_video: bool = False) -> list[dict]:
     """Cámaras de Caltrans en servicio de un distrito, filtradas por condado.
 
     Args:
         district: Distrito de Caltrans (1 a 12).
         counties: Condados a conservar, con el nombre que usa Caltrans (`"Shasta"`).
+        only_video: Si es `True`, solo las que tienen video en vivo y responde ahora. El
+            15/11/2026, 234 de las 402 de Los Ángeles listaban un video que daba 404.
 
     Returns:
         Cámaras en la forma del contrato `Camera`, ordenadas por id.
@@ -43,8 +55,27 @@ def caltrans_cameras(district: int = DEMO_DISTRICT, counties: tuple[str, ...] = 
     response.raise_for_status()
     cameras = [camera_from_caltrans(item.get("cctv", {}), district) for item in response.json()["data"]]
     wanted = set(counties)
-    return sorted((camera for camera, county in cameras if camera and county in wanted),
-                  key=lambda camera: camera["id"])
+    chosen = [camera for camera, county in cameras if camera and county in wanted]
+    if only_video:
+        chosen = with_working_video(chosen)
+    return sorted(chosen, key=lambda camera: camera["id"])
+
+
+def with_working_video(cameras: list[dict]) -> list[dict]:
+    """Las cámaras cuyo video en vivo responde ahora (`stream_online`)."""
+    with_video = [camera for camera in cameras if camera["videoUrl"]]
+    with ThreadPoolExecutor(STREAM_CHECKS_AT_ONCE) as pool:
+        online = list(pool.map(lambda camera: stream_online(camera["videoUrl"]), with_video))
+    return [camera for camera, ok in zip(with_video, online) if ok]
+
+
+def stream_online(url: str) -> bool:
+    """Indica si la lista HLS del video responde con una lista de verdad (`#EXTM3U`)."""
+    try:
+        response = requests.get(url, timeout=STREAM_TIMEOUT_S, headers={"User-Agent": USER_AGENT})
+    except requests.RequestException:
+        return False
+    return response.ok and response.text.startswith("#EXTM3U")
 
 
 def camera_from_caltrans(cctv: dict, district: int) -> tuple[dict | None, str | None]:
@@ -74,11 +105,17 @@ def camera_from_caltrans(cctv: dict, district: int) -> tuple[dict | None, str | 
         "provider": "caltrans",
         "position": position,
         "imageUrl": image_url,
-        "videoUrl": image.get("streamingVideoURL") or None,
+        "videoUrl": video_url(image.get("streamingVideoURL")),
         "refreshSeconds": refresh_seconds(image.get("static", {}).get("currentImageUpdateFrequency")),
         "attribution": CALTRANS_ATTRIBUTION,
         "termsUrl": CALTRANS_TERMS,
     }, county
+
+
+def video_url(value: str | None) -> str | None:
+    """Video en vivo (HLS `.m3u8`) de la cámara, o `None` si Caltrans no publica uno."""
+    value = (value or "").strip()
+    return None if value in NO_VIDEO or not value.startswith("https://") else value
 
 
 def camera_name(location: dict) -> str:

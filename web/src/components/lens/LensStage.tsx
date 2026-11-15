@@ -18,7 +18,7 @@ const LENS_OPTIONS: SegmentOption<LensMode>[] = [
 
 const LENS_HINT: Record<LensMode, string> = {
   mapa: "Toca un punto o un sector dentro de la lupa.",
-  terreno: "Arrastra para rotar · rueda para acercar.",
+  terreno: "Arrastra para mover · clic derecho para girar · rueda para acercar.",
   camara: "Fotograma en vivo de una cámara pública, con la zona anómala marcada.",
 };
 

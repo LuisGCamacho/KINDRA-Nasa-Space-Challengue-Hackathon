@@ -14,6 +14,8 @@ const eslintConfig = defineConfig([
   "next-env.d.ts",
   // Archivos de Cesium que genera scripts/copy-cesium.mjs: no son código del equipo.
   "public/cesium/**",
+  // Worker de MapLibre que copia scripts/copy-maplibre-worker.mjs: tampoco es código del equipo.
+  "public/maplibre/**",
 ]),
 ]);
 

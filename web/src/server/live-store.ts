@@ -1,5 +1,5 @@
 import "server-only";
-import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
+import { mkdir, readdir, readFile, rename, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 /**
@@ -33,6 +33,17 @@ export async function readLive<T>(name: string, fallback: T): Promise<T> {
     return JSON.parse(await readFile(livePath(name), "utf-8")) as T;
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === "ENOENT") return fallback;
+    throw error;
+  }
+}
+
+/** Nombres de los JSON vivos de una carpeta (`detections`); lista vacía si todavía no existe. */
+export async function listLive(folder: string): Promise<string[]> {
+  try {
+    const files = await readdir(path.dirname(livePath(`${folder}/x.json`)));
+    return files.filter((file) => file.endsWith(".json")).map((file) => `${folder}/${file}`);
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return [];
     throw error;
   }
 }

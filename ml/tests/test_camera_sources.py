@@ -1,16 +1,16 @@
 """Pruebas de la importación de cámaras de Caltrans, sin conexión a internet."""
 
-from kindra.vision.camera_sources import camera_from_caltrans, refresh_seconds
+from kindra.vision.camera_sources import camera_from_caltrans, refresh_seconds, video_url
 
 IMAGE = "https://cwwp2.dot.ca.gov/data/d2/cctv/image/abramslakenb/abramslakenb.jpg"
 
 
-def caltrans_item(in_service="true", image=IMAGE, lat="41.34496"):
+def caltrans_item(in_service="true", image=IMAGE, lat="41.34496", video=""):
     return {
         "inService": in_service,
         "location": {"locationName": "Abrams Lake NB", "route": "I-5", "county": "Siskiyou",
                      "longitude": "-122.34276", "latitude": lat},
-        "imageData": {"streamingVideoURL": "", "static": {"currentImageURL": image,
+        "imageData": {"streamingVideoURL": video, "static": {"currentImageURL": image,
                                                           "currentImageUpdateFrequency": "5"}},
     }
 
@@ -53,3 +53,10 @@ def test_imagenes_anteriores_de_caltrans():
     ]
     assert len(previous_image_urls(camera, 50)) == 12  # Caltrans guarda solo 12
     assert previous_image_urls({"provider": "demo", "imageUrl": IMAGE}, 3) == []
+
+
+def test_video_en_vivo_solo_si_caltrans_publica_una_url():
+    stream = "https://wzmedia.dot.ca.gov/D7/CCTV-196.stream/playlist.m3u8"
+    assert camera_from_caltrans(caltrans_item(video=stream), 7)[0]["videoUrl"] == stream
+    assert video_url("Not Reported") is None  # así marca Caltrans las cámaras sin video
+    assert video_url("") is None and video_url(None) is None

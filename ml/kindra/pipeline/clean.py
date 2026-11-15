@@ -15,6 +15,11 @@ from kindra.config import MODIS_MIN_CONFIDENCE, NRT_FOLDER
 from kindra.ml.calibration import SATELLITES, counts_for_method, load_firms
 
 CLEAN_COLUMNS = ["lat", "lon", "day", "sat", "frp", "nrt"]
+STATIC_TYPE = "2"  # `type` de FIRMS para fuentes fijas en tierra: refinerías, plantas, volcanes
+# Decimales al comparar con las fuentes fijas: 0,01° (~1 km) cubre el corrimiento de un píxel
+# VIIRS de 375 m entre pasadas sin tapar el campo de alrededor.
+STATIC_DECIMALS = 2
+STATIC_SOURCES_FILE = "static_sources.parquet"  # en INTERIM; lo escribe `build` y lo lee el agente
 
 
 def load_fires(raw: Path, first_day: str, last_day: str) -> pd.DataFrame:
@@ -40,6 +45,9 @@ def clean(fires: pd.DataFrame) -> pd.DataFrame:
     Los focos de un satélite que `SATELLITES` no reconoce se descartan; el cuaderno
     `02_calibracion` los lista con `calibration.unknown_satellites` para agregarlos.
 
+    Los focos NRT no traen `type`, así que también se descartan los que caen sobre una fuente
+    fija que FIRMS ya marcó en el dato definitivo (`on_static_source`).
+
     Args:
         fires: Salida de `load_fires`.
 
@@ -51,7 +59,37 @@ def clean(fires: pd.DataFrame) -> pd.DataFrame:
     kept["sat"] = kept["satellite"].map(SATELLITES)
     kept["nrt"] = came_from_nrt(kept["file"])
     kept = kept.dropna(subset=["sat"])
+    kept = kept.loc[~(kept["nrt"] & on_static_source(kept["lat"], kept["lon"], static_points(fires)))]
     return kept[CLEAN_COLUMNS].reset_index(drop=True)
+
+
+def static_points(fires: pd.DataFrame) -> pd.DataFrame:
+    """Posiciones de las fuentes fijas (`type = 2`) del dato definitivo, redondeadas a 0,01°.
+
+    `build` las guarda en `interim/static_sources.parquet` para que el agente también las salte.
+    """
+    static = fires.loc[fires["type"].astype(str) == STATIC_TYPE, ["lat", "lon"]].round(STATIC_DECIMALS)
+    return static.drop_duplicates().reset_index(drop=True)
+
+
+def on_static_source(lat: pd.Series, lon: pd.Series, points: pd.DataFrame) -> pd.Series:
+    """Indica qué focos caen sobre una fuente fija ya conocida (`static_points`).
+
+    Sin este filtro, el NRT contaba como incendio el calor de refinerías y plantas: en Los
+    Ángeles, enero a julio de 2026, 1291 de los 1617 focos VIIRS definitivos eran fuentes fijas, y
+    agosto (ya NRT) saltaba de 23 a 145 celdas-día con MODIS quieto en 3.
+
+    Args:
+        lat: Latitud de cada foco, en grados.
+        lon: Longitud de cada foco, con el mismo índice que `lat`.
+        points: Salida de `static_points`.
+
+    Returns:
+        Serie booleana con el índice de `lat`.
+    """
+    known = set(zip(points["lat"], points["lon"]))
+    keys = zip(lat.round(STATIC_DECIMALS), lon.round(STATIC_DECIMALS))
+    return pd.Series([key in known for key in keys], index=lat.index, dtype=bool)
 
 
 def inside(fires: pd.DataFrame, bbox: tuple[float, float, float, float]) -> pd.DataFrame:
