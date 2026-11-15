@@ -3,14 +3,63 @@
 Los modelos usan nombres en snake_case dentro de Python y se guardan en camelCase
 (`by_alias=True`), que es lo que lee la app. Si cambia un campo aquí, cambia también en
 TypeScript y en `agent-report-schema.ts`: es un contrato compartido.
+
+Formato de fechas (`captured_at`, `created_at`):
+Todas las fechas deben ser cadenas ISO 8601 en UTC terminadas estrictamente en `Z`
+(ejemplo: `"2026-11-14T18:02:11Z"`). La API de Next.js rechaza `+00:00` con HTTP 400.
 """
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime, timezone
+import re
+from typing import Annotated, Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import AfterValidator, BaseModel, BeforeValidator, ConfigDict, Field
 from pydantic.alias_generators import to_camel
+
+ISO_UTC_Z_RE = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$")
+
+
+def utc_now_z() -> str:
+    """Devuelve la fecha/hora actual en UTC terminada en 'Z' (ej. '2026-11-14T18:02:11Z')."""
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def _normalize_utc_z(value: object) -> object:
+    """Acepta datetime UTC o string ISO 8601 y normaliza '+00:00' -> 'Z'."""
+    if isinstance(value, datetime):
+        dt = (
+            value.astimezone(timezone.utc)
+            if value.tzinfo is not None
+            else value.replace(tzinfo=timezone.utc)
+        )
+        return dt.strftime("%Y-%m-%dT%H:%M:%SZ")
+    if isinstance(value, str) and value.endswith("+00:00"):
+        return value[:-6] + "Z"
+    return value
+
+
+def _validate_utc_z(value: str) -> str:
+    """Verifica que la cadena sea ISO 8601 UTC válida y termine estrictamente en 'Z'."""
+    if not ISO_UTC_Z_RE.match(value):
+        raise ValueError(
+            f"Fecha inválida {value!r}: debe ser ISO 8601 en UTC terminada en 'Z' "
+            "(ej. '2026-11-14T18:02:11Z')."
+        )
+    datetime.fromisoformat(value.replace("Z", "+00:00"))
+    return value
+
+
+IsoUtcZ = Annotated[
+    str,
+    BeforeValidator(_normalize_utc_z),
+    AfterValidator(_validate_utc_z),
+    Field(
+        description="Timestamp ISO 8601 en UTC terminado estrictamente en 'Z' (ej. '2026-11-14T18:02:11Z').",
+        examples=["2026-11-14T18:02:11Z"],
+    ),
+]
 
 FireLabel = Literal["humo", "llama", "anomalia"]
 MaterialLabel = Literal["vegetacion", "auto", "edificio", "tanque_combustible"]
@@ -63,7 +112,7 @@ class ModelInfo(Contract):
 class Detection(Contract):
     id: str
     camera_id: str
-    captured_at: str
+    captured_at: IsoUtcZ
     frame_url: str
     annotated_url: str
     regions: list[FireRegion]
@@ -101,7 +150,7 @@ class FireAlert(Contract):
     id: str
     detection_id: str
     camera_id: str
-    created_at: str
+    created_at: IsoUtcZ
     status: Literal["pendiente", "descartada"]
     agent: AgentReview
     firms: FirmsMatch
@@ -134,4 +183,4 @@ class FalsePositiveLog(Contract):
     human_note: str | None
     probable_cause: str
     suggestion: FalsePositiveSuggestion
-    created_at: str
+    created_at: IsoUtcZ

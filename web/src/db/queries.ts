@@ -10,7 +10,7 @@ import { sql } from "./client";
 */
 
 /** Resolución de la grilla de cada alcance, igual que en `ml/kindra/config.py`. */
-const RESOLUTION = { ar: 0.1, world: 0.5 } as const;
+const RESOLUTION = { ca: 0.1, world: 0.5 } as const;
 
 export const hasDatabase = () => sql !== null;
 

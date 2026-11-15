@@ -1,6 +1,6 @@
-import { DEFAULT_HIGH, DEFAULT_VERY_HIGH, levelOf } from "@/lib/levels";
+import { DEFAULT_HIGH, DEFAULT_VERY_HIGH, levelForPeriod } from "@/lib/levels";
 import { addMonths, monthSpan, parseYearMonth } from "@/lib/period";
-import type { Level, MonthRow, Series, SeriesKind, Stats, YearMonth } from "@/lib/types";
+import type { MonthRow, Series, SeriesKind, Stats, YearMonth } from "@/lib/types";
 
 /** Período a comparar, de `from` a `to` inclusive. Se valida antes con `periodSchema`. */
 export interface Period {
@@ -55,7 +55,7 @@ export function comparePeriod(
       mean: meanOf(values),
       ratio,
       percentile: (values.filter((value) => value < current).length / values.length) * 100,
-      level: levelFor(current, ratio, thresholds),
+      level: levelForPeriod(current, ratio, thresholds.high, thresholds.veryHigh),
       history,
     },
   };
@@ -104,14 +104,6 @@ function previousYears(rows: Map<YearMonth, MonthRow>, period: Period, kind: Ser
   return history.reverse();
 }
 
-/**
- * Sin mediana para dividir (mediana 0): si este año tampoco hubo fuego es Normal;
- * si hubo, el cociente es infinito y el nivel es Muy alto, igual que con la tabla de niveles.
- */
-function levelFor(current: number, ratio: number | null, { high, veryHigh }: Thresholds): Level {
-  if (ratio !== null) return levelOf(ratio, high, veryHigh);
-  return current > 0 ? levelOf(Infinity, high, veryHigh) : "Normal";
-}
 
 function medianOf(values: number[]): number {
   const sorted = values.toSorted((a, b) => a - b);

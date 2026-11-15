@@ -894,5 +894,19 @@
     "refreshSeconds": 300,
     "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
     "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "demo-video",
+    "name": "Cámara de demo · Chilecito",
+    "provider": "demo",
+    "position": [
+      -67.4975,
+      -29.1619
+    ],
+    "imageUrl": "/demo/incendio-demo.jpg",
+    "videoUrl": "/demo/incendio-demo.mp4",
+    "refreshSeconds": 0,
+    "attribution": "Video de prueba del equipo KINDRA (no es una cámara real)",
+    "termsUrl": "/ajustes"
   }
 ]

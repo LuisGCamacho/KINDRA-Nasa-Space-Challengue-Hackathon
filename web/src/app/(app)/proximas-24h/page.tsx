@@ -1,13 +1,6 @@
-import { Page, PageHeader } from "@/components/ui";
+import { ForecastScreen } from "@/components/forecast/ForecastScreen";
 
-/** Marcador: la pantalla todavía no tiene diseño. */
-export default function PendingPage() {
-  return (
-    <>
-      <PageHeader title="Próximas 24 h" />
-      <Page>
-        <p className="text-muted-foreground">Pendiente.</p>
-      </Page>
-    </>
-  );
+/** Próximas 24 h: probabilidad de focos nuevos por zona. */
+export default function ProximasPage() {
+  return <ForecastScreen />;
 }

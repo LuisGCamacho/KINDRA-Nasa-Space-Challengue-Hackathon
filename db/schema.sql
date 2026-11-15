@@ -38,7 +38,7 @@ create index if not exists cells_month_idx on cells_monthly (scope, month);
 create index if not exists cells_geom_idx on cells_monthly using gist (geom);
 
 
-create table factors (
+create table if not exists factors (
   region text not null,
   sat text not null,
   month int not null check (month between 1 and 12),
@@ -49,7 +49,7 @@ create table factors (
   primary key (region, sat, month)
 );
 
-create table forecasts (
+create table if not exists forecasts (
   zone_id text not null references zones(id) on delete cascade,
   issued timestamptz not null,
   p double precision not null,

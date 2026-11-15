@@ -1,0 +1,37 @@
+{
+  "alert": {
+    "id": "alerta-det-ejemplo-0001",
+    "detectionId": "det-ejemplo-0001",
+    "cameraId": "demo-video",
+    "createdAt": "2026-11-15T18:02:20Z",
+    "status": "pendiente",
+    "agent": {
+      "decision": "confirmar",
+      "confidence": 0.9,
+      "reasons": ["Ejemplo: columna de humo gris que crece", "Ejemplo: foco FIRMS cerca"]
+    },
+    "firms": { "found": true, "nearestKm": 2.1, "hoursAgo": 3, "source": "VIIRS_NOAA20_NRT" },
+    "water": [
+      { "id": "osm-way-2", "kind": "rio", "name": "Río de ejemplo", "position": [-122.39, 40.59], "distanceM": 1200 },
+      { "id": "osm-node-1", "kind": "hidrante", "name": null, "position": [-122.4, 40.6], "distanceM": 300 }
+    ],
+    "emailedAt": null
+  },
+  "detection": {
+    "id": "det-ejemplo-0001",
+    "cameraId": "demo-video",
+    "capturedAt": "2026-11-15T18:02:11Z",
+    "frameUrl": "/live/frames/det-ejemplo-0001.jpg",
+    "annotatedUrl": "/live/frames/det-ejemplo-0001-marcada.jpg",
+    "regions": [
+      { "label": "humo", "confidence": 0.87, "box": { "x": 0.41, "y": 0.18, "w": 0.22, "h": 0.25 }, "trackId": 3 },
+      { "label": "llama", "confidence": 0.64, "box": { "x": 0.48, "y": 0.4, "w": 0.06, "h": 0.07 }, "trackId": 5 }
+    ],
+    "materials": [{ "label": "vegetacion", "source": "osm", "box": null, "distanceM": 120 }],
+    "model": { "name": "ejemplo", "version": "0" }
+  },
+  "draft": {
+    "headline": "Ejemplo: humo denso en la ladera, con un foco FIRMS cerca",
+    "summary": "Informe de ejemplo para probar la API. No es un resultado del modelo."
+  }
+}

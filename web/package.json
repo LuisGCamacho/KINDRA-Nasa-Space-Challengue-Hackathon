@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "postinstall": "node scripts/copy-cesium.mjs"
   },
   "dependencies": {
     "@deck.gl/core": "^9.4.1",
@@ -15,6 +16,7 @@
     "@deck.gl/react": "^9.4.1",
     "@tanstack/react-query": "^5.107.1",
     "@turf/turf": "^7.4.0",
+    "cesium": "^1.147.0",
     "clsx": "^2.1.1",
     "d3-scale": "^4.0.3",
     "date-fns": "^4.4.0",
@@ -27,6 +29,7 @@
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "react-map-gl": "^8.1.3",
+    "resend": "^6.38.1",
     "server-only": "^0.0.1",
     "tailwind-merge": "^3.7.0",
     "zod": "^4.6.7",
