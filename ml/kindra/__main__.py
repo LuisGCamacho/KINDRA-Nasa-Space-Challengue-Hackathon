@@ -1,6 +1,7 @@
-"""Comandos de KINDRA: `python -m kindra download | build | validate | train | predict | export | load`.
+"""Comandos de KINDRA: `python -m kindra download | build | validate | train | predict | export | load | agent`.
 
 Orden de una corrida completa: download -> build -> validate -> train -> predict -> export -> load.
+`agent` (watch | demo | learn) es aparte: el agente de cámaras, en `kindra/agent/cli.py`.
 Cada comando importa sus módulos adentro, para que `--help` sea rápido y un módulo que todavía
 falta (por ejemplo `train.py`) no rompa los demás comandos.
 """
@@ -12,10 +13,12 @@ import json
 import pandas as pd
 import typer
 
+from kindra.agent.cli import agent_app
 from kindra.config import INTERIM, MODELS, SCOPES, WEB_DATA
 from kindra.live_paths import read_json, write_json
 
 app = typer.Typer(help="Pipeline de KINDRA: datos, armonización y próximas 24 h.", no_args_is_help=True)
+app.add_typer(agent_app, name="agent")
 
 REGION_SCOPE = "ca"  # grilla fina de California (0,1°): la que usan las zonas y el pronóstico
 REGION_ZONE_ID = "us-ca"  # zona provincia California, para la prueba del salto de 2012
