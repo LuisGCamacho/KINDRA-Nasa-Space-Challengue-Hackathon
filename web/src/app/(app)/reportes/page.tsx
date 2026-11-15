@@ -1,13 +1,7 @@
-import { Page, PageHeader } from "@/components/ui";
+import { ReportScreen } from "@/components/reports/ReportScreen";
 
-/** Marcador: la pantalla todavía no tiene diseño. */
-export default function PendingPage() {
-  return (
-    <>
-      <PageHeader title="Reportes" />
-      <Page>
-        <p className="text-muted-foreground">Pendiente.</p>
-      </Page>
-    </>
-  );
+/** Reportes: boletín y CSV de la zona y el mes de la lupa. */
+export default function ReportesPage() {
+  return <ReportScreen />;
 }
+

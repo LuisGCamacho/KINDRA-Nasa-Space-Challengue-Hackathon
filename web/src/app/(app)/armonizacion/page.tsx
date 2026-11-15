@@ -1,13 +1,6 @@
-import { Page, PageHeader } from "@/components/ui";
+import { HarmonizationScreen } from "@/components/harmonization/HarmonizationScreen";
 
-/** Marcador: la pantalla todavía no tiene diseño. */
-export default function PendingPage() {
-  return (
-    <>
-      <PageHeader title="Armonización" />
-      <Page>
-        <p className="text-muted-foreground">Pendiente.</p>
-      </Page>
-    </>
-  );
+/** Armonización: método, antes y después, factores y validación. */
+export default function ArmonizacionPage() {
+  return <HarmonizationScreen />;
 }

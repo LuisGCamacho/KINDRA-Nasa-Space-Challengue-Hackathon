@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# archivos estáticos de CesiumJS (los copia scripts/copy-cesium.mjs)
+/public/cesium/
