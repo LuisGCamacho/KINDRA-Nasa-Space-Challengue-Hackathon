@@ -71,9 +71,11 @@ def predict() -> None:
     import lightgbm as lgb
 
     from kindra.ml.predict import forecast
+    from kindra.ml.train import last_data_day
 
     table = features()
-    today = table[table["day"] == table["day"].max()]
+    # El último día con datos, no el último de la tabla: las filas siguientes son historia arrastrada.
+    today = table[table["day"] == last_data_day(table)]
     payload = forecast(lgb.Booster(model_file=str(MODEL)), today,
                        pd.read_parquet(INTERIM / f"cell_zones_{REGION_SCOPE}.parquet"), read_json(METRICS, {}))
     write_json(WEB_DATA / "forecast" / "latest.json", payload)

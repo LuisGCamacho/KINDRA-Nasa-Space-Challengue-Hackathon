@@ -36,7 +36,7 @@ def train(table: pd.DataFrame, model_path: Path, metrics_path: Path) -> dict[str
     Raises:
         ValueError: Si el entrenamiento o la prueba no tienen los dos casos (con y sin fuego mañana).
     """
-    train_rows, test_rows = split_by_year(table)
+    train_rows, test_rows = split_by_year(labeled(table))
     for name, rows in (("entrenamiento", train_rows), ("prueba", test_rows)):
         if rows[TARGET].nunique() < 2:
             raise ValueError(f"El {name} necesita días con y sin fuego al día siguiente")
@@ -56,6 +56,21 @@ def train(table: pd.DataFrame, model_path: Path, metrics_path: Path) -> dict[str
     model.booster_.save_model(str(model_path))
     metrics_path.write_text(json.dumps(result, indent=2, ensure_ascii=False), encoding="utf-8")
     return result
+
+
+def labeled(table: pd.DataFrame) -> pd.DataFrame:
+    """Quita las filas cuyo "fuego mañana" no se conoce.
+
+    `features.py` arrastra cada día con fuego 7 días hacia adelante, así que hay filas después del
+    último día con datos. Su objetivo sale 0 sin serlo; también el del último día, porque su
+    "mañana" no se descargó. Entrenar o medir con ellas contaría falsos "sin fuego".
+    """
+    return table[table["day"] < last_data_day(table)]
+
+
+def last_data_day(table: pd.DataFrame) -> pd.Timestamp:
+    """Último día con fuego observado (`fires_1d` > 0): hasta ahí llegan los CSV."""
+    return table.loc[table["fires_1d"] > 0, "day"].max()
 
 
 def split_by_year(table: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
