@@ -55,26 +55,3 @@ export const WATER_NAME: Record<WaterKind, string> = {
   lago: "Lago",
   represa: "Represa",
 };
-
-// TODO(Front): borrar este bloque junto con los componentes viejos (`components/ui.tsx`,
-// `HeatCalendar.tsx`, `Inspector.tsx`, `ZonePicker.tsx`, `ZoneMap.tsx`, `Sidebar.tsx`) cuando
-// el equipo apruebe los borrados de la sección 1.1 del tutorial. Las pantallas nuevas no lo usan.
-
-/** @deprecated Rampa clara de KINDRA 3. Usar `HEAT_RAMP`. */
-export const HEAT = ["#F4F3F1", "#F6EEE8", "#F9CDB5", "#EF8D67", "#D64C29", "#892122"];
-
-/** @deprecated Usar `heatIndex`. */
-export function heatClass(v: number, max: number) {
-  return heatIndex(v, max);
-}
-
-/** @deprecated Usar `LEVEL_COLOR`. */
-export const LEVEL_LABEL: Record<Level, string> = { "Muy alto": "Muy alto", Alto: "Alto", Normal: "Normal", Bajo: "Bajo" };
-
-/** @deprecated Usar `LEVEL_COLOR` y `components/ui/LevelBadge`. */
-export const LEVEL_STYLE: Record<Level, string> = {
-  "Muy alto": "bg-crit text-white",
-  Alto: "bg-fire-soft text-fire-ink",
-  Normal: "bg-ok-soft text-ok",
-  Bajo: "bg-secondary text-ink-2",
-};
