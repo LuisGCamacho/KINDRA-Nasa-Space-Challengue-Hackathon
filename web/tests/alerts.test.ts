@@ -73,6 +73,17 @@ describe("agentReportSchema", () => {
     expect(agentReportSchema.safeParse(reportWith((r) => (r.alert.cameraId = "../x"))).success).toBe(false);
   });
 
+  it("acepta una detección sin recuadros solo si queda para revisar (de noche)", () => {
+    const night = (decision: "revisar" | "confirmar") =>
+      agentReportSchema.safeParse(reportWith((r) => {
+        r.detection.regions = [];
+        r.alert.agent.decision = decision;
+      }));
+    expect(night("revisar").success).toBe(true);
+    const confirmed = night("confirmar");
+    expect(!confirmed.success && describeReportError(confirmed.error)).toMatch(/^detection\.regions: /);
+  });
+
   it("exige status descartada solo cuando el agente descarta", () => {
     const result = agentReportSchema.safeParse(reportWith((r) => (r.alert.agent.decision = "descartar")));
     expect(!result.success && describeReportError(result.error)).toMatch(/^alert\.status: /);

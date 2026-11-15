@@ -30,7 +30,8 @@ const detection = z.object({
   capturedAt: isoUtc,
   frameUrl,
   annotatedUrl: frameUrl,
-  regions: z.array(fireRegion).min(1),
+  // Vacía solo en "revisar" (ver el refine de abajo): de noche el modelo no ve humo y queda el foco satelital.
+  regions: z.array(fireRegion),
   materials: z.array(
     z.object({
       label: z.enum(["vegetacion", "auto", "edificio", "tanque_combustible"]),
@@ -82,6 +83,10 @@ export const agentReportSchema = z
   .refine((report) => report.alert.cameraId === report.detection.cameraId, {
     error: "alert.cameraId no coincide con detection.cameraId",
     path: ["alert", "cameraId"],
+  })
+  .refine((report) => report.detection.regions.length > 0 || report.alert.agent.decision === "revisar", {
+    error: "una detección sin recuadros solo puede quedar para revisar",
+    path: ["detection", "regions"],
   })
   .refine((report) => (report.alert.status === "descartada") === (report.alert.agent.decision === "descartar"), {
     error: "status es descartada solo si el agente decidió descartar",
