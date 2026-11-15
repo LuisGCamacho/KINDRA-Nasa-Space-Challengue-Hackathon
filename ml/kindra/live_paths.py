@@ -17,10 +17,16 @@ FALSE_POSITIVE_LOGS = REPO / "ml" / "data" / "false_positives"
 
 
 def write_json(path: Path, value) -> None:
-    """Escribe en un temporal y renombra: la app nunca lee un JSON a medias."""
+    """Escribe en un temporal y renombra: la app nunca lee un JSON a medias.
+
+    Raises:
+        ValueError: Si `value` trae NaN o infinito. `NaN` no es JSON válido y `JSON.parse` de la
+            app fallaría; un "sin dato" tiene que llegar como `None` (null).
+    """
+    text = json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False)  # antes de tocar el disco
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".tmp")
-    temporary.write_text(json.dumps(value, ensure_ascii=False, indent=2), encoding="utf-8")
+    temporary.write_text(text, encoding="utf-8")
     os.replace(temporary, path)
 
 

@@ -61,7 +61,7 @@ def zone_records(zones: gpd.GeoDataFrame) -> list[dict]:
     """Filas de `web/data/zones.json` con el contrato `Zone`."""
     return [
         {
-            "id": row.id, "name": row.name, "type": row.type, "parent": row.parent,
+            "id": row.id, "name": row.name, "type": row.type, "parent": optional(row.parent),
             "country": row.country, "center": row.center, "bbox": row.bbox,
             "areaKm2": round(float(row.area_km2)),
         }
@@ -95,3 +95,8 @@ def center_of(geometry) -> list[float]:
 def bbox_of(geometry) -> list[float]:
     """Recuadro `[oeste, sur, este, norte]` de la zona."""
     return [round(v, DECIMALS) for v in geometry.bounds]
+
+
+def optional(value):
+    """`None` (null en JSON) si falta el valor: la zona raíz `us-ca` no tiene padre y pandas pone NaN."""
+    return None if pd.isna(value) else value

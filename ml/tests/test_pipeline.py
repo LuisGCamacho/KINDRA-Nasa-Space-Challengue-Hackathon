@@ -54,3 +54,32 @@ def test_factor_de_noaa20_solo_usa_los_anos_en_que_volaba():
     factors = harmonize.region_factors(_days(rows), "ca").set_index("sat")
     assert factors.loc["NOAA20", "n_years"] == 4
     assert factors.loc["SNPP", "k"] == pytest.approx(0.5)
+
+
+def test_zona_raiz_sale_con_parent_null_y_no_nan():
+    import json
+
+    import geopandas as gpd
+    from shapely.geometry import box
+
+    from kindra.pipeline.zones import zone_records
+
+    zones = gpd.GeoDataFrame(
+        {"id": ["us-ca", "us-ca-shasta"], "name": ["California", "Shasta"],
+         "type": ["provincia", "departamento"], "parent": [None, "us-ca"],
+         "country": ["Estados Unidos"] * 2},
+        geometry=[box(-124, 32, -114, 42), box(-123, 40, -121, 41)], crs=4326,
+    )
+    records = zone_records(zones)
+    assert records[0]["parent"] is None
+    json.dumps(records, allow_nan=False)  # falla si queda algún NaN
+
+
+def test_write_json_rechaza_nan(tmp_path):
+    import pytest
+
+    from kindra.live_paths import write_json
+
+    with pytest.raises(ValueError):
+        write_json(tmp_path / "x.json", {"parent": float("nan")})
+    assert not (tmp_path / "x.json").exists()  # no deja un archivo a medias

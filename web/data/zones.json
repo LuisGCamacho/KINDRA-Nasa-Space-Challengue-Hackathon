@@ -3,7 +3,7 @@
     "id": "us-ca",
     "name": "California",
     "type": "provincia",
-    "parent": NaN,
+    "parent": null,
     "country": "Estados Unidos",
     "center": [
       -119.9915,
