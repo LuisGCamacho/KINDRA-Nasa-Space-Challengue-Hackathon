@@ -7,6 +7,7 @@ import type {
 } from "@/lib/types";
 import type { Camera, Detection, FireAlert, TrackFrame, WaterSource } from "@/lib/alert-types";
 import type { SeriesMode } from "@/store/useLensStore";
+import { useSettingsStore } from "@/store/useSettingsStore";
 import type { WeatherNow } from "@/lib/weather";
 
 /*
@@ -126,11 +127,17 @@ export function useFactors() {
   return useQuery({ queryKey: ["factors"], queryFn: () => getJson<HarmonizationFactors>("/api/factors") });
 }
 
-/** Zonas en 1,5× o más de su mediana en el mes elegido. */
+/**
+ * Zonas en Alto o Muy alto en el mes elegido, con los umbrales de Ajustes. La API filtra y pone
+ * el nivel con las dos reglas (cociente y mínimo de 10 celdas-día): la pantalla no lo recalcula.
+ */
 export function useZoneAlerts(month: YearMonth) {
+  const high = useSettingsStore((state) => state.high);
+  const veryHigh = useSettingsStore((state) => state.veryHigh);
   return useQuery({
-    queryKey: ["zone-alerts", month],
-    queryFn: () => getJson<Alert[]>(withQuery("/api/alerts", { month })),
+    queryKey: ["zone-alerts", month, high, veryHigh],
+    queryFn: () =>
+      getJson<Alert[]>(withQuery("/api/alerts", { month, high: String(high), veryHigh: String(veryHigh) })),
   });
 }
 
