@@ -24,7 +24,7 @@ export function serverError(error:unknown): Response {
 }
 
 //--- Esquemas de parámetros
-/** Id de zona: minúsculas, números y guiones, por ejemplo `ar-lr-chilecito`.
+/** Id de zona: minúsculas, números y guiones, por ejemplo `us-ca-shasta`.
  */
 export const zoneIdSchema = z
 .string({error: "Falta el parámetro zone"})

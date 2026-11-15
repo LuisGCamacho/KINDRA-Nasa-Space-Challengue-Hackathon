@@ -4,14 +4,14 @@ import { getCells } from "@/server/data";
 import { cellsInBbox } from "@/server/cells";
 
 const querySchema = z.object({
-  scope: z.enum(["ar", "world"], { error: "scope debe ser ar o world" }).default("ar"),
+  scope: z.enum(["ca", "world"], { error: "scope debe ser ca o world" }).default("ca"),
   month: yearMonthSchema,
   bbox: bboxSchema.optional(),
 });
 
 /**
- * GET /api/cells?scope=ar&month=YYYY-MM&bbox=oeste,sur,este,norte → celdas con fuego del mes (`CellsMonth`).
- * `scope` es `ar` (0,1°) si no viene; `bbox` es opcional y recorta a la zona visible.
+ * GET /api/cells?scope=ca&month=YYYY-MM&bbox=oeste,sur,este,norte → celdas con fuego del mes (`CellsMonth`).
+ * `scope` es `ca` (California, 0,1°) si no viene; `bbox` es opcional y recorta a la zona visible.
  * 404 si Python todavía no exportó ese mes.
  */
 export async function GET(request: Request) {
