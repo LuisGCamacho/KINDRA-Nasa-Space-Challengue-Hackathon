@@ -13,8 +13,16 @@ interface LensTarget {
   mode: LensMode;
 }
 
+/** A dónde vuela el mapa al tocar "Ver focos en el mapa"; `id` cambia en cada pedido. */
+export interface MapFocus {
+  bounds: [number, number, number, number];
+  id: number;
+}
+
 interface LensState extends LensTarget {
   scope: MapScope;
+  /** Pedido de encuadre del mapa; `null` si no hay ninguno pendiente. */
+  mapFocus: MapFocus | null;
   cameraId: string | null;
   /** Celda que tocó el usuario en el mapa; se borra al cambiar de zona o de mes. */
   selectedCell: CellTuple | null;
@@ -27,6 +35,8 @@ interface LensState extends LensTarget {
   setScope: (scope: MapScope) => void;
   setCamera: (cameraId: string) => void;
   selectCell: (cell: CellTuple | null) => void;
+  /** Abre el mapa en la zona y el mes de un incendio y lo encuadra en sus focos. */
+  showFire: (target: { zoneId: string; month: YearMonth; bounds: MapFocus["bounds"] }) => void;
   goBack: () => void;
 }
 
@@ -64,6 +74,7 @@ export const useLensStore = create<LensState>()((set) => {
   return {
     ...INITIAL_TARGET,
     scope: "sector",
+    mapFocus: null,
     cameraId: null,
     selectedCell: null,
     history: [],
@@ -74,6 +85,10 @@ export const useLensStore = create<LensState>()((set) => {
     setScope: (scope) => set({ scope }),
     setCamera: (cameraId) => set({ cameraId }),
     selectCell: (selectedCell) => set({ selectedCell }),
+    showFire: ({ zoneId, month, bounds }) => {
+      moveTo({ zoneId, month, mode: "mapa" });
+      set((state) => ({ mapFocus: { bounds, id: (state.mapFocus?.id ?? 0) + 1 } }));
+    },
     goBack: () =>
       set((state) => {
         const previous = state.history.at(-1);

@@ -1,5 +1,5 @@
 import "server-only";
-import type { FireAlert, FireAlertStatus } from "@/lib/alert-types";
+import type { FireAlert, FireAlertStatus, FirmsHotspot } from "@/lib/alert-types";
 import { readLive, updateLive } from "./live-store";
 
 const FILE = "fire-alerts.json";
@@ -19,6 +19,14 @@ export async function listFireAlerts(): Promise<FireAlert[]> {
 export async function getFireAlert(alertId: string): Promise<FireAlert | null> {
   const alerts = await readLive<FireAlert[]>(FILE, []);
   return alerts.find((alert) => alert.id === alertId) ?? null;
+}
+
+/**
+ * Focos de FIRMS de una alerta, del más cercano a la cámara al más lejano. Los escribe el agente
+ * al mandar la alerta; una alerta vieja, de antes de que existiera este archivo, no tiene focos.
+ */
+export function getAlertHotspots(alertId: string): Promise<FirmsHotspot[]> {
+  return readLive<FirmsHotspot[]>(`hotspots/${alertId}.json`, []);
 }
 
 /** Número del encabezado junto a "Alertas". */

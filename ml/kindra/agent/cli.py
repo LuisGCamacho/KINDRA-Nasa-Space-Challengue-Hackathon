@@ -89,7 +89,8 @@ def ensayo(pausa: bool = typer.Option(False, help="Esperar Enter entre pasos (pa
     video = rehearsal.ensure_video()
 
     step(1, "Satélite: FIRMS")
-    sat = rehearsal.first_pass(rehearsal.archive_hotspots(f"{rehearsal.IGNITION:%Y-%m-%d}"), position, rehearsal.IGNITION)
+    day = rehearsal.archive_hotspots(f"{rehearsal.IGNITION:%Y-%m-%d}")
+    sat = rehearsal.first_pass(day, position, rehearsal.IGNITION)
     if sat is None:
         typer.echo("FIRMS no tiene focos cerca de la cámara después de la ignición")
         raise typer.Exit(1)
@@ -145,6 +146,10 @@ def ensayo(pausa: bool = typer.Option(False, help="Esperar Enter entre pasos (pa
     if fire_water:
         typer.echo(f"   Agua cerca del foco: {len(fire_water)} fuentes")
     built = report.build_report(detection, review, sat.match, fire_water, verdict.draft)
+    points = rehearsal.fire_points(day, position, rehearsal.IGNITION)
+    pipeline.save_hotspots(built.alert.id, points)
+    sensors = ", ".join(f"{sum(p.sensor == s for p in points)} {s}" for s in ("VIIRS", "MODIS"))
+    typer.echo(f"   Focos del día para el mapa: {sensors}")
     answer = report.deliver(built)
     if answer is None:
         typer.echo("   La app no respondió: el informe quedó en outbox (se reintenta con `agent watch`)")

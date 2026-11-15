@@ -1,12 +1,14 @@
 "use client";
 
+import { FireAlertNotice } from "@/components/alerts/FireAlertNotice";
 import { LeftPanels } from "./LeftPanels";
 import { LensStage } from "./LensStage";
 import { RightPanels } from "./RightPanels";
 
 /**
  * Pantalla de la lupa en tres columnas: controles a la izquierda, la lente al centro
- * y la respuesta a la derecha. En celular la lente va primero y los paneles debajo.
+ * y la respuesta a la derecha. En celular la lente va primero y los paneles debajo. Si hay un
+ * incendio confirmado, el aviso flota abajo a la derecha, sin tapar la lente.
  */
 export function LensScreen() {
   return (
@@ -20,6 +22,7 @@ export function LensScreen() {
       <aside className="order-3 space-y-3 no-scrollbar xl:overflow-y-auto xl:py-1">
         <RightPanels />
       </aside>
+      <FireAlertNotice />
     </div>
   );
 }

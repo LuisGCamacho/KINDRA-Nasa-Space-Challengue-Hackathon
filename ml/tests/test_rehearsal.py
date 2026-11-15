@@ -46,3 +46,16 @@ def test_archive_hotspots_filters_day_and_static_sources(tmp_path):
     pd.DataFrame(rows).drop(columns="source").to_csv(folder / "viirs-jpss1_2025_California.csv", index=False)
     df = rehearsal.archive_hotspots("2025-01-07", raw=tmp_path)
     assert len(df) == 1 and df.iloc[0]["source"] == "VIIRS_NOAA20"
+
+
+def test_fire_points_marks_sensor_and_sorts_by_distance():
+    df = pd.DataFrame([
+        hotspot(34.05, -118.53, 2240, source="MODIS"),  # ~4,5 km, MODIS
+        hotspot(34.0674, -118.55, 1946),  # 2,1 km, VIIRS
+        hotspot(34.0674, -118.55, 1000),  # antes de la ignición: no va
+    ])
+    points = rehearsal.fire_points(df, CAMERA, rehearsal.IGNITION)
+    assert [p.sensor for p in points] == ["VIIRS", "MODIS"]
+    first = points[0].to_json()
+    assert first["acquiredAt"] == "2025-01-07T19:46:00Z" and first["distanceKm"] == 2.12
+    assert first["position"] == [-118.55, 34.0674] and first["frp"] == 10.0

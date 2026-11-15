@@ -27,7 +27,7 @@ import requests
 
 from kindra.agent import firms_nrt
 from kindra.config import RAW
-from kindra.contracts import FireRegion, FirmsMatch, TrackFrame
+from kindra.contracts import FireRegion, FirmsHotspot, FirmsMatch, TrackFrame
 from kindra.geo import distance_m
 from kindra.live_paths import WEB
 from kindra.vision import detect, track
@@ -42,6 +42,7 @@ CREDIT = "Data courtesy of HPWREN, University of California San Diego (https://w
 IGNITION = datetime.fromtimestamp(1736274332, tz=timezone.utc)  # 18:25:32 UTC, el nombre del video en FIgLib
 IGNITION_FRAME = 40  # FIgLib pone la ignición en la imagen del medio: 40 antes y 40 después
 FRAME_SECONDS = 60  # una imagen por minuto en la cámara (en el video van a 4 por segundo)
+POSTER_FRAME = 55  # minuto +15: la columna ya se ve; la app arranca el video en esta misma imagen
 POSTER_WIDTH = 1536  # px; el original mide 3072 y la portada no necesita tanto
 
 # Archivo anual de FIRMS por satélite: carpeta de RAW y nombre de la fuente para el informe.
@@ -76,7 +77,7 @@ class VideoReview:
 
 
 def ensure_video() -> Path:
-    """Baja el video de HPWREN si falta y arma la portada (la imagen de la ignición).
+    """Baja el video de HPWREN si falta y arma la portada (la imagen del minuto +15).
 
     Se baja a un temporal y se renombra al final: un corte no deja un video a medias.
 
@@ -102,15 +103,15 @@ def ensure_video() -> Path:
 
 
 def write_poster() -> None:
-    """Portada del video: la imagen de la ignición, todavía sin humo a la vista."""
+    """Portada del video y de la tarjeta de la cámara: la imagen `POSTER_FRAME`, con el humo a la vista."""
     import cv2
 
     capture = cv2.VideoCapture(str(VIDEO))
-    capture.set(cv2.CAP_PROP_POS_FRAMES, IGNITION_FRAME)
+    capture.set(cv2.CAP_PROP_POS_FRAMES, POSTER_FRAME)
     ok, image = capture.read()
     capture.release()
     if not ok:
-        raise RehearsalError(f"No se pudo leer la imagen {IGNITION_FRAME} del video")
+        raise RehearsalError(f"No se pudo leer la imagen {POSTER_FRAME} del video")
     height = round(image.shape[0] * POSTER_WIDTH / image.shape[1])
     small = cv2.resize(image, (POSTER_WIDTH, height), interpolation=cv2.INTER_AREA)
     cv2.imwrite(str(POSTER), small, [cv2.IMWRITE_JPEG_QUALITY, 82])
@@ -141,19 +142,33 @@ def first_pass(hotspots_df: pd.DataFrame, position: tuple[float, float], after: 
     El reloj del ensayo es la hora de esa pasada: el foco tiene "0 h" de antigüedad, como un foco
     NRT que acaba de llegar.
     """
-    if hotspots_df.empty:
-        return None
-    df = hotspots_df.assign(
-        when=firms_nrt.acquired_at(hotspots_df),
-        km=[distance_m(position, (lon, lat)) / 1000
-            for lon, lat in zip(hotspots_df["longitude"], hotspots_df["latitude"])],
-    )
-    df = df[(df["when"] > after) & (df["km"] <= firms_nrt.RADIUS_KM)]
+    df = near_after(hotspots_df, position, after)
     if df.empty:
         return None
     when = df["when"].min().to_pydatetime()
     rows = df[df["when"] == when].sort_values("km")
     return SatellitePass(when=when, hotspots=rows, match=firms_nrt.nearest_match(rows, position, when))
+
+
+def fire_points(hotspots_df: pd.DataFrame, position: tuple[float, float], after: datetime) -> list[FirmsHotspot]:
+    """Todos los focos del día cerca de la cámara después de la ignición, para el mapa de la app.
+
+    Son más que los de `first_pass`: el mapa muestra cómo creció el incendio en las pasadas
+    siguientes (VIIRS y MODIS), aunque el agente decidió solo con la primera.
+    """
+    return firms_nrt.hotspot_points(near_after(hotspots_df, position, after), position)
+
+
+def near_after(hotspots_df: pd.DataFrame, position: tuple[float, float], after: datetime) -> pd.DataFrame:
+    """Focos posteriores a `after` y a menos de `RADIUS_KM`, con su hora (`when`) y distancia (`km`)."""
+    if hotspots_df.empty:
+        return hotspots_df.assign(when=pd.Series(dtype="datetime64[ns, UTC]"), km=pd.Series(dtype=float))
+    df = hotspots_df.assign(
+        when=firms_nrt.acquired_at(hotspots_df),
+        km=[distance_m(position, (lon, lat)) / 1000
+            for lon, lat in zip(hotspots_df["longitude"], hotspots_df["latitude"])],
+    )
+    return df[(df["when"] > after) & (df["km"] <= firms_nrt.RADIUS_KM)]
 
 
 def frame_time(index: int) -> datetime:

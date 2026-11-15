@@ -104,6 +104,26 @@ export interface FirmsMatch {
   source: string | null;
 }
 
+export type HotspotSensor = "VIIRS" | "MODIS";
+
+/**
+ * Foco de FIRMS cerca de la cámara de una alerta, para el mapa. Lo escribe el agente en
+ * `web/data/live/hotspots/{alertId}.json`, aparte de la alerta: el POST del agente no cambia.
+ */
+export interface FirmsHotspot {
+  position: [number, number];
+  sensor: HotspotSensor;
+  /** Fuente de FIRMS, por ejemplo `"VIIRS_NOAA20_NRT"` o `"MODIS"`. */
+  source: string;
+  acquiredAt: string;
+  /** Potencia radiativa del fuego en MW; `null` si FIRMS no la trae. */
+  frp: number | null;
+  /** VIIRS usa letras (l, n, h) y MODIS un número de 0 a 100. */
+  confidence: string;
+  /** Distancia a la cámara de la alerta. */
+  distanceKm: number;
+}
+
 export type WaterKind = "hidrante" | "rio" | "lago" | "represa";
 
 /** Fuente de agua cercana, de OpenStreetMap (Overpass). */

@@ -35,7 +35,8 @@ class FakeDetector:
 def world(tmp_path, monkeypatch):
     """Carpetas temporales, una cámara, FIRMS con un foco y un Gemini que confirma."""
     for name, value in {"SEEN": tmp_path / "vistos.json", "LAST_ALERT": tmp_path / "ultima.json",
-                        "DETECTIONS": tmp_path / "det", "TRACKS": tmp_path / "tracks", "FRAMES": tmp_path / "frames"}.items():
+                        "DETECTIONS": tmp_path / "det", "TRACKS": tmp_path / "tracks", "FRAMES": tmp_path / "frames",
+                        "HOTSPOTS": tmp_path / "focos"}.items():
         monkeypatch.setattr(pipeline, name, value)
     monkeypatch.setenv("FIRMS_MAP_KEY", "prueba")
     monkeypatch.setattr(pipeline.cameras, "load_cameras", lambda: [CAMERA])

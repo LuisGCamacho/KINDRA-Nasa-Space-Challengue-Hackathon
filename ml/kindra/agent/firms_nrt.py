@@ -16,7 +16,7 @@ from datetime import datetime, timezone
 import pandas as pd
 import requests
 
-from kindra.contracts import FirmsMatch
+from kindra.contracts import FirmsHotspot, FirmsMatch
 from kindra.geo import bbox_around, distance_m
 
 URL = "https://firms.modaps.eosdis.nasa.gov/api/area/csv/{key}/{source}/{area}/{days}"
@@ -79,6 +79,31 @@ def nearest_match(hotspots_df: pd.DataFrame, position: tuple[float, float], now:
     best = df.loc[df["km"].idxmin()]
     return FirmsMatch(found=True, nearest_km=round(float(best["km"]), 1),
                       hours_ago=round(float(best["hours_ago"])), source=str(best["source"]))
+
+
+def hotspot_points(hotspots_df: pd.DataFrame, position: tuple[float, float]) -> list[FirmsHotspot]:
+    """Los focos como puntos para el mapa de la app, del más cercano a la cámara al más lejano.
+
+    El sensor sale del nombre de la fuente: todo lo que no empieza con "MODIS" es VIIRS.
+    """
+    points = [
+        FirmsHotspot(
+            position=(round(float(row.longitude), 5), round(float(row.latitude), 5)),
+            sensor="MODIS" if str(row.source).upper().startswith("MODIS") else "VIIRS",
+            source=str(row.source),
+            acquired_at=when.to_pydatetime(),
+            frp=optional_frp(getattr(row, "frp", None)),
+            confidence=str(getattr(row, "confidence", "")),
+            distance_km=round(distance_m(position, (float(row.longitude), float(row.latitude))) / 1000, 2),
+        )
+        for row, when in zip(hotspots_df.itertuples(index=False), acquired_at(hotspots_df))
+    ]
+    return sorted(points, key=lambda point: point.distance_km)
+
+
+def optional_frp(value) -> float | None:
+    """FRP en MW con un decimal, o `None` si la fila no lo trae."""
+    return None if value is None or pd.isna(value) else round(float(value), 1)
 
 
 def hotspots(key: str, source: str, area: str) -> pd.DataFrame:
