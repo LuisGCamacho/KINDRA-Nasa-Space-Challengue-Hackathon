@@ -1,7 +1,7 @@
 {
   "issued": "2026-07-13T06:00:00Z",
   "zones": [
-    { "zoneId": "ar-lr-chilecito", "p": 0.82, "expected": [8, 15], "trend": "sube" }
+    { "zoneId": "us-ca-shasta", "p": 0.82, "expected": [8, 15], "trend": "sube" }
   ],
   "metrics": { "precision": null, "recall": null, "auc": null }
 }
