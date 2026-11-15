@@ -908,5 +908,2371 @@
     "refreshSeconds": 0,
     "attribution": "Video de prueba del equipo KINDRA (no es una cámara real)",
     "termsUrl": "/ajustes"
+  },
+  {
+    "id": "caltrans-d7-i10101mcclurewest",
+    "name": "I-10 : (101) Mcclure West · I-10 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.4962,
+      34.0115
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i10101mcclurewest/i10101mcclurewest.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-101.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i10105eocloverfieldblvd",
+    "name": "I-10 : (105) E/O Cloverfield Blvd · I-10 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.4676,
+      34.0246
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i10105eocloverfieldblvd/i10105eocloverfieldblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-105.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i10123route110chptower",
+    "name": "I-10 : (123) Route 110 CHP Tower · I-10 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.274848,
+      34.036356
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i10123route110chptower/i10123route110chptower.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-123.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i10125griffithsanpedro",
+    "name": "I-10 : (125) Griffith/San Pedro · I-10 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.2525,
+      34.0278
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i10125griffithsanpedro/i10125griffithsanpedro.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-125.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i10126channingstreet",
+    "name": "I-10 : (126) Channing Street · I-10 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.2379,
+      34.0246
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i10126channingstreet/i10126channingstreet.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-126.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i10136fremontave",
+    "name": "I-10 : (136) Fremont Ave · I-10 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.15098,
+      34.0689
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i10136fremontave/i10136fremontave.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-136.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i10416westcovinaparkway",
+    "name": "I-10 : (416) West Covina Parkway · I-10 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -117.94383,
+      34.07243
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i10416westcovinaparkway/i10416westcovinaparkway.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-416.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i10417sunsetave",
+    "name": "I-10 : (417) Sunset Ave · I-10 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -117.93515,
+      34.07276
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i10417sunsetave/i10417sunsetave.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-417.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i10418azusaave",
+    "name": "I-10 : (418) Azusa Ave · I-10 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -117.91164,
+      34.07192
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i10418azusaave/i10418azusaave.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-418.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i10419citrusst",
+    "name": "I-10 : (419) Citrus St · I-10 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -117.88919,
+      34.07165
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i10419citrusst/i10419citrusst.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-419.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i10420grandave",
+    "name": "I-10 : (420) Grand Ave · I-10 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -117.87362,
+      34.07151
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i10420grandave/i10420grandave.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-420.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i10421eastofholtave",
+    "name": "I-10 : (421) East of Holt Ave · I-10 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -117.85644,
+      34.06784
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i10421eastofholtave/i10421eastofholtave.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-421.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i10422viaverdest",
+    "name": "I-10 : (422) Via Verde St · I-10 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -117.83984,
+      34.06912
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i10422viaverdest/i10422viaverdest.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-422.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i10431indianhillblvd",
+    "name": "I-10 : (431) Indian Hill Blvd · I-10 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -117.71968,
+      34.08198
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i10431indianhillblvd/i10431indianhillblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-431.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i105301sepulveda",
+    "name": "I-105 : (301) Sepulveda · I-105 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.39582,
+      33.93146
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i105301sepulveda/i105301sepulveda.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-301.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i105302douglasst",
+    "name": "I-105 : (302) Douglas St · I-105 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.3832,
+      33.9314
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i105302douglasst/i105302douglasst.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-302.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i105304prarieavehawthorn",
+    "name": "I-105 : (304) Prarie Ave / Hawthorn · I-105 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.34828,
+      33.93286
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i105304prarieavehawthorn/i105304prarieavehawthorn.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-304.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i105305118thst",
+    "name": "I-105 : (305) 118th St · I-105 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.34074,
+      33.92727
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i105305118thst/i105305118thst.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-305.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i105307crenshawblvdonramp",
+    "name": "I-105 : (307) Crenshaw Blvd On-Ramp · I-105 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.32502,
+      33.9256
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i105307crenshawblvdonramp/i105307crenshawblvdonramp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-307.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i105309vermontaveonramp",
+    "name": "I-105 : (309) Vermont Ave On-Ramp · I-105 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.29172,
+      33.92939
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i105309vermontaveonramp/i105309vermontaveonramp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-309.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i105311centralaveofframp",
+    "name": "I-105 : (311) Central Ave Off-Ramp · I-105 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.0,
+      33.9277
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i105311centralaveofframp/i105311centralaveofframp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-311.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i105312wilmingtonave",
+    "name": "I-105 : (312) Wilmington Ave · I-105 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.23968,
+      33.92808
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i105312wilmingtonave/i105312wilmingtonave.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-312.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i105315atlanticave",
+    "name": "I-105 : (315) Atlantic Ave · I-105 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.1896,
+      33.9158
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i105315atlanticave/i105315atlanticave.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-315.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i105317downeyave",
+    "name": "I-105 : (317) Downey Ave · I-105 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.1516,
+      33.91295
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i105317downeyave/i105317downeyave.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-317.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i105318lakewood",
+    "name": "I-105 : (318) Lakewood · I-105 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.13847,
+      33.9128
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i105318lakewood/i105318lakewood.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-318.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i105319bellflowerblvd",
+    "name": "I-105 : (319) Bellflower Blvd · I-105 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.12448,
+      33.91296
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i105319bellflowerblvd/i105319bellflowerblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-319.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i105320i605",
+    "name": "I-105 : (320) I-605 · I-105 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.1046,
+      33.9137
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i105320i605/i105320i605.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-320.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i105846wb105sb405connector",
+    "name": "I-105 : (846) WB 105 / SB 405 Connector · I-105 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.364049,
+      33.931675
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i105846wb105sb405connector/i105846wb105sb405connector.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-846.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i105848prairieaveofframp",
+    "name": "I-105 : (848) Prairie Ave Off-Ramp · I-105 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.346386,
+      33.932927
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i105848prairieaveofframp/i105848prairieaveofframp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-848.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i105849imperialhwyonramp",
+    "name": "I-105 : (849) IMPERIAL HWY ON-RAMP · I-105 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.348136,
+      33.931242
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i105849imperialhwyonramp/i105849imperialhwyonramp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-849.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i1099mapleave",
+    "name": "I-10: (99) Maple Ave · I-10 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.259944,
+      34.030974
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i1099mapleave/i1099mapleave.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-099.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110158pchofframp",
+    "name": "I-110 : (158) PCH Off-Ramp · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.281258,
+      33.789054
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110158pchofframp/i110158pchofframp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-158.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110159sepulvedablvd",
+    "name": "I-110 : (159) Sepulveda Blvd · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.287643,
+      33.810748
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110159sepulvedablvd/i110159sepulvedablvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-159.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110160nosepulvedablvd",
+    "name": "I-110 : (160) N/O Sepulveda Blvd · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.287123,
+      33.819734
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110160nosepulvedablvd/i110160nosepulvedablvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-160.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110161socarsonst",
+    "name": "I-110 : (161) S/O Carson St · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.287268,
+      33.830987
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110161socarsonst/i110161socarsonst.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-161.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110162nocarsonst",
+    "name": "I-110 : (162) N/O Carson St · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.287009,
+      33.839439
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110162nocarsonst/i110162nocarsonst.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-162.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110164soelsegundoblvd",
+    "name": "I-110 : (164) S/O El Segundo Blvd · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.2867,
+      33.9114
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110164soelsegundoblvd/i110164soelsegundoblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-164.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110169imperialhwy",
+    "name": "I-110 : (169) Imperial Hwy · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.2794,
+      33.9311
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110169imperialhwy/i110169imperialhwy.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-169.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110170northofcenturyblvd",
+    "name": "I-110 : (170) North Of Century Blvd · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.2794,
+      33.9459
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110170northofcenturyblvd/i110170northofcenturyblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-170.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110175soslausonave",
+    "name": "I-110 : (175) SO SLAUSON AVE · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.2811,
+      33.987
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110175soslausonave/i110175soslausonave.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-175.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110177martinlutherkingblvd",
+    "name": "I-110 : (177) Martin Luther King Blvd · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.281435,
+      34.009798
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110177martinlutherkingblvd/i110177martinlutherkingblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-177.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110178expositionblvd",
+    "name": "I-110 : (178) Exposition Blvd · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.2794,
+      34.0198
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110178expositionblvd/i110178expositionblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-178.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110183nb110towb10",
+    "name": "I-110 : (183) NB 110 to WB 10 · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.2738,
+      34.0362
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110183nb110towb10/i110183nb110towb10.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-183.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i11018411thst",
+    "name": "I-110 : (184) 11th St · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.2704,
+      34.0458
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i11018411thst/i11018411thst.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-184.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i1101857thst",
+    "name": "I-110 : (185) 7th St · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.2619,
+      34.0504
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i1101857thst/i1101857thst.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-185.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110186wilshireblvd",
+    "name": "I-110 : (186) Wilshire Blvd · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.2599,
+      34.0517
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110186wilshireblvd/i110186wilshireblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-186.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i1101881stst",
+    "name": "I-110 : (188) 1st St · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.2524,
+      34.0597
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i1101881stst/i1101881stst.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-188.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110191hillstreetexit",
+    "name": "I-110 : (191) Hill Street Exit · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.23873,
+      34.067406
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110191hillstreetexit/i110191hillstreetexit.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-191.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110192betweentunnel1and2",
+    "name": "I-110 : (192) Between Tunnel 1 and 2 · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.231,
+      34.0759
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110192betweentunnel1and2/i110192betweentunnel1and2.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-192.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110194sorte5",
+    "name": "I-110 : (194) S/O Rte 5 · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.2291,
+      34.0777
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110194sorte5/i110194sorte5.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-194.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110341southofi405",
+    "name": "I-110 : (341) South of I-405 · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.28529,
+      33.84896
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110341southofi405/i110341southofi405.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-341.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110791gaffeyst",
+    "name": "I-110 : (791) Gaffey St · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.292134,
+      33.74697
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110791gaffeyst/i110791gaffeyst.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-791.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110792channelstofframp",
+    "name": "I-110 : (792) Channel St Off-Ramp · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.291761,
+      33.752954
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110792channelstofframp/i110792channelstofframp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-792.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110793johngibsonblonramp",
+    "name": "I-110 : (793) John Gibson Bl On-Ramp · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.290163,
+      33.756802
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110793johngibsonblonramp/i110793johngibsonblonramp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-793.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110794pchonramp",
+    "name": "I-110 : (794) PCH On-Ramp · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.282533,
+      33.790377
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110794pchonramp/i110794pchonramp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-794.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110795pchonramp",
+    "name": "I-110 : (795) PCH On-Ramp · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.28174,
+      33.791085
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110795pchonramp/i110795pchonramp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-795.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110796sepulvedablvd",
+    "name": "I-110 : (796) Sepulveda Blvd · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.287329,
+      33.80748
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110796sepulvedablvd/i110796sepulvedablvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-796.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110797223rdstonramp",
+    "name": "I-110 : (797) 223rd St On-Ramp · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.287687,
+      33.824501
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110797223rdstonramp/i110797223rdstonramp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-797.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110798carsonstofframp",
+    "name": "I-110 : (798) Carson St Off-Ramp · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.286554,
+      33.827891
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110798carsonstofframp/i110798carsonstofframp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-798.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110799carsonstonramp",
+    "name": "I-110 : (799) Carson St On-Ramp · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.28773,
+      33.830658
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110799carsonstonramp/i110799carsonstonramp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-799.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110800torranceblvdonramp",
+    "name": "I-110 : (800) Torrance Blvd On-Ramp · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.284898,
+      33.844393
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110800torranceblvdonramp/i110800torranceblvdonramp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-800.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110801torranceblvdonramp",
+    "name": "I-110 : (801) Torrance Blvd On-Ramp · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.286172,
+      33.843977
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110801torranceblvdonramp/i110801torranceblvdonramp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-801.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110822soexpositionblvd",
+    "name": "I-110 : (822) S/O EXPOSITION BLVD · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.280744,
+      34.017754
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110822soexpositionblvd/i110822soexpositionblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-822.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110828jamesmwoodblvdofframp",
+    "name": "I-110 : (828) James M Wood Blvd Off-Ramp · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.26519,
+      34.047339
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110828jamesmwoodblvdofframp/i110828jamesmwoodblvdofframp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-828.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i1108326thstofframp",
+    "name": "I-110 : (832) 6th St Off-Ramp · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.259584,
+      34.051649
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i1108326thstofframp/i1108326thstofframp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-832.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i1108333thstonramp",
+    "name": "I-110 : (833) 3th St On-Ramp · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.255061,
+      34.056628
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i1108333thstonramp/i1108333thstonramp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-833.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i1108343thstofframp",
+    "name": "I-110 : (834) 3th St Off-Ramp · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.25549,
+      34.057402
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i1108343thstofframp/i1108343thstofframp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-834.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110835soroute101",
+    "name": "I-110 : (835) S/O Route 101 · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.249692,
+      34.061486
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110835soroute101/i110835soroute101.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-835.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i110837nsanfernandord",
+    "name": "I-110 : (837) N San Fernando Rd · I-110 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.224715,
+      34.08105
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i110837nsanfernandord/i110837nsanfernandord.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-837.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i210449lakeave",
+    "name": "I-210 : (449) Lake Ave · I-210 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.13393,
+      34.1515
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i210449lakeave/i210449lakeave.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-449.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i210755hillmaple",
+    "name": "I-210 : (755) Hill-Maple · I-210 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.1345,
+      34.1506
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i210755hillmaple/i210755hillmaple.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-755.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i210756hillmaple",
+    "name": "I-210 : (756) Hill-Maple · I-210 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.12104,
+      34.15279
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i210756hillmaple/i210756hillmaple.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-756.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i210758allenmaple",
+    "name": "I-210 : (758) Allen-Maple · I-210 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.11287,
+      34.15289
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i210758allenmaple/i210758allenmaple.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-758.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i210760altadenamaple",
+    "name": "I-210 : (760) Altadena-Maple · I-210 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.0971,
+      34.1544
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i210760altadenamaple/i210760altadenamaple.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-760.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i210762wmaplesierramadre",
+    "name": "I-210 : (762) W Maple-Sierra Madre · I-210 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.09384,
+      34.15303
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i210762wmaplesierramadre/i210762wmaplesierramadre.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-762.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i210763sangabrielsierra",
+    "name": "I-210 : (763) San Gabriel-Sierra · I-210 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.09422,
+      34.15334
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i210763sangabrielsierra/i210763sangabrielsierra.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-763.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i210765sierramadrevilla",
+    "name": "I-210 : (765) Sierra Madre Villa · I-210 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.0944,
+      34.1542
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i210765sierramadrevilla/i210765sierramadrevilla.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-765.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i210767eastcolorado",
+    "name": "I-210 : (767) East Colorado · I-210 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.06976,
+      34.1482
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i210767eastcolorado/i210767eastcolorado.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-767.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i210772santaanitaave",
+    "name": "I-210 : (772) Santa Anita Ave · I-210 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.03176,
+      34.14736
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i210772santaanitaave/i210772santaanitaave.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-772.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i210784alamedaave1stst",
+    "name": "I-210 : (784) Alameda Ave-1st St · I-210 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -117.90612,
+      34.1215
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i210784alamedaave1stst/i210784alamedaave1stst.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-784.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i210786citrusavebaseline",
+    "name": "I-210 : (786) Citrus Ave-Baseline · I-210 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -117.88998,
+      34.12134
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i210786citrusavebaseline/i210786citrusavebaseline.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-786.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i210788baselinerd",
+    "name": "I-210 : (788) Baseline Rd · I-210 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -117.86909,
+      34.12129
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i210788baselinerd/i210788baselinerd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-788.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405323i605",
+    "name": "I-405 : (323) I-605 · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.095109,
+      33.787076
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405323i605/i405323i605.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-323.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405325bellflowerblvd",
+    "name": "I-405 : (325) Bellflower Blvd · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.12763,
+      33.80242
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405325bellflowerblvd/i405325bellflowerblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-325.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405327lakewoodblvd",
+    "name": "I-405 : (327) Lakewood Blvd · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.14461,
+      33.80638
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405327lakewoodblvd/i405327lakewoodblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-327.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405332westofpacificplace",
+    "name": "I-405 : (332) West of Pacific Place · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.2041312,
+      33.82570449
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405332westofpacificplace/i405332westofpacificplace.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-332.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405333santefeave",
+    "name": "I-405 : (333) Sante Fe Ave · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.21538,
+      33.82529
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405333santefeave/i405333santefeave.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-333.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405334eastofalamedast",
+    "name": "I-405 : (334) East of Alameda St · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.22541,
+      33.82513
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405334eastofalamedast/i405334eastofalamedast.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-334.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405335wilmingtonave",
+    "name": "I-405 : (335) Wilmington Ave · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.24335,
+      33.82565
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405335wilmingtonave/i405335wilmingtonave.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-335.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405336carsonst",
+    "name": "I-405 : (336) Carson St · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.25489,
+      33.83029
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405336carsonst/i405336carsonst.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-336.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405337213thstreet",
+    "name": "I-405 : (337) 213th Street · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.26075,
+      33.83696
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405337213thstreet/i405337213thstreet.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-337.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405339northofavalonblvd",
+    "name": "I-405 : (339) North of Avalon Blvd · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.26698,
+      33.8434
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405339northofavalonblvd/i405339northofavalonblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-339.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405359latijera",
+    "name": "I-405 : (359) La Tijera · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.38111,
+      33.97392
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405359latijera/i405359latijera.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-359.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405676northofus101",
+    "name": "I-405 : (676) North of US-101 · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.46998,
+      34.16509
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405676northofus101/i405676northofus101.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-676.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405677northofburbankblvd",
+    "name": "I-405 : (677) North of Burbank Blvd · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.46833,
+      34.17225
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405677northofburbankblvd/i405677northofburbankblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-677.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405860nb405eb105connector",
+    "name": "I-405 : (860) NB 405 / EB 105 Connector · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.3674557,
+      33.926999
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405860nb405eb105connector/i405860nb405eb105connector.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-860.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405861soimperialhwyonramp",
+    "name": "I-405 : (861) s/o Imperial Hwy On-Ramp · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.368896,
+      33.927463
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405861soimperialhwyonramp/i405861soimperialhwyonramp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-861.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405862soimperialhwy",
+    "name": "I-405 : (862) s/o Imperial Hwy · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.370225,
+      33.92887
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405862soimperialhwy/i405862soimperialhwy.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-862.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405865socenturyblvd",
+    "name": "I-405 : (865) S/O CENTURY BLVD · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.367826,
+      33.940075
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405865socenturyblvd/i405865socenturyblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-865.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405867socenturyblvdonramp",
+    "name": "I-405 : (867) s/o Century Blvd On-Ramp · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.369108,
+      33.943016
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405867socenturyblvdonramp/i405867socenturyblvdonramp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-867.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405868ebcenturyblvdonramp",
+    "name": "I-405 : (868) EB Century Blvd On-Ramp · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.367332,
+      33.944549
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405868ebcenturyblvdonramp/i405868ebcenturyblvdonramp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-868.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405869wbcenturyblvdonramp",
+    "name": "I-405 : (869) WB Century Blvd On-Ramp · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.367265,
+      33.947128
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405869wbcenturyblvdonramp/i405869wbcenturyblvdonramp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-869.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405870nocenturyblvdonramp",
+    "name": "I-405 : (870) n/o Century Blvd On-Ramp · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.36917,
+      33.947922
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405870nocenturyblvdonramp/i405870nocenturyblvdonramp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-870.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405871somanchesterblvdonramp",
+    "name": "I-405 : (871) s/o Manchester Blvd On-Ramp · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.369811,
+      33.959984
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405871somanchesterblvdonramp/i405871somanchesterblvdonramp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-871.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405872manchesterblvdonramp",
+    "name": "I-405 : (872) Manchester Blvd On-Ramp · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.36843,
+      33.96089
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405872manchesterblvdonramp/i405872manchesterblvdonramp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-872.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i405873nomanchesterblvd",
+    "name": "I-405 : (873) N/O MANCHESTER BLVD · I-405 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.370707,
+      33.964407
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i405873nomanchesterblvd/i405873nomanchesterblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-873.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i514sb5towb10conn",
+    "name": "I-5 : (14) SB 5 to WB 10 CONN · I-5 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.2216,
+      34.0333
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i514sb5towb10conn/i514sb5towb10conn.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-014.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i517southofi10",
+    "name": "I-5 : (17) South of I-10 · I-5 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.21391,
+      34.05367
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i517southofi10/i517southofi10.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-17.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i519stadiumway",
+    "name": "I-5 : (19) Stadium Way · I-5 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.2437,
+      34.0956
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i519stadiumway/i519stadiumway.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-019.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i525meadowdale",
+    "name": "I-5 : (25) Meadowdale · I-5 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.2369,
+      34.08842
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i525meadowdale/i525meadowdale.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-25.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i531zoodrive",
+    "name": "I-5 : (31) Zoo Drive · I-5 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.28078,
+      34.15109
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i531zoodrive/i531zoodrive.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-31.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i533sbroute5atroute134",
+    "name": "I-5 : (33) SB Route 5 at Route 134 · I-5 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.28638,
+      34.15333
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i533sbroute5atroute134/i533sbroute5atroute134.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-33.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i535westernave",
+    "name": "I-5 : (35) Western Ave · I-5 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.2954768,
+      34.1639565
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i535westernave/i535westernave.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-35.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i536alamedast",
+    "name": "I-5 : (36) Alameda St · I-5 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.3022,
+      34.177
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i536alamedast/i536alamedast.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-36.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i540northofburbankblvd",
+    "name": "I-5 : (40) North of Burbank Blvd · I-5 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.32019,
+      34.18587
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i540northofburbankblvd/i540northofburbankblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-40.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i541sanfernandoonramp",
+    "name": "I-5 : (41) San Fernando On-Ramp · I-5 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.33019,
+      34.1942
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i541sanfernandoonramp/i541sanfernandoonramp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-41.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i544roscoeblvdramp",
+    "name": "I-5 : (44) Roscoe Blvd Ramp · I-5 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.3593124,
+      34.2217331
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i544roscoeblvdramp/i544roscoeblvdramp.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-44.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i5572nonorwalkblvd",
+    "name": "I-5 : (572) N/O Norwalk Blvd · I-5 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.07569,
+      33.913029
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i5572nonorwalkblvd/i5572nonorwalkblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-572.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i5575rte605",
+    "name": "I-5 : (575) Rte 605 · I-5 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.0960972,
+      33.94086
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i5575rte605/i5575rte605.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-575.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i5576northofi605",
+    "name": "I-5 : (576) North of I-605 · I-5 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.10135,
+      33.94788
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i5576northofi605/i5576northofi605.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-576.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i5577lakewoodblvd",
+    "name": "I-5 : (577) Lakewood Blvd · I-5 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.11256,
+      33.95819
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i5577lakewoodblvd/i5577lakewoodblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-577.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i5971gormanschooldr",
+    "name": "I-5 : (971) Gorman School Dr · I-5 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.8515267,
+      34.7948098
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i5971gormanschooldr/i5971gormanschooldr.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-971.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i605513i105",
+    "name": "I-605 : (513) I-105 · I-605 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.10504,
+      33.91643
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i605513i105/i605513i105.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-513.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i605517slausonave",
+    "name": "I-605 : (517) Slauson Ave · I-605 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.08376,
+      33.96571
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i605517slausonave/i605517slausonave.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-517.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i710261nowillowst",
+    "name": "I-710 : (261) N/O Willow St · I-710 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.2071,
+      33.8135
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i710261nowillowst/i710261nowillowst.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-261.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i710262southofpch",
+    "name": "I-710 : (262)  South of  PCH · I-710 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.20753,
+      33.78878
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i710262southofpch/i710262southofpch.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-262.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i710263southofwillowstreet",
+    "name": "I-710 : (263) South of Willow Street · I-710 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.20671,
+      33.7977
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i710263southofwillowstreet/i710263southofwillowstreet.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-263.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i710264willowst",
+    "name": "I-710 : (264) Willow St · I-710 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.20699,
+      33.80632
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i710264willowst/i710264willowst.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-264.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i710267northofi405",
+    "name": "I-710 : (267) North of I-405 · I-710 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.2089,
+      33.8317
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i710267northofi405/i710267northofi405.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-267.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i710268delamobl",
+    "name": "I-710 : (268) Del Amo Bl · I-710 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.20564,
+      33.84841
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i710268delamobl/i710268delamobl.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-268.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i710269longbeachblvd",
+    "name": "I-710 : (269) Long Beach Blvd · I-710 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.20004,
+      33.86191
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i710269longbeachblvd/i710269longbeachblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-269.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i710271noroute91",
+    "name": "I-710 : (271) N/O Route 91 · I-710 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.192183,
+      33.878158
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i710271noroute91/i710271noroute91.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-271.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i7102853rdst",
+    "name": "I-710 : (285) 3rd St · I-710 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.17007,
+      34.03242
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i7102853rdst/i7102853rdst.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-285.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i710954northofsr47",
+    "name": "I-710 : (954) North of SR-47 · I-710 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.233249,
+      33.760073
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i710954northofsr47/i710954northofsr47.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-954.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-i710955picoave",
+    "name": "I-710 : (955) Pico Ave · I-710 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.21052,
+      33.76709
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/i710955picoave/i710955picoave.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-955.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr107222carsonblvd",
+    "name": "SR-107 : (222) Carson Blvd · SR-107 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.35286,
+      33.83135
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr107222carsonblvd/sr107222carsonblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-222.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr107223torranceblvd",
+    "name": "SR-107 : (223) Torrance Blvd · SR-107 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.35391,
+      33.83777
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr107223torranceblvd/sr107223torranceblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-223.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr107228182ndst",
+    "name": "SR-107 : (228) 182nd St · SR-107 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.352406,
+      33.865469
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr107228182ndst/sr107228182ndst.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-228.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr1220crenshawblvd",
+    "name": "SR-1 : (220) Crenshaw Blvd · SR-1 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.3335,
+      33.79214
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr1220crenshawblvd/sr1220crenshawblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-220.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr1245bayclubdr",
+    "name": "SR-1 : (245) Bay Club Dr · SR-1 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.545745,
+      34.039495
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr1245bayclubdr/sr1245bayclubdr.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-245.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr126948southofi5",
+    "name": "SR-126 : (948) South of  I-5 · SR-126 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.60697,
+      34.44276
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr126948southofi5/sr126948southofi5.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-948.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr134662glendaleave",
+    "name": "SR-134 : (662) Glendale Ave · SR-134 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.2437,
+      34.1566
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr134662glendaleave/sr134662glendaleave.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-662.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr1469newhallave",
+    "name": "SR-14 : (69) Newhall Ave · SR-14 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.5036143,
+      34.3652886
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr1469newhallave/sr1469newhallave.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-69.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr14972goldenvalleyrd",
+    "name": "SR-14 : (972) Golden Valley Rd · SR-14 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.4733723,
+      34.3922723
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr14972goldenvalleyrd/sr14972goldenvalleyrd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-972.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr14973ranchovistablvd",
+    "name": "SR-14 : (973) Rancho Vista Blvd · SR-14 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.1426036,
+      34.6015646
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr14973ranchovistablvd/sr14973ranchovistablvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-973.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr170646shermanway",
+    "name": "SR-170 : (646) Sherman Way · SR-170 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.403,
+      34.19969
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr170646shermanway/sr170646shermanway.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-646.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr170647southsr170toeastsr134",
+    "name": "SR-170 : (647) South SR-170 to East SR-134 · SR-170 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.3791,
+      34.156
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr170647southsr170toeastsr134/sr170647southsr170toeastsr134.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-647.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr17096sovictoryblvd",
+    "name": "SR-170 : (96) s/o Victory Blvd · SR-170 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.4011,
+      34.18551
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr17096sovictoryblvd/sr17096sovictoryblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-096.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr17097oxnardst",
+    "name": "SR-170 : (97) Oxnard St · SR-170 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.39437,
+      34.17845
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr17097oxnardst/sr17097oxnardst.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-097.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr17098northofroscoeblvd",
+    "name": "SR-170 : (98) North of  Roscoe Blvd · SR-170 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.41093,
+      34.22382
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr17098northofroscoeblvd/sr17098northofroscoeblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-098.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr47950i110",
+    "name": "SR-47 : (950) I-110 · SR-47 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.28975,
+      33.74914
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr47950i110/sr47950i110.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-950.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr47952westtower",
+    "name": "SR-47 : (952) West Tower · SR-47 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.27385,
+      33.7499
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr47952westtower/sr47952westtower.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-952.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr47953eastofferry",
+    "name": "SR-47 : (953) East of Ferry · SR-47 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.26068,
+      33.74966
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr47953eastofferry/sr47953eastofferry.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-953.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr47957oceanblvd",
+    "name": "SR-47 : (957) Ocean Blvd · SR-47 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.238,
+      33.7591
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr47957oceanblvd/sr47957oceanblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-957.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr47958newdockst",
+    "name": "SR-47 : (958) New Dock St · SR-47 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.23858,
+      33.76178
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr47958newdockst/sr47958newdockst.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-958.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr47959pieraway",
+    "name": "SR-47 : (959) Pier AWay · SR-47 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.240257,
+      33.774055
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr47959pieraway/sr47959pieraway.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-959.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr57487templeave",
+    "name": "SR-57 : (487) Temple Ave · SR-57 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -117.80036,
+      34.04339
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr57487templeave/sr57487templeave.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-487.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr57491southofi210",
+    "name": "SR-57 : (491) South of I-210 · SR-57 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -117.82421,
+      34.11532
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr57491southofi210/sr57491southofi210.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-491.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr71497wphillipsdr",
+    "name": "SR-71 : (497) W Phillips Dr · SR-71 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -117.7728,
+      34.0458
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr71497wphillipsdr/sr71497wphillipsdr.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-497.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-sr71498rioranchord",
+    "name": "SR-71 : (498) Rio Rancho Rd · SR-71 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -117.7578,
+      34.032
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/sr71498rioranchord/sr71498rioranchord.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-498.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-us101594vignesst",
+    "name": "US-101 : (594) Vignes St · US-101 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.23141,
+      34.05334
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/us101594vignesst/us101594vignesst.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-594.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-us101606westernave",
+    "name": "US-101 : (606) Western Ave · US-101 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.31211,
+      34.09536
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/us101606westernave/us101606westernave.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-606.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-us101607hollywoodblvd",
+    "name": "US-101 : (607) Hollywood Blvd · US-101 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.31567,
+      34.10046
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/us101607hollywoodblvd/us101607hollywoodblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-607.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-us101611pilgrimagebridge",
+    "name": "US-101 : (611) Pilgrimage Bridge · US-101 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.33649,
+      34.11441
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/us101611pilgrimagebridge/us101611pilgrimagebridge.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-611.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-us101618moorparkst",
+    "name": "US-101 : (618) Moorpark St · US-101 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.37423,
+      34.14993
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/us101618moorparkst/us101618moorparkst.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-618.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-us101619sr170tujunga",
+    "name": "US-101 : (619) SR-170 / Tujunga · US-101 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.38107,
+      34.15467
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/us101619sr170tujunga/us101619sr170tujunga.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-619.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-us101621laurelcanyonblvd",
+    "name": "US-101 : (621) Laurel Canyon Blvd · US-101 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.39802,
+      34.15435
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/us101621laurelcanyonblvd/us101621laurelcanyonblvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-621.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-us101631balboablvd",
+    "name": "US-101 : (631) Balboa Blvd · US-101 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -118.50179,
+      34.17094
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/us101631balboablvd/us101631balboablvd.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-631.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
+  },
+  {
+    "id": "caltrans-d7-us101944socaliforniast",
+    "name": "US-101 : (944) S/O California St · US-101 · Los Angeles",
+    "provider": "caltrans",
+    "position": [
+      -119.2942533,
+      34.2773996
+    ],
+    "imageUrl": "https://cwwp2.dot.ca.gov/data/d7/cctv/image/us101944socaliforniast/us101944socaliforniast.jpg",
+    "videoUrl": "https://wzmedia.dot.ca.gov/D7/CCTV-944.stream/playlist.m3u8",
+    "refreshSeconds": 120,
+    "attribution": "Imagen: Caltrans (California Department of Transportation), dominio público",
+    "termsUrl": "https://dot.ca.gov/conditions-of-use"
   }
 ]
