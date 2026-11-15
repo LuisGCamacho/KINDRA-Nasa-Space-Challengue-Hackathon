@@ -16,6 +16,12 @@ export function CalendarLegend() {
         Solo MODIS
       </span>
       <span className="inline-flex items-center gap-1.5">
+        <span aria-hidden className="relative size-3 rounded-[3px] bg-[#4A3A1E]">
+          <span className="absolute right-0.5 top-0.5 size-1 rounded-full bg-inverse" />
+        </span>
+        Provisorio (FIRMS NRT)
+      </span>
+      <span className="inline-flex items-center gap-1.5">
         <span aria-hidden className="size-3 rounded-[3px] border border-dashed border-line" />
         Sin datos
       </span>

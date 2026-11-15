@@ -31,7 +31,7 @@ export function DiagnosisPanel() {
 
   return (
     <GlassPanel id="diagnostico" title="Diagnóstico" meta={<LevelBadge level={level} compact />}>
-      <p className="text-[34px] font-medium leading-none tracking-[-0.03em] tabular-nums">{headline(stats)}</p>
+      <p className="text-[34px] font-medium leading-none tracking-[-0.03em] tabular-nums">{diagnosisHeadline(stats)}</p>
       <p className="mt-1.5 text-[12.5px] text-muted">{subtitle(stats, monthName(month))}</p>
 
       <div className="my-5">
@@ -40,7 +40,7 @@ export function DiagnosisPanel() {
 
       <dl>
         <StatRow label="Este mes" hint="celdas-día" value={num(stats.current)} />
-        <StatRow label="Mediana" hint="celdas-día" value={stats.median === null ? "pendiente" : median(stats.median)} />
+        <StatRow label="Mediana" hint="celdas-día" value={stats.median === null ? "pendiente" : formatMedian(stats.median)} />
         <StatRow
           label="Más que"
           value={stats.percentile === null ? "pendiente" : `${num(stats.percentile)} % de los años`}
@@ -55,9 +55,9 @@ export function DiagnosisPanel() {
  * Cifra grande del panel. Sin cociente hay dos casos distintos: no hay años para comparar, o
  * los hay pero la mediana es 0. Mediana 0 no quiere decir "nunca hubo fuego": quiere decir que
  * la mayoría de los años no tuvo (Alpine, julio de 2021: mediana 0, pero 5 celdas-día en 2002).
- * Usa el mismo texto que la tabla de Alertas.
+ * Usa el mismo texto que la tabla de Alertas; el calendario lo usa también.
  */
-function headline(stats: Stats): string {
+export function diagnosisHeadline(stats: Stats): string {
   if (stats.ratio !== null) return `${ratio(stats.ratio)} lo normal`;
   if (stats.median === null) return "Sin historial para comparar";
   return stats.current > 0 ? NO_FIRE_MOST_YEARS : "Sin fuego, como la mayoría de los años";
@@ -72,6 +72,6 @@ function subtitle(stats: Stats, month: string): string {
  * La mediana de valores enteros es entera o termina en ,5: se muestra con un decimal solo
  * cuando lo tiene. Redondearla mentía: 15 contra "2" no da los 10,0× del titular, 15 contra 1,5 sí.
  */
-function median(value: number): string {
+export function formatMedian(value: number): string {
   return Number.isInteger(value) ? num(value) : num(value, 1);
 }

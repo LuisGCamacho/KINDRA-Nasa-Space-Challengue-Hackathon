@@ -63,11 +63,12 @@ body {
   opacity: 1;
 }
 
-/* Rayado de los años solo MODIS (2001–2011) en el calendario. */
+/* Rayado de los años solo MODIS (2001–2011) en el calendario. Suave: con más contraste tapaba
+   el color del mes y la mitad de la grilla parecía ruido. */
 .modis-hatch {
   background-image: repeating-linear-gradient(
     -45deg, transparent, transparent 3px,
-    rgba(255, 255, 255, 0.18) 3px, rgba(255, 255, 255, 0.18) 4.5px
+    rgba(255, 255, 255, 0.09) 3px, rgba(255, 255, 255, 0.09) 4.5px
   );
 }
 
