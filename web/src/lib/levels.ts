@@ -27,3 +27,32 @@ export function levelOf(ratio: number, high = DEFAULT_HIGH, veryHigh = DEFAULT_V
   if (ratio >= 1 / high) return "Normal";
   return "Bajo";
 }
+
+/**
+ * Nivel de un período con todas las reglas: el cociente y el mínimo de celdas-día.
+ * Es el que usan la API (`server/stats.ts`) y la pantalla: con umbrales propios de Ajustes,
+ * la pantalla tiene que llamar a esta función y no a `levelOf`, o pierde la regla del mínimo.
+ *
+ * - Sin mediana para dividir (`ratio` en `null`): si no hubo fuego es Normal; si hubo,
+ *   el cociente es infinito.
+ * - Con menos de `MIN_CELL_DAYS_FOR_HIGH` celdas-día no pasa de Normal.
+ *
+ * @param current - Celdas-día del período (`Stats.current`).
+ * @param ratio - `Stats.ratio`: cociente contra la mediana, o `null` si la mediana es 0.
+ */
+export function levelForPeriod(
+  current: number,
+  ratio: number | null,
+  high = DEFAULT_HIGH,
+  veryHigh = DEFAULT_VERY_HIGH,
+): Level {
+  if (ratio === null && current === 0) return "Normal";
+  const level = levelOf(ratio ?? Infinity, high, veryHigh);
+  const isHigh = level === "Alto" || level === "Muy alto";
+  return isHigh && current < MIN_CELL_DAYS_FOR_HIGH ? "Normal" : level;
+}
+
+/** `true` si el nivel pide atención: "Alto" o "Muy alto". */
+export function isAlertLevel(level: Level): boolean {
+  return level === "Alto" || level === "Muy alto";
+}
