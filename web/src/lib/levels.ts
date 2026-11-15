@@ -5,6 +5,14 @@ export const DEFAULT_HIGH = 1.5;
 export const DEFAULT_VERY_HIGH = 3;
 
 /**
+ * Celdas-día mínimas para que un período pueda ser "Alto" o "Muy alto".
+ * Con menos, el nivel no pasa de "Normal" aunque el cociente sea alto: en zonas chicas la
+ * mediana suele ser de 1 a 3 celdas-día, y 3 contra 1 ya daría "Muy alto" sin fuego real.
+ * El cociente se informa igual. Python aplica la misma regla.
+ */
+export const MIN_CELL_DAYS_FOR_HIGH = 10;
+
+/**
  * Clasifica el cociente del mes contra la mediana del mismo mes en años anteriores.
  * El límite inferior de Normal es siempre `1 / high` (con los valores por defecto,
  * 1 / 1,5 ≈ 0,67). La misma regla se usa en Python, en la API y en la pantalla.

@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { isYearMonth, monthSpan } from "@/lib/period";
 import type { ApiError } from "@/lib/types";
+import type { CompareFailure } from "./stats";
 
 /** Máximo de meses que acepta un período. */
 export const MAX_PERIOD_MONTHS = 12;
@@ -17,6 +18,13 @@ export const badRequest = (message = "Parámetros inválidos") => errorResponse(
 /** 404: la zona, el mes o el archivo pedido no existe. */
 export const notFound = (message = "No encontrado") => errorResponse(404, message);
 
+/** Respuesta para cada motivo por el que `comparePeriod` no pudo comparar (la usan stats y el boletín). */
+export function compareFailureResponse(reason: CompareFailure, zone: string): Response {
+    if (reason === "sin_periodo") return notFound(`La serie de ${zone} no llega a ese período`);
+    if (reason === "sin_dato") return notFound(`La serie de ${zone} no tiene dato de esa columna en ese período`);
+    return errorResponse(422, `No hay años anteriores de ${zone} para comparar`);
+}
+
 /** 500: error inesperado. Registra el detalle en el servidor y responde un mensaje genérico. */
 export function serverError(error:unknown): Response {
     console.error("[api]", error);
@@ -24,12 +32,19 @@ export function serverError(error:unknown): Response {
 }
 
 //--- Esquemas de parámetros
-/** Id de zona: minúsculas, números y guiones, por ejemplo `us-ca-shasta`.
- */
-export const zoneIdSchema = z
-.string({error: "Falta el parámetro zone"})
-.max(64, {error: "zone es demasiado largo"})
-.regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, {error: "zone no es un id de zona válido"});
+/** Ids de zonas, cámaras y alertas: minúsculas, números y guiones. Así sirven en URLs y nombres de archivo. */
+export const SLUG_ID = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+
+/** Esquema de un id con el nombre del parámetro en los mensajes de error. */
+export function slugIdSchema(param: string) {
+    return z
+    .string({error: `Falta el parámetro ${param}`})
+    .max(64, {error: `${param} es demasiado largo`})
+    .regex(SLUG_ID, {error: `${param} no es un id válido`});
+}
+
+/** Id de zona, por ejemplo `us-ca-shasta`. */
+export const zoneIdSchema = slugIdSchema("zone");
 
 /** Mes en formato `YYYY-MM`. */
 export const yearMonthSchema = z
@@ -66,6 +81,13 @@ export const periodSchema = z
 });
 
 //--- Lectura de la query
+/** Valida el `[id]` de una ruta dinámica, como `/api/cameras/[id]`. Un id con `..` o `/` da 400. */
+export function parseIdParam(value: string, param = "id"): ParsedQuery<string> {
+    const result = slugIdSchema(param).safeParse(value);
+    if (result.success) return {ok: true, data: result.data};
+    return {ok: false, response: badRequest(result.error.issues[0]?.message)};
+}
+
 /** Resultado de `parseQuery`: los datos validados o la respuesta 400 lista para devolver. */
 export type ParsedQuery<T> = {ok: true; data: T} | {ok: false; response: Response};
 

@@ -1,26 +1,85 @@
 @import "tailwindcss";
+@import "maplibre-gl/dist/maplibre-gl.css";
 
-/*sección 13 (colores de la app). */
+/* Tema oscuro con vidrio: tokens que usa toda la interfaz (`bg-glass`, `text-muted`…). */
 @theme {
-  --color-background: #FFFFFF;  --color-foreground: #1B2835;  --color-ink-2: #3C4958;
-  --color-stage: #EFEEEA;       --color-hover: #F4F4F1;       --color-sel: #EBEAE7;
-  --color-border: #E5E4E2;      --color-secondary: #EEEDEA;
-  --color-muted-foreground: #6A6965;  --color-faint: #999895;
-  --color-fire: #D64C29;  --color-fire-soft: #FFE9E3;  --color-fire-ink: #7B2813;
-  --color-crit: #78182B;  --color-ok: #33724C;  --color-ok-soft: #E5F3E9;
-  --radius-sm: 4px;  --radius-md: 6px;  --radius-lg: 8px;
+  --font-sans: var(--font-onest), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --color-base: #04050c;
+  --color-heading: #eef0f6;
+  --color-muted: #b9becf;
+  --color-glass: rgba(255, 255, 255, 0.06);
+  --color-glass-strong: rgba(255, 255, 255, 0.12);
+  --color-line: rgba(255, 255, 255, 0.16);
+  --color-line-soft: rgba(255, 255, 255, 0.08);
+  --color-inverse: #ffffff;
+  --color-inverse-fg: #2f2f33;
+  --color-inverse-hover: rgba(255, 255, 255, 0.85);
+
+  --ease-entrance: cubic-bezier(0.2, 0, 0, 1);
 }
 
-/* Las fuentes vienen de next/font (ver app/layout.tsx). */
-@theme inline {
-  --font-sans: var(--font-geist), system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), monospace;
+html,
+body {
+  background: var(--color-base);
+  color: var(--color-heading);
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
 }
 
-body { font-size: 13px; font-variant-numeric: tabular-nums; }
-:focus-visible { outline: 2px solid var(--color-foreground); outline-offset: 2px; }
+/* Fondo fijo: luz gris suave en el centro, donde está la lupa, y negro en los bordes. */
+.app-backdrop {
+  background: radial-gradient(60% 65% at 50% 50%, #3a3a3d 0%, #1c1c20 55%, #0b0b10 100%);
+}
 
-/* Rayado de los años solo MODIS (2001–2011). Se pinta encima del color de la celda. */
-.hatch {
-  background-image: repeating-linear-gradient(45deg, rgb(27 40 53 / .22) 0 1px, transparent 1px 4px);
+/* Vidrio de paneles y píldoras: relleno 6 %, borde 16 % y desenfoque. */
+.glass {
+  background: var(--color-glass);
+  border: 1px solid var(--color-line);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Cuerpo desplegable: la fila de la grilla pasa de 0fr a 1fr y anima la altura real. */
+.panel-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 280ms var(--ease-entrance),
+    opacity 200ms var(--ease-entrance);
+}
+
+.panel-body[data-open="true"] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+/* Rayado de los años solo MODIS (2001–2011) en el calendario. */
+.modis-hatch {
+  background-image: repeating-linear-gradient(
+    -45deg, transparent, transparent 3px,
+    rgba(255, 255, 255, 0.18) 3px, rgba(255, 255, 255, 0.18) 4.5px
+  );
+}
+
+select option {
+  background: #0b0d18;
+  color: var(--color-heading);
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel-body {
+    transition: none;
+  }
 }
