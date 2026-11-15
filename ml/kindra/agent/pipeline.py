@@ -29,7 +29,9 @@ from kindra.agent import firms_nrt, report, supervisor, water
 from kindra.agent.rules import MIN_PERSISTENT_FRAMES, Evidence, is_large_fire
 from kindra.contracts import AgentReview, AlertEmailDraft, Detection, FireRegion, FirmsMatch, NearbyMaterial, WaterSource
 from kindra.geo import bbox_around, distance_m
+from kindra.config import INTERIM
 from kindra.live_paths import FRAMES, FRAMES_URL, LIVE, read_json, write_json
+from kindra.pipeline import clean
 from kindra.vision import annotate, anomaly, cameras, detect, materials, track
 
 CAMERA_RADIUS_KM = firms_nrt.RADIUS_KM  # el mismo radio con que se busca FIRMS alrededor de una detección
@@ -120,7 +122,21 @@ def recent_hotspots(camera_list: list[dict], now: datetime) -> pd.DataFrame:
             errors.append(f"{source}: {error}")
     if not tables:
         raise firms_nrt.FirmsError("Ninguna fuente de FIRMS respondió: " + "; ".join(errors))
-    return with_keys(pd.concat(tables, ignore_index=True), now)
+    return without_static_sources(with_keys(pd.concat(tables, ignore_index=True), now))
+
+
+def without_static_sources(hotspots_df: pd.DataFrame) -> pd.DataFrame:
+    """Saca los focos sobre fuentes fijas conocidas (refinerías, plantas), que el NRT no marca.
+
+    En Los Ángeles casi todo foco NRT es una refinería o el puerto: sin esto, el agente miraba
+    las cámaras de Torrance y Wilmington por calor industrial. Si `build` todavía no guardó las
+    fuentes fijas, no se filtra.
+    """
+    path = INTERIM / clean.STATIC_SOURCES_FILE
+    if hotspots_df.empty or not path.exists():
+        return hotspots_df
+    static = clean.on_static_source(hotspots_df["latitude"], hotspots_df["longitude"], pd.read_parquet(path))
+    return hotspots_df.loc[~static]
 
 
 def with_keys(df: pd.DataFrame, now: datetime) -> pd.DataFrame:
